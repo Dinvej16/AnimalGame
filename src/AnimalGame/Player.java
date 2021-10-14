@@ -3,8 +3,8 @@ package AnimalGame;
 public class Player {
 
 
-    public static void name(){
-        System.out.println("");
+    public void printName(){
+        System.out.println("Dino");
     }
 
     }
