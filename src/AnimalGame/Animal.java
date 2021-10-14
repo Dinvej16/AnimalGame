@@ -1,4 +1,4 @@
 package AnimalGame;
 
-public class Animal {
+public abstract class Animal {
 }
