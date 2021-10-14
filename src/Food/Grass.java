@@ -1,4 +1,4 @@
-package AnimalGame;
+package Food;
 
 public class Grass extends Food {
 }
