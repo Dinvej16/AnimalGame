@@ -1,4 +1,4 @@
-package AnimalGame;
+package animalgame;
 
 public abstract class Player {
     private String name;
