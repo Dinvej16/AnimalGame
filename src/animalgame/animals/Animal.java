@@ -1,11 +1,11 @@
-package Animal;
+package animalgame.animals;
 
-public abstract class Animals {
+public abstract class Animal {
     private String name;
     private String gender;
     private double health;
 
-    public Animals(String name){
+    public Animal(String name){
         this.name = name;
 
 

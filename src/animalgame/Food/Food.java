@@ -1,4 +1,4 @@
-package Food;
+package animalgame.Food;
 
 public abstract class Food {
 }

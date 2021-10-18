@@ -1,6 +1,6 @@
-package Animal;
+package animalgame.animals;
 
-public class Cow extends Animals {
+public class Cow extends Animal {
 
     public Cow(String name) {
         super(name);
