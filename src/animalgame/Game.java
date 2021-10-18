@@ -10,6 +10,7 @@ public class Game {
     private int currentRound;
     private ArrayList<Player> players;
 
+
     // Konstruktor
     public Game(){
         this.console = new Scanner(System.in);
