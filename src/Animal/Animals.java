@@ -1,8 +1,9 @@
 package Animal;
 
-public abstract class Animal {
+public abstract class Animals {
     public String name;
     public String gender;
 
-
 }
+
+
