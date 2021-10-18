@@ -2,9 +2,9 @@ package AnimalGame;
 
 public abstract class Player {
     private String name;
+    private double money;
 
     public Player() {
-        System.out.println("Hej");
     }
 
     public Player(String name) {
@@ -19,6 +19,10 @@ public abstract class Player {
         return name;
     }
 
+    public double getMoney(){
+        return this.money;
+
+    }
 
 }
 

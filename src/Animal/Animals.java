@@ -1,33 +1,25 @@
 package Animal;
 
 public abstract class Animals {
+    private String name;
+    private String gender;
+    private double health;
 
-        private boolean isAlive = true;
-        private String name;
+    public Animals(String name){
+        this.name = name;
 
-        public Animals(String name){
-            this.name = name;
-        }
 
-        public void eat(){
-            System.out.println("I am eating");
-        }
-
-        public void sayHi(){
-            System.out.println("RAWR");
-        }
-
-        public void gotEaten(){
-            isAlive = false;
-        }
-
-        public String myHealth(){
-            return isAlive ? "My health is good, what about you?" : "I got eaten, not so funny";
-        }
-
-        public String getName(){
-            return this.name;
-        }
     }
+    public void eat(){
+
+    }
+    public void sayHi(){
+        System.out.println("Hello");
+    }
+
+    public double getHealth() {
+        return health;
+    }
+}
 
 
