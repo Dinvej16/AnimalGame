@@ -2,16 +2,13 @@ package Animal;
 
 public abstract class Animals {
 
-    public String name;
-    public String gender;
-
-}
-
         private boolean isAlive = true;
         private String name;
+        private String gender;
 
-        public Animals(String name){
+        public Animals (String name, String gender){
             this.name = name;
+            this.gender = gender;
         }
 
         public void eat(){
@@ -19,21 +16,16 @@ public abstract class Animals {
         }
 
         public void sayHi(){
-            System.out.println("RAWR");
+            System.out.println("Hello");
         }
 
         public void gotEaten(){
             isAlive = false;
         }
 
-        public String myHealth(){
-            return isAlive ? "My health is good, what about you?" : "I got eaten, not so funny";
+        public String getName() {
+        return this.name;
         }
 
-        public String getName(){
-            return this.name;
-        }
-    }
->
 
-
+}
