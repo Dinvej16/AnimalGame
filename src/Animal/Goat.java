@@ -1,6 +1,7 @@
 package Animal;
 
-import Animal.Animal;
-
-public class Goat extends Animal {
+public class Goat extends Animals {
+    public Goat(String name) {
+        super(name);
+    }
 }
