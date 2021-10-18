@@ -23,8 +23,13 @@ public abstract class Animals {
             isAlive = false;
         }
 
+
         public String getName() {
         return this.name;
+
+        public String myHealth(){
+            return isAlive ? "My health is good" : "I got eaten, not so funny";
+
         }
 
 
