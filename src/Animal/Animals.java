@@ -22,7 +22,7 @@ public abstract class Animals {
         }
 
         public String myHealth(){
-            return isAlive ? "My health is good, what about you?" : "I got eaten, not so funny";
+            return isAlive ? "My health is good" : "I got eaten, not so funny";
         }
 
         public String getName(){
