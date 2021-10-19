@@ -50,7 +50,6 @@ public class Game {
             initRounds();
         }
     }
-
     public void initPlayers() {
         System.out.println("(2-4)");
         System.out.println("Ange antalet spelare:");
