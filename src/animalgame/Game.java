@@ -67,9 +67,8 @@ public class Game {
         }
         for (int i = 0; i < playersToCreate; i++) {
             System.out.println("Ange namn för spelare " + (i + 1));
-            newPlayer.setName(console.nextLine());
+            newPlayer.setName(console.next());
             players.add(newPlayer);
-
             // Vi ska fylla vår players arraylist med nya player objekt, baserat
             // på vad användaren väljer o döpa dem.
         }

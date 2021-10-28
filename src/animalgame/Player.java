@@ -2,10 +2,9 @@ package animalgame;
 
 public class Player {
     private String name;
-    private int money;
+    private int money = 1000;
 
     public Player(){
-
 
     }
 
