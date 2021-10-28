@@ -77,16 +77,17 @@ public class Game {
     }
     public void storeMenu(){
         menuOptions.printStoreMenu();
-        int options = console.nextInt();
-        switch (options){
+        int storeOptions = console.nextInt();
+        switch (storeOptions){
             case 1:
+                System.out.println("Välj ett djur som du vill köpa");
                 this.animalMenu();
                 break;
             case 2:
                 menuOptions.printFoodMenu();
                 break;
             case 3:
-                System.out.println("Välj ett djur som du vill sälja!");
+                System.out.println("Välj ett djur som du vill sälja");
                 this.animalMenu();
                 break;
             case 4:
@@ -96,22 +97,41 @@ public class Game {
     }
     public void animalMenu(){
         menuOptions.printAnimalMenu();
-        int animalOption = console.nextInt();
-        switch (animalOption){
+        int animalOptions = console.nextInt();
+        switch (animalOptions){
             case 1:
-
+                this.genderMenu();
                 break;
             case 2:
+                this.genderMenu();
                 break;
             case 3:
+                this.genderMenu();
                 break;
             case 4:
+                this.genderMenu();
                 break;
             case 5:
+                this.genderMenu();
                 break;
+            case 6:
+                this.storeMenu();
         }
 
     }
+    public void genderMenu(){
+        menuOptions.printGenderMenu();
+        int genderOptions = console.nextInt();
+        switch (genderOptions){
+            case 1:
+                this.storeMenu();
+                break;
+            case 2:
+                this.storeMenu();
+                break;
+        }
+    }
+
 }
 
 
