@@ -11,6 +11,7 @@ public class Game {
     private int maxRounds = 30;
     private int minRounds = 5;
     private ArrayList<Player> players;
+    private Player newPlayer;
     private int maxPlayers = 4;
     private int minPlayers = 2;
     private Menus menuOptions;
@@ -21,10 +22,13 @@ public class Game {
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
         this.players = new ArrayList<>();
+        this.newPlayer = new Player();
+
         System.out.println("Välkommen till AnimalGame! Tryck enter för att starta...");
         console.nextLine();
         initRounds();
         initPlayers();
+
         //
         this.currentRound = 1;
         while( currentRound <= gameRounds ){
@@ -63,10 +67,14 @@ public class Game {
         }
         for (int i = 0; i < playersToCreate; i++) {
             System.out.println("Ange namn för spelare " + (i + 1));
+            newPlayer.setName(console.nextLine());
+            players.add(newPlayer);
+
             // Vi ska fylla vår players arraylist med nya player objekt, baserat
             // på vad användaren väljer o döpa dem.
         }
     }
+
 }
 
 

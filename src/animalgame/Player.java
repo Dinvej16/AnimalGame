@@ -1,27 +1,24 @@
 package animalgame;
 
-public abstract class Player {
+public class Player {
     private String name;
-    private double money;
+    private int money;
 
-    public Player() {
+    public Player(){
+
+
     }
 
-    public Player(String name) {
-        this.name = name;
+    public int getMoney(){
+        return money;
     }
 
-    public void setName(String newName) {
-        name = newName;
-    }
-
-    public String getName() {
+    public String getName(){
         return name;
     }
 
-    public double getMoney(){
-        return this.money;
-
+    public void setName(String name){
+        this.name = name;
     }
 
 }
