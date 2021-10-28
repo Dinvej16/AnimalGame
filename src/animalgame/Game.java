@@ -28,7 +28,6 @@ public class Game {
         console.nextLine();
         initRounds();
         initPlayers();
-
         //
         this.currentRound = 1;
         while( currentRound <= gameRounds ){
@@ -58,6 +57,7 @@ public class Game {
         System.out.println("(2-4)");
         System.out.println("Ange antalet spelare:");
         int playersToCreate = console.nextInt();
+
         if (playersToCreate > maxPlayers) {
             System.out.println("Max antal spelare som kan spela är 4! Försök igen...");
             initPlayers();
