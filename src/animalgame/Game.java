@@ -23,16 +23,18 @@ public class Game {
         this.menuOptions = new Menus();
         this.players = new ArrayList<>();
         this.newPlayer = new Player();
-
         System.out.println("Välkommen till AnimalGame! Tryck enter för att starta...");
         console.nextLine();
         initRounds();
         initPlayers();
+        this.storeMenu();
+
         //
-        this.currentRound = 1;
-        while( currentRound <= gameRounds ){
+        //this.currentRound = 1;
+        //while( currentRound <= gameRounds ){
             //playRound();
         }
+    {
         //calculateEndResult();
     }
 
@@ -73,7 +75,43 @@ public class Game {
             // på vad användaren väljer o döpa dem.
         }
     }
+    public void storeMenu(){
+        menuOptions.printStoreMenu();
+        int options = console.nextInt();
+        switch (options){
+            case 1:
+                this.animalMenu();
+                break;
+            case 2:
+                menuOptions.printFoodMenu();
+                break;
+            case 3:
+                System.out.println("Välj ett djur som du vill sälja!");
+                this.animalMenu();
+                break;
+            case 4:
 
+                break;
+        }
+    }
+    public void animalMenu(){
+        menuOptions.printAnimalMenu();
+        int animalOption = console.nextInt();
+        switch (animalOption){
+            case 1:
+
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
+
+    }
 }
 
 

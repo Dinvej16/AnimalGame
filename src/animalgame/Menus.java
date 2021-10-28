@@ -3,8 +3,8 @@ package animalgame;
 public class Menus {
 
     public void printStoreMenu(){
-        System.out.println();
-        System.out.println("1.Köp Djur, 2.Köp Mat, 3.Sälj djur, 4.Gården ");
+        System.out.println("[Affären]");
+        System.out.println("1.Köp Djur, 2.Köp Mat, 3.Sälj djur, 4.Gården, ");
         System.out.println("Mata in en siffra för att göra ett val: ");
     }
     public void printAnimalMenu(){
@@ -23,8 +23,7 @@ public class Menus {
 
     }
     public void printBarnMenu(){
-        System.out.println();
-        System.out.println("1.Mata djur,. 2.Para djur, 3.Affär ");
+        System.out.println("1.Mata djur, 2.Para djur, 3.Se dina djur, 4.Affär ");
         System.out.println("Mata in en siffra för att göra ett val:");
     }
 
