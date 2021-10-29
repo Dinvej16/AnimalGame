@@ -1,27 +1,29 @@
 package animalgame;
 
-public abstract class Player {
+import animalgame.animals.Animal;
+
+import java.util.ArrayList;
+
+public class Player {
     private String name;
-    private double money;
+    private int money = 1000;
+    private ArrayList<Animal> myAnimals;
 
-    public Player() {
+    public Player(){
+        this.myAnimals = new ArrayList<>();
+
     }
 
-    public Player(String name) {
-        this.name = name;
+    public int getMoney(){
+        return money;
     }
 
-    public void setName(String newName) {
-        name = newName;
-    }
-
-    public String getName() {
+    public String getName(){
         return name;
     }
 
-    public double getMoney(){
-        return this.money;
-
+    public void setName(String name){
+        this.name = name;
     }
 
 }
