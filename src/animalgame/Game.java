@@ -108,14 +108,12 @@ public class Game {
                 this.animalMenu();
                 break;
             case 4:
-                System.out.println("Välj vilken mat du vill sälja:");
-                break;
-            case 5:
                 this.barnMenu();
                 break;
-            case 6:
+            case 5:
                 this.mainMenu();
                 break;
+
         }
     }
     public void barnMenu(){

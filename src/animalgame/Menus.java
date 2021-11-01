@@ -11,7 +11,7 @@ public class Menus {
 
     public void printStoreMenu(){
         System.out.println("[Affären]");
-        System.out.println("1.Köp Djur, 2.Köp Mat, 3.Sälj Djur, 4.Sälj Mat, 5.Gården, 6.Huvudmenyn ");
+        System.out.println("1.Köp Djur, 2.Köp Mat, 3.Sälj Djur, 4.Gården, 5.Huvudmenyn ");
         System.out.println("Mata in en siffra för att göra ett val: ");
     }
 

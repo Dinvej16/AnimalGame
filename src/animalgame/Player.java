@@ -13,7 +13,6 @@ public class Player {
         this.myAnimals = new ArrayList<>();
 
     }
-
     public int getMoney(){
         return money;
     }

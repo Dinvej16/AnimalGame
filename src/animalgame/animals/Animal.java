@@ -3,7 +3,7 @@ package animalgame.animals;
 public abstract class Animal {
     private String name;
     private String gender;
-    private int health = 100;
+    private int startHealth = 100;
 
     public Animal(String name){
         this.name = name;
@@ -13,12 +13,8 @@ public abstract class Animal {
     public void eat(){
 
     }
-    public void sayHi(){
-        System.out.println("Hello");
-    }
-
-    public double getHealth() {
-        return health;
+    public int getHealth() {
+        return startHealth;
     }
 }
 
