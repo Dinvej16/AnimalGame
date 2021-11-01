@@ -24,6 +24,21 @@ public class Player {
     public void setName(String name){
         this.name = name;
     }
+    public void buyAnimal(){
+
+    }
+    public void buyFood(){
+
+    }
+    public void sellAnimal(){
+
+    }
+    public void feedAnimal(){
+
+    }
+    public void mateAnimal(){
+
+    }
 
 }
 
