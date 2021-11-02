@@ -2,6 +2,7 @@ package animalgame.animals;
 
 public abstract class Animal {
     private String name;
+
     private String gender;
     private int startHealth = 100;
 
@@ -10,9 +11,7 @@ public abstract class Animal {
         this.gender = gender;
 
     }
-    public void eat(){
 
-    }
     public int getHealth() {
         return startHealth;
     }

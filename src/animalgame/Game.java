@@ -17,8 +17,8 @@ public class Game {
     private Player newPlayer;
     private int maxPlayers = 4;
     private int minPlayers = 2;
-    private Animal newAnimal;
     private Menus menuOptions;
+    private 
 
 
     // Konstruktor
@@ -80,63 +80,26 @@ public class Game {
             // på vad användaren väljer o döpa dem.
         }
     }
+
+
     public void mainMenu(){
         System.out.println("-".repeat(50));
-        menuOptions.printMainMenu();
-        int mainOptions = console.nextInt();
-        switch (mainOptions){
-            case 1:
-                System.out.println("Välj djuret du vill köpa:");
-                this.buyAnimalMenu();
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-        }
-    }
-    public void buyAnimalMenu(){
-        System.out.println("-".repeat(50));
-        System.out.println("Välj djuret du vill köpa:");
-        menuOptions.printAnimalPriceMenu();
-        int buyChoice = console.nextInt();
-        switch (buyChoice){
-            case 1:
-                this.genderChoiceMenu();
-                break;
-            case 2:
-                this.genderChoiceMenu();
-                break;
-            case 3:
-                this.genderChoiceMenu();
-                break;
-            case 4:
-                this.genderChoiceMenu();
-                break;
-            case 5:
-                this.genderChoiceMenu();
-                break;
+            menuOptions.printMainMenu();
+            int mainOptions = console.nextInt();
+            switch (mainOptions){
+                case 1:
+
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
 
         }
-    }
-    public void genderChoiceMenu(){
-        System.out.println("-".repeat(50));
-        System.out.println("Välj djurets kön:");
-        menuOptions.printGenderMenu();
-        int genderChoice = console.nextInt();
-        switch (genderChoice){
-            case 1:
-                break;
-            case 2:
-
-                break;
-        }
-
-
     }
 
 }
