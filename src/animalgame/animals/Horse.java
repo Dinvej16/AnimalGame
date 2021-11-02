@@ -2,8 +2,8 @@ package animalgame.animals;
 
 public class Horse extends Animal {
 
-    public Horse(String name) {
-        super(name);
-    }
 
+    public Horse(String name, String gender) {
+        super(name, gender);
+    }
 }

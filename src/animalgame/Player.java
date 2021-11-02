@@ -11,26 +11,13 @@ public class Player {
     private ArrayList<Animal> animalsList;
     private ArrayList<Food> foodList;
 
+
     public Player(){
         this.animalsList = new ArrayList<>();
         this.foodList = new ArrayList<>();
 
     }
-    public void buyAnimal(){
 
-    }
-    public void buyFood(){
-
-    }
-    public void sellAnimal(){
-
-    }
-    public void feedAnimal(){
-
-    }
-    public void mateAnimal(){
-
-    }
     public int getMoney(){
         return money;
     }

@@ -1,6 +1,9 @@
 package animalgame;
 
 
+import animalgame.animals.Animal;
+import animalgame.animals.Cow;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,6 +17,7 @@ public class Game {
     private Player newPlayer;
     private int maxPlayers = 4;
     private int minPlayers = 2;
+    private Animal newAnimal;
     private Menus menuOptions;
 
 
@@ -23,9 +27,12 @@ public class Game {
         this.menuOptions = new Menus();
         this.players = new ArrayList<>();
         this.newPlayer = new Player();
+
         System.out.println("Välkommen till AnimalGame! Tryck enter för att starta...");
         console.nextLine();
+        System.out.println("-".repeat(50));
         initRounds();
+        System.out.println("-".repeat(50));
         initPlayers();
         this.currentRound = 1;
         this.mainMenu();
@@ -33,10 +40,8 @@ public class Game {
         //
         //while( currentRound <= gameRounds ){
             //playRound();
-        }
-    {
         //calculateEndResult();
-    }
+        }
 
     /**
      * Let user choose amount of rounds to play &
@@ -75,124 +80,63 @@ public class Game {
             // på vad användaren väljer o döpa dem.
         }
     }
-
     public void mainMenu(){
-        System.out.println( "Spelare: "+ newPlayer.getName());
-        System.out.println("Pengar: " + newPlayer.getMoney() + " kr");
+        System.out.println("-".repeat(50));
         menuOptions.printMainMenu();
-        int mainMenuOptions = console.nextInt();
-        switch (mainMenuOptions){
+        int mainOptions = console.nextInt();
+        switch (mainOptions){
             case 1:
-                this.storeMenu();
+                System.out.println("Välj djuret du vill köpa:");
+                this.buyAnimalMenu();
                 break;
             case 2:
-                this.barnMenu();
                 break;
-            default:
-                System.out.println("Spelet avslutas...");
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
                 break;
         }
     }
-    public void storeMenu(){
-        menuOptions.printStoreMenu();
-        int storeOptions = console.nextInt();
-        switch (storeOptions){
+    public void buyAnimalMenu(){
+        System.out.println("-".repeat(50));
+        System.out.println("Välj djuret du vill köpa:");
+        menuOptions.printAnimalPriceMenu();
+        int buyChoice = console.nextInt();
+        switch (buyChoice){
             case 1:
-                System.out.println("Välj ett djur som du vill köpa:");
-                this.animalMenu();
+                this.genderChoiceMenu();
                 break;
             case 2:
-                System.out.println("Välj vilken mat du vill köpa:");
-                this.foodMenu();
+                this.genderChoiceMenu();
                 break;
             case 3:
-                System.out.println("Välj ett djur som du vill sälja:");
-                this.animalMenu();
+                this.genderChoiceMenu();
                 break;
             case 4:
-                this.barnMenu();
+                this.genderChoiceMenu();
                 break;
             case 5:
-                this.mainMenu();
+                this.genderChoiceMenu();
                 break;
 
         }
     }
-    public void barnMenu(){
-        menuOptions.printBarnMenu();
-        int barnOptions = console.nextInt();
-        switch (barnOptions){
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                this.storeMenu();
-                break;
-            case 5:
-                this.mainMenu();
-                break;
-        }
-    }
-
-    public void animalMenu(){
-        menuOptions.printAnimalMenu();
-        int animalOptions = console.nextInt();
-        switch (animalOptions){
-            case 1:
-                this.genderMenu();
-                break;
-            case 2:
-                this.genderMenu();
-                break;
-            case 3:
-                this.genderMenu();
-                break;
-            case 4:
-                this.genderMenu();
-                break;
-            case 5:
-                this.genderMenu();
-                break;
-            case 6:
-                this.storeMenu();
-                break;
-        }
-    }
-    public void genderMenu(){
+    public void genderChoiceMenu(){
+        System.out.println("-".repeat(50));
+        System.out.println("Välj djurets kön:");
         menuOptions.printGenderMenu();
-        int genderOptions = console.nextInt();
-        switch (genderOptions){
+        int genderChoice = console.nextInt();
+        switch (genderChoice){
             case 1:
-                this.storeMenu();
                 break;
             case 2:
-                this.storeMenu();
-                break;
-            case 3:
-                this.animalMenu();
+
                 break;
         }
-    }
-    public void foodMenu(){
-        menuOptions.printFoodMenu();
-        int foodOptions = console.nextInt();
-        switch (foodOptions){
-            case 1:
-                this.storeMenu();
-                break;
-            case 2:
-                this.storeMenu();
-                break;
-            case 3:
-                this.storeMenu();
-                break;
-            case 4:
-                this.storeMenu();
-                break;
-        }
+
+
     }
 
 }
