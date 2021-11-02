@@ -18,7 +18,7 @@ public class Game {
     private int maxPlayers = 4;
     private int minPlayers = 2;
     private Menus menuOptions;
-    private 
+    private Store store;
 
 
     // Konstruktor
@@ -81,13 +81,13 @@ public class Game {
         }
     }
 
-
     public void mainMenu(){
         System.out.println("-".repeat(50));
             menuOptions.printMainMenu();
             int mainOptions = console.nextInt();
             switch (mainOptions){
                 case 1:
+                    this.store = new Store();
 
                     break;
                 case 2:
