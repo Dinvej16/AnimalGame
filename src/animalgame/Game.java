@@ -27,10 +27,10 @@ public class Game {
         console.nextLine();
         initRounds();
         initPlayers();
+        this.currentRound = 1;
         this.mainMenu();
 
         //
-        //this.currentRound = 1;
         //while( currentRound <= gameRounds ){
             //playRound();
         }
@@ -77,6 +77,8 @@ public class Game {
     }
 
     public void mainMenu(){
+        System.out.println( "Spelare: "+ newPlayer.getName());
+        System.out.println("Pengar: " + newPlayer.getMoney() + " kr");
         menuOptions.printMainMenu();
         int mainMenuOptions = console.nextInt();
         switch (mainMenuOptions){
