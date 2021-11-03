@@ -36,6 +36,7 @@ public class Game {
         initPlayers();
         System.out.println("-".repeat(50));
         initRounds();
+        System.out.println("-".repeat(50));
         printPlayerInfo();
         this.mainMenu();
 
@@ -52,7 +53,7 @@ public class Game {
      */
     public void initRounds() {
         System.out.println("(5-30)");
-        System.out.println("Ange antalet spelrundor:");
+        System.out.print("Ange antalet spelrundor: ");
         this.rounds = console.nextInt();
         if (rounds > maxRounds) {
             System.out.println("Max antal rundor är 30! Försök igen... ");
@@ -65,7 +66,7 @@ public class Game {
     public void initPlayers() {
         this.players = new ArrayList<>();
         System.out.println("(2-4)");
-        System.out.println("Ange antalet spelare:");
+        System.out.print("Ange antalet spelare: ");
         int playersToCreate = console.nextInt();
 
         if (playersToCreate > maxPlayers) {
@@ -88,30 +89,35 @@ public class Game {
     public void printPlayerInfo(){
         System.out.println("Antal aktiva spelare: " + players.size());
         for (Player players: players){
-            System.out.println("-".repeat(50));
-            System.out.println(players.getName() + " | " +" Pengar: " +players.getMoney() + "kr");
+            System.out.println("Spelare: " + players.getName() + " | " +" Pengar: " +players.getMoney() + "kr");
         }
     }
 
     public void mainMenu(){
-            System.out.println("-".repeat(50));
-            menuOptions.printMainMenu();
-            int mainOptions = console.nextInt();
-            switch (mainOptions){
-                case 1:
-                    this.store = new Store();
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
+        Player p;
+        for (int i = 0; i < rounds; i++) {
+            for (Iterator var2 = players.iterator(); var2.hasNext(); ) {
+                p = (Player) var2.next();
+                String activePlayer = p.getName();
 
-
-
+                System.out.println("-".repeat(50));
+                System.out.println(activePlayer + " det är din tur, gör ett val!" +"\n" + "Pengar: " + p.getMoney());
+                menuOptions.printMainMenu();
+                int mainOptions = console.nextInt();
+                switch (mainOptions) {
+                    case 1:
+                        this.store = new Store();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                }
+            }
         }
     }
 }
