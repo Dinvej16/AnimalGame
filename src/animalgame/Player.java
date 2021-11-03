@@ -12,7 +12,8 @@ public class Player {
     private ArrayList<Food> foodList;
 
 
-    public Player(){
+    public Player(String name){
+        this.name = name;
         this.animalsList = new ArrayList<>();
         this.foodList = new ArrayList<>();
 
