@@ -1,9 +1,5 @@
 package animalgame;
 
-
-import animalgame.animals.Animal;
-import animalgame.animals.Cow;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -29,6 +25,8 @@ public class Game {
     public Game(){
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
+        this.store = new Store();
+
 
         System.out.println("Välkommen till AnimalGame! Tryck enter för att starta...");
         console.nextLine();
@@ -98,15 +96,17 @@ public class Game {
         for (int i = 0; i < rounds; i++) {
             for (Iterator var2 = players.iterator(); var2.hasNext(); ) {
                 p = (Player) var2.next();
-                String activePlayer = p.getName();
 
+
+                String activePlayer = p.getName();
                 System.out.println("-".repeat(50));
-                System.out.println(activePlayer + " det är din tur, gör ett val!" +"\n" + "Pengar: " + p.getMoney());
+                System.out.println(activePlayer + " det är din tur, gör ett val!" +"\n" + "Pengar: " + p.getMoney() + "Kr");
                 menuOptions.printMainMenu();
                 int mainOptions = console.nextInt();
+                System.out.println("-".repeat(50));
                 switch (mainOptions) {
                     case 1:
-                        this.store = new Store();
+                        store.buyAnimalMenu();
                         break;
                     case 2:
                         break;
@@ -120,6 +120,7 @@ public class Game {
             }
         }
     }
+
 }
 
 
