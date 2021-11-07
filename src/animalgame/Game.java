@@ -25,7 +25,6 @@ public class Game {
     public Game(){
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
-        this.store = new Store();
 
 
         System.out.println("Välkommen till AnimalGame! Tryck enter för att starta...");
@@ -92,20 +91,20 @@ public class Game {
     }
 
     public void mainMenu(){
-        Player p;
+        Player player;
         for (int i = 0; i < rounds; i++) {
             for (Iterator var2 = players.iterator(); var2.hasNext(); ) {
-                p = (Player) var2.next();
+                player = (Player) var2.next();
 
-
-                String activePlayer = p.getName();
+                String activePlayer = player.getName();
                 System.out.println("-".repeat(50));
-                System.out.println(activePlayer + " det är din tur, gör ett val!" +"\n" + "Pengar: " + p.getMoney() + "Kr");
+                System.out.println(activePlayer + " det är din tur, gör ett val!" +"\n" + "Pengar: " + player.getMoney() + "Kr");
                 menuOptions.printMainMenu();
                 int mainOptions = console.nextInt();
                 System.out.println("-".repeat(50));
                 switch (mainOptions) {
                     case 1:
+                        this.store = new Store(player);
                         store.buyAnimalMenu();
                         break;
                     case 2:

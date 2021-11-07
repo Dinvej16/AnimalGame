@@ -24,9 +24,10 @@ public class Store {
     private Grass grass;
     private Hay hay;
 
-    public Store(){
+    public Store(Player player){
         this.console = new Scanner(System.in);
         this.menusOptions = new Menus();
+        this.player =  player;
 
     }
     public void buyAnimalMenu(){
@@ -42,12 +43,12 @@ public class Store {
             case 1:
                 System.out.println("Kon kostar 200kr");
                 price = 200;
-                creditCard = player.getMoney();
+                creditCard = this.player.getMoney();
                 if (price > creditCard) {
                     System.out.println("Köpet gick inte igenom");
                 } else {
                     newAmountOfMoney = creditCard -= price;
-                    player.setMoney(newAmountOfMoney);
+                    this.player.setMoney(newAmountOfMoney);
                     System.out.print("Ge din ko ett namn: ");
                     animalName = console.next();
                     this.cow = new Cow(animalName);
@@ -55,27 +56,27 @@ public class Store {
                     genderOption = console.nextInt();
                     switch (genderOption) {
                         case 1:
-                            this.horse.setGender("Hane");
+                            this.cow.setGender("Hane");
                             break;
                         case 2:
-                            this.horse.setGender("Hona");
+                            this.cow.setGender("Hona");
                             break;
                     }
 
                     this.player.addAnimalToList(this.cow);
-                    System.out.println("Pengar: " + this.creditCard);
+                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
                 }
                 break;
 
             case 2:
                 System.out.println("Hästen kostar 150kr");
                 price = 150;
-                creditCard = player.getMoney();
+                creditCard = this.player.getMoney();
                 if (price > creditCard) {
                     System.out.println("Köpet gick inte igenom");
                 } else {
                     newAmountOfMoney = creditCard -= price;
-                    player.setMoney(newAmountOfMoney);
+                    this.player.setMoney(newAmountOfMoney);
                     System.out.print("Ge din häst ett namn: ");
                     animalName = console.next();
                     this.horse = new Horse(animalName);
@@ -91,7 +92,7 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.horse);
-                    System.out.println("Pengar: " + this.creditCard);
+                    System.out.println(player.getName() +"Pengar: " + this.creditCard);
                 }
                 break;
 
@@ -111,15 +112,15 @@ public class Store {
                     genderOption = console.nextInt();
                     switch (genderOption) {
                         case 1:
-                            this.horse.setGender("Hane");
+                            this.pig.setGender("Hane");
                             break;
                         case 2:
-                            this.horse.setGender("Hona");
+                            this.pig.setGender("Hona");
                             break;
                     }
 
                     this.player.addAnimalToList(this.pig);
-                    System.out.println("Pengar: " + this.creditCard);
+                    System.out.println(player.getName() +"Pengar: " + this.creditCard);
                 }
                 break;
             case 4:
@@ -138,15 +139,15 @@ public class Store {
                     genderOption = console.nextInt();
                     switch (genderOption) {
                         case 1:
-                            this.horse.setGender("Hane");
+                            this.goat.setGender("Hane");
                             break;
                         case 2:
-                            this.horse.setGender("Hona");
+                            this.goat.setGender("Hona");
                             break;
                     }
 
                     this.player.addAnimalToList(this.goat);
-                    System.out.println("Pengar: " + this.creditCard);
+                    System.out.println(player.getName() +"Pengar: " + this.creditCard);
                 }
                 break;
 
@@ -166,18 +167,21 @@ public class Store {
                     genderOption = console.nextInt();
                     switch (genderOption) {
                         case 1:
-                            this.horse.setGender("Hane");
+                            this.chicken.setGender("Hane");
                             break;
                         case 2:
-                            this.horse.setGender("Hona");
+                            this.chicken.setGender("Hona");
                             break;
                     }
 
                     this.player.addAnimalToList(this.chicken);
-                    System.out.println("Pengar: " + this.creditCard);
+                    System.out.println(player.getName() +"Pengar: " + this.creditCard);
                 }
                 break;
         }
+    }
+    public void buyAnimalFood(){
+
     }
 
 }
