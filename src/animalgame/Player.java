@@ -35,6 +35,11 @@ public class Player {
         this.name = name;
     }
 
+    public void addAnimalToList(Animal animal){
+        animalsList.add(animal);
+
+    }
+
 }
 
 
