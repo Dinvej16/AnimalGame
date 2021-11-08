@@ -21,7 +21,7 @@ public class Menus {
         System.out.print("Mata in en siffra för att göra ett val: ");
     }
     public void printFoodPriceMenu(){
-        System.out.println("1.Hö [100kr], 2.Gräs [80kr], 3.Foder [50kr]");
+        System.out.println("1.Hö [100kr/kg], 2.Gräs [80kr/kg], 3.Foder [50kr/kg]");
         System.out.print("Mata in en siffra för att göra ett val: ");
 
     }

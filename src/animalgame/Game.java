@@ -108,6 +108,8 @@ public class Game {
                         store.buyAnimalMenu();
                         break;
                     case 2:
+                        this.store = new Store(player);
+                        store.buyAnimalFood();
                         break;
                     case 3:
                         break;

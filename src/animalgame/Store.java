@@ -187,9 +187,57 @@ public class Store {
         System.out.println("-".repeat(50));
         menusOptions.printFoodPriceMenu();
         int foodChoice = console.nextInt();
-
-
-
+        int newAmountOfMoney2;
+        switch (foodChoice){
+            case 1:
+                System.out.println("Höet kostar 100kr");
+                price = 100;
+                creditCard = player.getMoney();
+                if (price > creditCard){
+                    System.out.println("Köpet gick inte igenom");
+                }
+                else {
+                    newAmountOfMoney2 = creditCard -= price;
+                    player.setMoney(newAmountOfMoney2);
+                    this.hay = new Hay();
+                    System.out.println("Du har köpt 1kg hö!");
+                    this.player.addFoodToList(this.hay);
+                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                }
+                break;
+            case 2:
+                System.out.println("Gräset kostar 80kr");
+                price = 80;
+                creditCard = player.getMoney();
+                if (price > creditCard){
+                    System.out.println("Köpet gick inte igenom");
+                }
+                else {
+                    newAmountOfMoney2 = creditCard -= price;
+                    player.setMoney(newAmountOfMoney2);
+                    this.grass = new Grass();
+                    System.out.println("Du har köpt 1kg gräs!");
+                    this.player.addFoodToList(this.grass);
+                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
+                }
+                break;
+            case 3:
+                System.out.println("Fodret kostar 50kr");
+                price = 50;
+                creditCard = player.getMoney();
+                if (price > creditCard){
+                    System.out.println("Köpet gick inte igenom");
+                }
+                else {
+                    newAmountOfMoney2 = creditCard -= price;
+                    player.setMoney(newAmountOfMoney2);
+                    this.cattleFood = new CattleFood();
+                    System.out.println("Du har köpt 1kg foder!");
+                    this.player.addFoodToList(this.cattleFood);
+                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
+                    break;
+                }
+        }
     }
 
 }

@@ -39,6 +39,9 @@ public class Player {
         animalsList.add(animal);
 
     }
+    public void addFoodToList(Food food){
+        foodList.add(food);
+    }
 
 }
 

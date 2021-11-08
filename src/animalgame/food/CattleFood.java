@@ -7,5 +7,6 @@ public class CattleFood extends Food {
     public void giveHealth() {
 
 
+
     }
 }
