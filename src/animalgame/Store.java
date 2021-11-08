@@ -34,6 +34,7 @@ public class Store {
         System.out.println("Välkommen till affären! ");
         System.out.println("I denna delen av affären köper du djur, se alternativen nedan.");
         System.out.println("-".repeat(50));
+        System.out.println("Spelare: " + player.getName()  + " | " +" Pengar: " + player.getMoney() + "kr");
         menusOptions.printAnimalPriceMenu();
         int animalChoice = console.nextInt();
         int newAmountOfMoney;
@@ -181,6 +182,13 @@ public class Store {
         }
     }
     public void buyAnimalFood(){
+        System.out.println("Välkommen till affären! ");
+        System.out.println("I denna delen av affären köper du mat till dina djur, se alternativen nedan.");
+        System.out.println("-".repeat(50));
+        menusOptions.printFoodPriceMenu();
+        int foodChoice = console.nextInt();
+
+
 
     }
 

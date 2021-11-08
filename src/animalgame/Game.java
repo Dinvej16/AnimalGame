@@ -95,8 +95,8 @@ public class Game {
         for (int i = 0; i < rounds; i++) {
             for (Iterator var2 = players.iterator(); var2.hasNext(); ) {
                 player = (Player) var2.next();
-
                 String activePlayer = player.getName();
+                //player.getAnimals();
                 System.out.println("-".repeat(50));
                 System.out.println(activePlayer + " det är din tur, gör ett val!" +"\n" + "Pengar: " + player.getMoney() + "Kr");
                 menuOptions.printMainMenu();
