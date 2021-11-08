@@ -1,42 +1,47 @@
 package animalgame;
 
-
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Game {
     private Scanner console;
-    private int gameRounds;
-    private int currentRound;
-    private int maxRounds = 30;
-    private int minRounds = 5;
+
     private ArrayList<Player> players;
     private Player newPlayer;
     private int maxPlayers = 4;
     private int minPlayers = 2;
+
+    private int rounds;
+    private int currentRound = 1;
+    private int maxRounds = 30;
+    private int minRounds = 5;
+
     private Menus menuOptions;
+    private Store store;
 
 
     // Konstruktor
     public Game(){
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
-        this.players = new ArrayList<>();
-        this.newPlayer = new Player();
+
+
         System.out.println("Välkommen till AnimalGame! Tryck enter för att starta...");
         console.nextLine();
-        initRounds();
+        System.out.println("-".repeat(50));
         initPlayers();
-        this.storeMenu();
+        System.out.println("-".repeat(50));
+        initRounds();
+        System.out.println("-".repeat(50));
+        printPlayerInfo();
+        this.mainMenu();
 
         //
-        //this.currentRound = 1;
         //while( currentRound <= gameRounds ){
             //playRound();
-        }
-    {
         //calculateEndResult();
-    }
+        }
 
     /**
      * Let user choose amount of rounds to play &
@@ -45,19 +50,20 @@ public class Game {
      */
     public void initRounds() {
         System.out.println("(5-30)");
-        System.out.println("Ange antalet spelrundor:");
-        this.gameRounds = console.nextInt();
-        if (gameRounds > maxRounds) {
+        System.out.print("Ange antalet spelrundor: ");
+        this.rounds = console.nextInt();
+        if (rounds > maxRounds) {
             System.out.println("Max antal rundor är 30! Försök igen... ");
             initRounds();
-        } else if (gameRounds < minRounds) {
+        } else if (rounds < minRounds) {
             System.out.println("Minst antal rundor är 5! Försök igen...");
             initRounds();
         }
     }
     public void initPlayers() {
+        this.players = new ArrayList<>();
         System.out.println("(2-4)");
-        System.out.println("Ange antalet spelare:");
+        System.out.print("Ange antalet spelare: ");
         int playersToCreate = console.nextInt();
 
         if (playersToCreate > maxPlayers) {
@@ -69,66 +75,50 @@ public class Game {
         }
         for (int i = 0; i < playersToCreate; i++) {
             System.out.println("Ange namn för spelare " + (i + 1));
-            newPlayer.setName(console.next());
+            String nameChoice = console.next();
+            this.newPlayer = new Player(nameChoice);
             players.add(newPlayer);
             // Vi ska fylla vår players arraylist med nya player objekt, baserat
             // på vad användaren väljer o döpa dem.
         }
-    }
-    public void storeMenu(){
-        menuOptions.printStoreMenu();
-        int storeOptions = console.nextInt();
-        switch (storeOptions){
-            case 1:
-                System.out.println("Välj ett djur som du vill köpa");
-                this.animalMenu();
-                break;
-            case 2:
-                menuOptions.printFoodMenu();
-                break;
-            case 3:
-                System.out.println("Välj ett djur som du vill sälja");
-                this.animalMenu();
-                break;
-            case 4:
-
-                break;
-        }
-    }
-    public void animalMenu(){
-        menuOptions.printAnimalMenu();
-        int animalOptions = console.nextInt();
-        switch (animalOptions){
-            case 1:
-                this.genderMenu();
-                break;
-            case 2:
-                this.genderMenu();
-                break;
-            case 3:
-                this.genderMenu();
-                break;
-            case 4:
-                this.genderMenu();
-                break;
-            case 5:
-                this.genderMenu();
-                break;
-            case 6:
-                this.storeMenu();
-        }
 
     }
-    public void genderMenu(){
-        menuOptions.printGenderMenu();
-        int genderOptions = console.nextInt();
-        switch (genderOptions){
-            case 1:
-                this.storeMenu();
-                break;
-            case 2:
-                this.storeMenu();
-                break;
+    public void printPlayerInfo(){
+        System.out.println("Antal aktiva spelare: " + players.size());
+        for (Player players: players){
+            System.out.println("Spelare: " + players.getName() + " | " +" Pengar: " +players.getMoney() + "kr");
+        }
+    }
+
+    public void mainMenu(){
+        Player player;
+        for (int i = 0; i < rounds; i++) {
+            for (Iterator var2 = players.iterator(); var2.hasNext(); ) {
+                player = (Player) var2.next();
+                String activePlayer = player.getName();
+                //player.getAnimals();
+                System.out.println("-".repeat(50));
+                System.out.println(activePlayer + " det är din tur, gör ett val!" +"\n" + "Pengar: " + player.getMoney() + "Kr");
+                menuOptions.printMainMenu();
+                int mainOptions = console.nextInt();
+                System.out.println("-".repeat(50));
+                switch (mainOptions) {
+                    case 1:
+                        this.store = new Store(player);
+                        store.buyAnimalMenu();
+                        break;
+                    case 2:
+                        this.store = new Store(player);
+                        store.buyAnimalFood();
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                }
+            }
         }
     }
 
