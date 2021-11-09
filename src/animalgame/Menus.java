@@ -16,6 +16,14 @@ public class Menus {
         System.out.print("Mata in en siffra för att göra ett val: ");
 
     }
+<<<<<<< Updated upstream
+=======
+    public void printResalePrice(){
+        System.out.println("1. Ko [100kr], 2. Häst[75kr], 3. Gris[50kr], 4. Get[40kr], 5. Kyckling[25kr] ");
+        System.out.println("Mata in en siffra för att göra ett val: ");
+
+    }
+>>>>>>> Stashed changes
     public void printFoodMenu(){
         System.out.println("1.Hö, 2.Gräs, 3.Foder ");
         System.out.print("Mata in en siffra för att göra ett val: ");
@@ -31,6 +39,8 @@ public class Menus {
 
 
     }
+
+
 
 
 }

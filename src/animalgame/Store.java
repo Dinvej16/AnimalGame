@@ -239,5 +239,27 @@ public class Store {
                 }
         }
     }
+<<<<<<< Updated upstream
+=======
+    public void sellAnimal(){
+        System.out.println("Välkommen till affären! ");
+        System.out.println("I denna delen av affären säljer du djur, se alternativen nedan.");
+        System.out.println("-".repeat(50));
+        menusOptions.printResalePrice();
+        int resalePrice = console.nextInt();
+        switch (resalePrice){
+            case 1:
+                int newAmountOfMoney3 = creditCard += price;
+                player.setMoney(newAmountOfMoney3);
+                System.out.println("Du kan sälja kon för 150kr");
+                price = 150;
+                creditCard = player.getMoney();
 
-}
+                }
+        }
+
+
+
+    }
+>>>>>>> Stashed changes
+
