@@ -31,11 +31,16 @@ public class Game {
         console.nextLine();
         System.out.println("-".repeat(50));
         initPlayers();
+<<<<<<< Updated upstream
         System.out.println("-".repeat(50));
         initRounds();
         System.out.println("-".repeat(50));
         printPlayerInfo();
         this.mainMenu();
+=======
+        this.storeMenu();
+        this.genderName();
+>>>>>>> Stashed changes
 
         //
         //while( currentRound <= gameRounds ){
@@ -90,6 +95,7 @@ public class Game {
         }
     }
 
+<<<<<<< Updated upstream
     public void mainMenu(){
         Player player;
         for (int i = 0; i < rounds; i++) {
@@ -119,9 +125,28 @@ public class Game {
                         break;
                 }
             }
+=======
+    }
+    public void genderMenu(){
+        menuOptions.printGenderMenu();
+        int genderOptions = console.nextInt();
+        switch (genderOptions){
+            case 1:
+                this.genderName();
+                break;
+            case 2:
+                this.storeMenu();
+                break;
+>>>>>>> Stashed changes
         }
     }
+    public void genderName(){
+        menuOptions.printGenderName();
+        int nameOptions = console.nextInt();
+        newPlayer.setName();
 
+
+    }
 }
 
 
