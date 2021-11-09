@@ -54,7 +54,7 @@ public class Player {
     public void getAnimals(){
         for (Animal animal : animalsList){
             System.out.println( "Typ: " + animal.getAnimalType() + " | " + " Kön: " + animal.getGender() +
-                    " | " + " Namn: "+ animal.getName() + " | " + "Liv: " + animal.getHealth() + " | " + "Förlorat liv: " + animal.getHealth());
+                    " | " + " Namn: "+ animal.getName() + " | " + "Liv: " + animal.getHealth() + " | " + "Förlorat liv: " + animal.getHealthDecrease());
         }
 
     }
@@ -214,6 +214,15 @@ public class Player {
 
         }
 
+    }
+
+    public void animalHealthDecrease(){
+        for (Animal animal : animalsList){
+            if (this.animalsList.isEmpty()){
+                break;
+            }
+            animal.healthDecrease();
+        }
     }
 
 }
