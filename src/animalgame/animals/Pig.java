@@ -23,13 +23,17 @@ public class Pig extends Animal {
 
     }
 
+    public Pig() {
+
+    }
+
     @Override
     public void eat() {
         if (health == 100){
             System.out.println("Jag är inte hungrig just nu!");
         }
         else{
-            System.out.println("Mmmm va gott, Tack!");
+            System.out.println("Mmmm va gott med föda, Tack!");
             health += 10;
         }
     }

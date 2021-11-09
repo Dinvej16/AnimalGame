@@ -94,7 +94,7 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.horse);
-                    System.out.println(player.getName() +"Pengar: " + this.creditCard);
+                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
                 }
                 break;
 
@@ -122,7 +122,7 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.pig);
-                    System.out.println(player.getName() +"Pengar: " + this.creditCard);
+                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
                 }
                 break;
             case 4:
@@ -149,7 +149,7 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.goat);
-                    System.out.println(player.getName() +"Pengar: " + this.creditCard);
+                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
                 }
                 break;
 
@@ -177,7 +177,7 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.chicken);
-                    System.out.println(player.getName() +"Pengar: " + this.creditCard);
+                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
                 }
                 break;
         }
