@@ -2,11 +2,11 @@ package animalgame.food;
 
 public class CattleFood extends Food {
     private int kilos = 0;
-    private int heal = 10;
+    private int heal = 0;
 
     @Override
-    public void giveHealth() {
-
+    public void giveHealth(){
+        this.heal += 10;
     }
 
     public void addKilos(int kilos){

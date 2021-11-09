@@ -23,6 +23,10 @@ public class Cow extends Animal{
 
     }
 
+    public Cow() {
+
+    }
+
     @Override
     public void eat() {
         if (health == 100){
