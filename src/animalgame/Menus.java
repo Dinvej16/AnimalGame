@@ -16,6 +16,9 @@ public class Menus {
         System.out.print("Mata in en siffra för att göra ett val: ");
 
     }
+    public void printResalePrice(){
+
+    }
     public void printFoodMenu(){
         System.out.println("1.Hö, 2.Gräs, 3.Foder ");
         System.out.print("Mata in en siffra för att göra ett val: ");
@@ -25,12 +28,7 @@ public class Menus {
         System.out.print("Mata in en siffra för att göra ett val: ");
 
     }
-    public void printGenderMenu(){
-        System.out.println("1.Hane, 2.Hona ");
-        System.out.print("Mata in en siffra för att göra ett val: ");
 
-
-    }
 
 
 }
