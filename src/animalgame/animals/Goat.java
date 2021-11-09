@@ -57,7 +57,7 @@ public class Goat extends Animal {
 
     @Override
     public void health() {
-        System.out.println("Din get " + name + "Hälsa: " + health);
+        System.out.println( animalType + "" + name + " Hälsa: " + health + " Förlorat liv: " + getHealthDecrease());
     }
 
     @Override
