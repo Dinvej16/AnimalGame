@@ -26,7 +26,6 @@ public class Game {
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
 
-
         System.out.println("Välkommen till AnimalGame! Tryck enter för att starta...");
         console.nextLine();
         System.out.println("-".repeat(50));
@@ -72,14 +71,15 @@ public class Game {
         } else if (playersToCreate < minPlayers) {
             System.out.println("Minst antal spelare som kan spela är 2! Försök igen...");
             initPlayers();
-        }
-        for (int i = 0; i < playersToCreate; i++) {
-            System.out.println("Ange namn för spelare " + (i + 1));
-            String nameChoice = console.next();
-            this.newPlayer = new Player(nameChoice);
-            players.add(newPlayer);
-            // Vi ska fylla vår players arraylist med nya player objekt, baserat
-            // på vad användaren väljer o döpa dem.
+        }else {
+            for (int i = 0; i < playersToCreate; i++) {
+                System.out.println("Ange namn för spelare " + (i + 1));
+                String nameChoice = console.next();
+                this.newPlayer = new Player(nameChoice);
+                players.add(newPlayer);
+                // Vi ska fylla vår players arraylist med nya player objekt, baserat
+                // på vad användaren väljer o döpa dem.
+            }
         }
 
     }
