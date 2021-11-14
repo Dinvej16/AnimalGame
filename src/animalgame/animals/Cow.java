@@ -5,7 +5,7 @@ import animalgame.Player;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Cow extends Animal{
+public class Cow extends Animal {
 
     private String name;
     private String gender;
@@ -17,7 +17,7 @@ public class Cow extends Animal{
 
     private Player player;
 
-    public Cow(String name){
+    public Cow(String name) {
         this.name = name;
         this.console = new Scanner(System.in);
 
@@ -25,10 +25,9 @@ public class Cow extends Animal{
 
     @Override
     public void eat() {
-        if (this.health == 100){
+        if (this.health == 100) {
             System.out.println("Jag är inte hungrig just nu!");
-        }
-        else{
+        } else {
             System.out.println("Mmmm va gott med föda, Tack!");
             this.health += 10;
         }
@@ -38,7 +37,7 @@ public class Cow extends Animal{
     public void mate() {
         Random random = new Random();
         int mateOption = random.nextInt(2) + 1;
-        switch (mateOption){
+        switch (mateOption) {
             case 1:
                 System.out.println("Parningen misslyckades... bättre lycka nästa gång!");
                 break;
@@ -53,7 +52,7 @@ public class Cow extends Animal{
 
     @Override
     public void health() {
-        System.out.println( animalType + "" + name + " Hälsa: " + health + " Förlorat liv: " + getHealthDecrease());
+        System.out.println(animalType + "" + name + " Hälsa: " + health + " Förlorat liv: " + getHealthDecrease());
     }
 
     @Override
@@ -65,7 +64,7 @@ public class Cow extends Animal{
     public void healthDecrease() {
         Random random = new Random();
         int decreaseOptions = random.nextInt(3) + 1;
-        switch(decreaseOptions) {
+        switch (decreaseOptions) {
             case 1:
                 this.healthDecrease = 10;
                 break;

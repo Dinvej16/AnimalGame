@@ -80,10 +80,12 @@ public class Player {
             System.out.println("Vilket djur vill du mata?, se alternativen nedan.");
             int j = 0;
             for (Animal animal : animalsList){
-                System.out.print( j+1 + "." + animal.getAnimalType() + " ");
+                System.out.print(j+1 + "." + animal.getAnimalType() + " ");
                 j++;
+
             }
-            //menusOptions.printAnimalMenu();
+
+            System.out.print("Mata in en siffra för att göra ett val: ");
             int feedAnimalChoice = console.nextInt();
             System.out.println("-".repeat(50));
             switch (feedAnimalChoice) {

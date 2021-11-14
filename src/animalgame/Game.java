@@ -22,7 +22,7 @@ public class Game {
 
 
     // Konstruktor
-    public Game(){
+    public Game() {
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
 
@@ -38,9 +38,9 @@ public class Game {
 
         //
         //while( currentRound <= gameRounds ){
-            //playRound();
+        //playRound();
         //calculateEndResult();
-        }
+    }
 
     /**
      * Let user choose amount of rounds to play &
@@ -59,6 +59,7 @@ public class Game {
             initRounds();
         }
     }
+
     public void initPlayers() {
         this.players = new ArrayList<>();
         System.out.println("(2-4)");
@@ -71,36 +72,36 @@ public class Game {
         } else if (playersToCreate < minPlayers) {
             System.out.println("Minst antal spelare som kan spela är 2! Försök igen...");
             initPlayers();
-        }else {
+        }
+        else {
             for (int i = 0; i < playersToCreate; i++) {
                 System.out.println("Ange namn för spelare " + (i + 1));
                 String nameChoice = console.next();
                 this.newPlayer = new Player(nameChoice);
                 players.add(newPlayer);
-                // Vi ska fylla vår players arraylist med nya player objekt, baserat
-                // på vad användaren väljer o döpa dem.
             }
         }
 
     }
-    public void printPlayerInfo(){
+
+    public void printPlayerInfo() {
         System.out.println("Antal aktiva spelare: " + players.size());
-        for (Player players: players){
-            System.out.println("Spelare: " + players.getName() + " | " +" Pengar: " +players.getMoney() + "kr");
+        for (Player players : players) {
+            System.out.println("Spelare: " + players.getName() + " | " + " Pengar: " + players.getMoney() + "kr");
         }
     }
 
-    public void mainMenu(){
+    public void mainMenu() {
         Player player;
         for (int i = 0; i < rounds; i++) {
-            for (Iterator var2 = players.iterator(); var2.hasNext(); player.animalHealthDecrease()){
+            for (Iterator var2 = players.iterator(); var2.hasNext(); player.animalHealthDecrease()) {
                 player = (Player) var2.next();
                 String activePlayer = player.getName();
                 System.out.println("-".repeat(50));
                 System.out.println(player.getName() + "s" + " djur: ");
                 player.getAnimals();
                 System.out.println("-".repeat(50));
-                System.out.println(activePlayer + " det är din tur, gör ett val!" +"\n" + "Pengar: " + player.getMoney() + "Kr");
+                System.out.println(activePlayer + " det är din tur, gör ett val!" + "\n" + "Pengar: " + player.getMoney() + "Kr");
                 menuOptions.printMainMenu();
                 int mainOptions = console.nextInt();
                 System.out.println("-".repeat(50));
