@@ -100,7 +100,9 @@ public class Game {
                 System.out.println(player.getName() + "s" + " Djur: ");
                 player.getAnimals();
                 System.out.println("-".repeat(50));
-                System.out.println(activePlayer + " det är din tur!" + "\n" + "Pengar: " + player.getMoney() + "Kr");
+                System.out.println(activePlayer + " det är din tur!" + "\n" + "Pengar: " + player.getMoney() + "Kr"
+                        + "\n" + "Gräs: " + player.getGrass() + "kg" +"\n" + "Hö: "+ player.getHay()+ "kg" + "\n" + "Foder: "+ player.getCattleFood() + "kg");
+                System.out.println("\n");
                 menuOptions.printMainMenu();
                 int mainOptions = console.nextInt();
                 System.out.println("-".repeat(50));

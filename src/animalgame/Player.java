@@ -68,8 +68,10 @@ public class Player {
                 break;
             case "gräs":
                 grass.addKilos(kilos);
+                break;
             case "foder":
                 cattleFood.addKilos(kilos);
+                break;
         }
     }
 
@@ -84,6 +86,7 @@ public class Player {
             feedSpecAnimal(animalsList.get(feedAnimalChoice));
         }
     }
+
     public void printAnimals(){
         int j = 0;
         for (Animal animal : animalsList){
@@ -124,12 +127,18 @@ public class Player {
                 foodChoice = console.nextInt();
                 switch (foodChoice) {
                     case 1:
-                        hay.removeKilos(1);
-                        horse.eat("Hay",5 );
+                        System.out.println("Hur många kilo hö vill du mata hästen med?");
+                        System.out.print("Ange antal kilo hö: ");
+                        amountOfFood = console.nextInt();
+                        horse.eat("Hay",amountOfFood );
+                        hay.removeKilos(amountOfFood);
                         break;
                     case 2:
-                        grass.removeKilos(1);
-                        horse.eat("Grass", 5);
+                        System.out.println("Hur många kilo gräs vill du mata hästen med?");
+                        System.out.print("Ange antal kilo gräs: ");
+                        amountOfFood = console.nextInt();
+                        horse.eat("Grass",amountOfFood );
+                        grass.removeKilos(amountOfFood);
                         break;
                 }
                 break;
@@ -142,8 +151,11 @@ public class Player {
                 foodChoice = console.nextInt();
                 switch (foodChoice) {
                     case 1:
-                        cattleFood.removeKilos(1);
-                        pig.eat("CattleFood",5);
+                        System.out.println("Hur många kilo foder vill du mata grisen med?");
+                        System.out.print("Ange antal kilo foder: ");
+                        amountOfFood = console.nextInt();
+                        pig.eat("CattleFood",amountOfFood );
+                        cattleFood.removeKilos(amountOfFood);
                         break;
                 }
                 break;
@@ -156,9 +168,11 @@ public class Player {
                 foodChoice = console.nextInt();
                 switch (foodChoice) {
                     case 1:
-                        grass.removeKilos(1);
-                        goat.eat("Grass",5); // Den äter bara grös, annars skicka i eat-metoden ett argument
-                        // för vad den ska eat("GRASS")
+                        System.out.println("Hur många kilo gräs vill du mata geten med?");
+                        System.out.print("Ange antal kilo gräs: ");
+                        amountOfFood = console.nextInt();
+                        goat.eat("Grass",amountOfFood );
+                        grass.removeKilos(amountOfFood);
                         break;
                 }
                 break;
@@ -171,8 +185,11 @@ public class Player {
                 foodChoice = console.nextInt();
                 switch (foodChoice){
                     case 1:
-                        cattleFood.removeKilos(1);
-                        chicken.eat("CattleFood",5);
+                        System.out.println("Hur många kilo foder vill du mata kycklingen med?");
+                        System.out.print("Ange antal kilo foder: ");
+                        amountOfFood = console.nextInt();
+                        chicken.eat("CattleFood",amountOfFood );
+                        cattleFood.removeKilos(amountOfFood);
                         break;
                 }
                 break;
@@ -185,6 +202,17 @@ public class Player {
         }
     }
 
+    public int getCattleFood() {
+        return cattleFood.getKilos();
+    }
+
+    public int getHay() {
+        return hay.getKilos();
+    }
+
+    public int getGrass() {
+        return grass.getKilos();
+    }
 }
 
 

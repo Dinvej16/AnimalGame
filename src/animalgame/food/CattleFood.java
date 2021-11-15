@@ -16,4 +16,7 @@ public class CattleFood extends Food {
         this.kilos -= kilos;
     }
 
+    public int getKilos() {
+        return kilos;
+    }
 }

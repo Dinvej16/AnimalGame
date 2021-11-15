@@ -15,4 +15,8 @@ public class Hay extends Food {
     public void removeKilos(int kilos){
         this.kilos -= kilos;
     }
+
+    public int getKilos() {
+        return kilos;
+    }
 }

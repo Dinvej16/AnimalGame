@@ -15,6 +15,9 @@ public class Grass extends Food {
         this.kilos -= kilos;
     }
 
+    public int getKilos() {
+        return kilos;
+    }
 }
 
 
