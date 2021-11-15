@@ -58,7 +58,7 @@ public class Chicken extends Animal {
 
     @Override
     public void health() {
-        System.out.println("Din kyckling " + name + "Hälsa: " + health);
+        System.out.println( animalType + "" + name + " Hälsa: " + health + " Förlorat liv: " + getHealthDecrease());
     }
 
     @Override

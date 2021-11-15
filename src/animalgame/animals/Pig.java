@@ -57,7 +57,7 @@ public class Pig extends Animal {
 
     @Override
     public void health() {
-        System.out.println("Din gris " + name + "Hälsa: " + health);
+        System.out.println( animalType + "" + name + " Hälsa: " + health + " Förlorat liv: " + getHealthDecrease());
     }
 
     @Override
