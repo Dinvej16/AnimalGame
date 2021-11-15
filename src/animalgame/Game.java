@@ -93,10 +93,8 @@ public class Game {
     }
 
     public void mainMenu() {
-        Player player;
         for (int i = 0; i < rounds; i++) {
-            for (Iterator var2 = players.iterator(); var2.hasNext(); player.animalHealthDecrease()) {
-                player = (Player) var2.next();
+            for (Player player : players) {
                 String activePlayer = player.getName();
                 System.out.println("-".repeat(50));
                 System.out.println(player.getName() + "s" + " Djur: ");
@@ -128,7 +126,9 @@ public class Game {
                         //Sälj djur
                         break;
                 }
+                player.animalHealthDecrease();
             }
+
         }
     }
 

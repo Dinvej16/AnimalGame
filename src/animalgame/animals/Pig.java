@@ -28,13 +28,16 @@ public class Pig extends Animal {
     }
 
     @Override
-    public void eat() {
+    public void eat(String foodChoice) {
         if (health == 100){
             System.out.println("Jag är inte hungrig just nu!");
+            return;
         }
-        else{
-            System.out.println("Mmmm va gott med föda, Tack!");
-            health += 10;
+        switch (foodChoice) {
+            case "CattleFood":
+                System.out.println("Mmmm va gott med Foder, Tack!");
+                health += 10;
+                break;
         }
     }
 
