@@ -50,6 +50,9 @@ public class Player {
     public void addAnimalToList(Animal animal) {
         animalsList.add(animal);
     }
+    public void removeAnimalFromList(Animal animal){
+        animalsList.remove(animal);
+    }
 
     public void getAnimals() {
         for (Animal animal : animalsList) {

@@ -24,24 +24,25 @@ public class Store {
     private Grass grass;
     private Hay hay;
 
-    public Store(Player player){
+    public Store(Player player) {
         this.console = new Scanner(System.in);
         this.menusOptions = new Menus();
-        this.player =  player;
+        this.player = player;
 
     }
+
     //Method for buying animals
-    public void buyAnimalMenu(){
+    public void buyAnimalMenu() {
         System.out.println("Välkommen till affären! ");
         System.out.println("I denna delen av affären köper du djur, se alternativen nedan.");
         System.out.println("-".repeat(50));
-        System.out.println("Spelare: " + player.getName()  + " | " +" Pengar: " + player.getMoney() + "kr");
+        System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
         menusOptions.printAnimalPriceMenu();
         int animalChoice = console.nextInt();
         int newAmountOfMoney;
         int genderOption;
         String animalName;
-        switch (animalChoice){
+        switch (animalChoice) {
             case 1:
                 System.out.println("Kon kostar 200kr");
                 price = 200;
@@ -93,7 +94,7 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.horse);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
                 }
                 break;
 
@@ -121,7 +122,7 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.pig);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
                 }
                 break;
             case 4:
@@ -148,7 +149,7 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.goat);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
                 }
                 break;
 
@@ -176,44 +177,43 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.chicken);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
                 }
                 break;
         }
     }
+
     //Method for buying food
-    public void buyAnimalFood(){
+    public void buyAnimalFood() {
         System.out.println("Välkommen till affären! ");
         System.out.println("I denna delen av affären köper du mat till dina djur, se alternativen nedan.");
         System.out.println("-".repeat(50));
         menusOptions.printFoodPriceMenu();
         int foodChoice = console.nextInt();
         int newAmountOfMoney2;
-        switch (foodChoice){
+        switch (foodChoice) {
             case 1:
                 System.out.println("Höet kostar 100kr");
                 price = 100;
                 creditCard = player.getMoney();
-                if (price > creditCard){
+                if (price > creditCard) {
                     System.out.println("Köpet gick inte igenom");
-                }
-                else {
+                } else {
                     newAmountOfMoney2 = creditCard -= price;
                     player.setMoney(newAmountOfMoney2);
                     this.hay = new Hay();
                     System.out.println("Du har köpt 1kg hö!");
                     this.player.buyFood("hö", 1);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
                 }
                 break;
             case 2:
                 System.out.println("Gräset kostar 80kr");
                 price = 80;
                 creditCard = player.getMoney();
-                if (price > creditCard){
+                if (price > creditCard) {
                     System.out.println("Köpet gick inte igenom");
-                }
-                else {
+                } else {
                     newAmountOfMoney2 = creditCard -= price;
                     player.setMoney(newAmountOfMoney2);
                     this.grass = new Grass();
@@ -226,10 +226,9 @@ public class Store {
                 System.out.println("Fodret kostar 50kr");
                 price = 50;
                 creditCard = player.getMoney();
-                if (price > creditCard){
+                if (price > creditCard) {
                     System.out.println("Köpet gick inte igenom");
-                }
-                else {
+                } else {
                     newAmountOfMoney2 = creditCard -= price;
                     player.setMoney(newAmountOfMoney2);
                     this.cattleFood = new CattleFood();
@@ -241,11 +240,30 @@ public class Store {
         }
     }
 
+<<<<<<< Updated upstream
     public void sellAnimal(){
+=======
+    public void sellAnimal() {
+>>>>>>> Stashed changes
         System.out.println("Välkommen till affären! ");
         System.out.println("I denna delen av affären säljer du djur, se alternativen nedan.");
+        System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
         System.out.println("-".repeat(50));
+        menusOptions.printResalePrice();
+        int animalChoice = console.nextInt();
+        int newAmountOfMoney;
+        switch (animalChoice) {
+            case 1:
+                System.out.println("Kon har ett värde på " );
+                price = 100;
+                creditCard = this.player.getMoney();
+                newAmountOfMoney = creditCard += price;
+                this.player.setMoney(newAmountOfMoney);
+                System.out.println(" Du har sålt en ko för " +  price + "Du har nu " + player.getMoney() + "kr");
+                this.player.removeAnimalFromList(this.cow);
+                break;
 
+<<<<<<< Updated upstream
         menusOptions.printResalePrice();
         int resalePrice = console.nextInt();
         switch (resalePrice){
@@ -257,11 +275,40 @@ public class Store {
                 creditCard = player.getMoney();
 
                 }
+        }System.out.println("Välkommen till affären! ");
+            System.out.println("I denna delen av affären säljer du djur, se alternativen nedan.");
+            System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
+            System.out.println("-".repeat(50));
+            menusOptions.printResalePrice();
+            int animalChoice = console.nextInt();
+            int newAmountOfMoney;
+            switch (animalChoice) {
+                case 1:
+                    System.out.println("Kon har ett värde på " );
+                    price = 100;
+                    creditCard = this.player.getMoney();
+                    newAmountOfMoney = creditCard += price;
+                    this.player.setMoney(newAmountOfMoney);
+                    System.out.println(" Du har sålt en ko för " +  price + "Du har nu " + player.getMoney() + "kr");
+                    this.player.removeAnimalFromList(this.cow);
+                    break;
+
+                case 2:
+                    System.out.println("Hästen har ett värde på ");
+
+
+
+=======
+            case 2:
+                System.out.println("Hästen har ett värde på ");
+>>>>>>> Stashed changes
+
+
         }
-
-
-
-
     }
+<<<<<<< Updated upstream
 
+=======
+}
+>>>>>>> Stashed changes
 
