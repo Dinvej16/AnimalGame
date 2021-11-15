@@ -2,7 +2,7 @@ package animalgame.animals;
 
 public abstract class Animal {
 
-    public abstract void eat(String foodChoice);
+    public abstract void eat(String foodChoice, int kilo);
 
     public abstract void mate();
 
@@ -14,7 +14,7 @@ public abstract class Animal {
 
     public abstract String getHealthDecrease();
 
-    public abstract String getHealth();
+    public abstract int getHealth();
 
     public abstract void setGender(String gender);
 

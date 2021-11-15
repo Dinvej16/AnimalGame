@@ -123,6 +123,8 @@ public class Game {
                         //Para djur
                         break;
                     case 5:
+                        this.store = new Store(player);
+                        store.sellAnimal();
                         //Sälj djur
                         break;
                 }

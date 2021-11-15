@@ -25,13 +25,13 @@ public class Cow extends Animal {
     }
 
     @Override
-    public void eat(String foodChoice) {
+    public void eat(String foodChoice, int kilo) {
         if (this.health == 100) {
             System.out.println("Jag är inte hungrig just nu!");
 
         } else {
             System.out.println("Mooo va gott med gärs, Tack!");
-            this.health += 10;
+            this.health += kilo + 10;
         }
     }
 
@@ -54,6 +54,7 @@ public class Cow extends Animal {
 
     @Override
     public void health() {
+
     }
 
     @Override
@@ -87,8 +88,8 @@ public class Cow extends Animal {
     }
 
     @Override
-    public String getHealth() {
-        return this.health + "%";
+    public int getHealth() {
+        return this.health;
     }
 
     @Override

@@ -28,7 +28,7 @@ public class Pig extends Animal {
     }
 
     @Override
-    public void eat(String foodChoice) {
+    public void eat(String foodChoice, int kilo) {
         if (health == 100){
             System.out.println("Jag är inte hungrig just nu!");
             return;
@@ -94,8 +94,8 @@ public class Pig extends Animal {
     }
 
     @Override
-    public String getHealth() {
-        return this.health + "%";
+    public int getHealth() {
+        return this.health;
     }
 
     @Override

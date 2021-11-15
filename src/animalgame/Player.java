@@ -49,11 +49,14 @@ public class Player {
     public void addAnimalToList(Animal animal) {
         animalsList.add(animal);
     }
+    public void removeAnimalFromList(Animal animal){
+        animalsList.remove(animal);
+    }
 
     public void getAnimals() {
         for (Animal animal : animalsList) {
             System.out.println("Typ: " + animal.getAnimalType() + " | " + " Kön: " + animal.getGender() +
-                    " | " + " Namn: " + animal.getName() + " | " + "Liv: " + animal.getHealth() + " | " + "Förlorat liv: " + animal.getHealthDecrease());
+                    " | " + " Namn: " + animal.getName() + " | " + "Liv: " + animal.getHealth()+ "%" + " | " + "Förlorat liv: " + animal.getHealthDecrease());
         }
 
     }
@@ -85,13 +88,13 @@ public class Player {
         int j = 0;
         for (Animal animal : animalsList){
             System.out.println(j + ": " + "Typ: " + animal.getAnimalType() + " | "  + "Kön: " + animal.getGender() + " | " + "Namn: " + animal.getName() + " | " +
-                    "Liv: "+ animal.getHealth());
+                    "Liv: "+ animal.getHealth() +"%");
             j++;
         }
     }
 
     public void feedSpecAnimal(Animal animal){
-        
+        int amountOfFood;
         int foodChoice;
         switch (animal.getAnimalType()){
             case "Ko":
@@ -100,10 +103,14 @@ public class Player {
                 System.out.println("1.Gräs");
                 System.out.print("Mata in en siffra för att gör ett val: ");
                 foodChoice = console.nextInt();
+                System.out.println("-".repeat(50));
                 switch (foodChoice) {
                     case 1:
-                        grass.removeKilos(1); //reducing players food storage!!
-                        cow.eat("Grass");
+                        System.out.println("Hur många kilo gräs vill du mata kon med?");
+                        System.out.print("Ange antal kilo gräs: ");
+                        amountOfFood = console.nextInt();
+                        cow.eat("Grass", amountOfFood);
+                        grass.removeKilos(amountOfFood); //reducing players food storage!!
                         break;
                 }
 
@@ -118,11 +125,11 @@ public class Player {
                 switch (foodChoice) {
                     case 1:
                         hay.removeKilos(1);
-                        horse.eat("Hay");
+                        horse.eat("Hay",5 );
                         break;
                     case 2:
                         grass.removeKilos(1);
-                        horse.eat("Grass");
+                        horse.eat("Grass", 5);
                         break;
                 }
                 break;
@@ -136,7 +143,7 @@ public class Player {
                 switch (foodChoice) {
                     case 1:
                         cattleFood.removeKilos(1);
-                        pig.eat("CattleFood");
+                        pig.eat("CattleFood",5);
                         break;
                 }
                 break;
@@ -150,7 +157,7 @@ public class Player {
                 switch (foodChoice) {
                     case 1:
                         grass.removeKilos(1);
-                        goat.eat("Grass"); // Den äter bara grös, annars skicka i eat-metoden ett argument
+                        goat.eat("Grass",5); // Den äter bara grös, annars skicka i eat-metoden ett argument
                         // för vad den ska eat("GRASS")
                         break;
                 }
@@ -165,7 +172,7 @@ public class Player {
                 switch (foodChoice){
                     case 1:
                         cattleFood.removeKilos(1);
-                        chicken.eat("CattleFood");
+                        chicken.eat("CattleFood",5);
                         break;
                 }
                 break;
