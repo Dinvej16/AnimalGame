@@ -33,8 +33,8 @@ public class Game {
 
         System.out.println("-".repeat(50));
         initRounds();
-        System.out.println("-".repeat(50));
-        printPlayerInfo();
+        //System.out.println("-".repeat(50));
+        //printPlayerInfo();
         this.mainMenu();
 
         this.storeMenu();
@@ -74,10 +74,16 @@ public class Game {
         if (playersToCreate > maxPlayers) {
             System.out.println("Max antal spelare som kan spela är 4! Försök igen...");
             initPlayers();
+
         } else if (playersToCreate < minPlayers) {
             System.out.println("Minst antal spelare som kan spela är 2! Försök igen...");
             initPlayers();
+
         } else {
+
+        }
+
+        else{
             for (int i = 0; i < playersToCreate; i++) {
                 System.out.println("Ange namn för spelare " + (i + 1));
                 String nameChoice = console.next();
@@ -85,7 +91,6 @@ public class Game {
                 players.add(newPlayer);
             }
         }
-
     }
 
     public void printPlayerInfo() {
@@ -141,20 +146,39 @@ public class Game {
                 menuOptions.printGenderMenu();
                 int genderOptions = console.nextInt();
                 switch (genderOptions) {
-                    case 1:
-                        this.genderName();
-                        break;
-                    case 2:
-                        this.storeMenu();
-                        break;
+
+                    Player player;
+                    for (int i = 0; i < rounds; i++) {
+                        for (Iterator var2 = players.iterator(); var2.hasNext(); player.animalHealthDecrease()) {
+                            player = (Player) var2.next();
+                            String activePlayer = player.getName();
+                            System.out.println("-".repeat(50));
+                            System.out.println(player.getName() + "s" + " Djur: ");
+                            player.getAnimals();
+                            System.out.println("-".repeat(50));
+                            System.out.println(activePlayer + " det är din tur!" + "\n" + "Pengar: " + player.getMoney() + "Kr");
+                            menuOptions.printMainMenu();
+                            int mainOptions = console.nextInt();
+                            System.out.println("-".repeat(50));
+                            switch (mainOptions) {
+
+                                case 1:
+                                    this.genderName();
+                                    break;
+                                case 2:
+                                    this.storeMenu();
+                                    break;
+                            }
+                        }
+                        public void genderName () {
+                            menuOptions.printGenderName();
+                            int nameOptions = console.nextInt();
+                            newPlayer.setName();
+
+
+                        }
+                    }
                 }
-            }
-            public void genderName () {
-                menuOptions.printGenderName();
-                int nameOptions = console.nextInt();
-                newPlayer.setName();
-
-
             }
         }
     }

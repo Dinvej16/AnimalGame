@@ -64,7 +64,6 @@ public class Store {
                             this.cow.setGender("Hona");
                             break;
                     }
-
                     this.player.addAnimalToList(this.cow);
                     System.out.println(player.getName() + " Pengar: " + this.creditCard);
                 }

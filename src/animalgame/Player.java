@@ -51,10 +51,10 @@ public class Player {
         animalsList.add(animal);
     }
 
-    public void getAnimals(){
-        for (Animal animal : animalsList){
-            System.out.println( "Typ: " + animal.getAnimalType() + " | " + " Kön: " + animal.getGender() +
-                    " | " + " Namn: "+ animal.getName() + " | " + "Liv: " + animal.getHealth() + " | " + "Förlorat liv: " + animal.getHealthDecrease());
+    public void getAnimals() {
+        for (Animal animal : animalsList) {
+            System.out.println("Typ: " + animal.getAnimalType() + " | " + " Kön: " + animal.getGender() +
+                    " | " + " Namn: " + animal.getName() + " | " + "Liv: " + animal.getHealth() + " | " + "Förlorat liv: " + animal.getHealthDecrease());
         }
 
     }
@@ -73,18 +73,10 @@ public class Player {
 
     public void feedAnimals() {
         if (animalsList.isEmpty()){
-            System.out.println("Du har inte några djur att mata...");
-        }
-        else {
-            System.out.println("Spelare: " + name);
-            System.out.println("Vilket djur vill du mata?, se alternativen nedan.");
-            int j = 0;
-            for (Animal animal : animalsList){
-                System.out.print(j+1 + "." + animal.getAnimalType() + " ");
-                j++;
+            System.out.println(this.name + "du har inte några djur att mata... ");
 
-            }
-
+        }else {
+            menusOptions.printAnimalMenu();
             System.out.print("Mata in en siffra för att göra ett val: ");
             int feedAnimalChoice = console.nextInt();
             System.out.println("-".repeat(50));
@@ -95,7 +87,7 @@ public class Player {
 
                     for (int i = 0; i < animalsList.size(); i++) {
                         if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")) {
-                            System.out.println(i + ":" + " " + animalsList.get(i).getName());
+                            System.out.println(i  + ":" + " " + animalsList.get(i).getName());
                         }
                     }
                     System.out.print("Mata in en siffra för att välja en ko: ");
@@ -222,17 +214,13 @@ public class Player {
                             break;
                     }
                     break;
-
+            }
         }
-
-
-        }
-
     }
 
-    public void animalHealthDecrease(){
-        for (Animal animal : animalsList){
-            if (this.animalsList.isEmpty()){
+    public void animalHealthDecrease() {
+        for (Animal animal : animalsList) {
+            if (this.animalsList.isEmpty()) {
                 break;
             }
             animal.healthDecrease();
