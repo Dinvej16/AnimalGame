@@ -25,12 +25,12 @@ public class Cow extends Animal{
 
     @Override
     public void eat() {
-        if (health == 100){
+        if (this.health == 100){
             System.out.println("Jag är inte hungrig just nu!");
         }
         else{
-            System.out.println("Mmmm va gott, Tack!");
-            health += 10;
+            System.out.println("Mmmm va gott med föda, Tack!");
+            this.health += 10;
         }
     }
 
@@ -53,7 +53,7 @@ public class Cow extends Animal{
 
     @Override
     public void health() {
-        System.out.println("Din ko " + name + "Hälsa: " + health);
+        System.out.println( animalType + "" + name + " Hälsa: " + health + " Förlorat liv: " + getHealth());
     }
 
     @Override

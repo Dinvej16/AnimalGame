@@ -99,10 +99,12 @@ public class Game {
     public void mainMenu(){
         Player player;
         for (int i = 0; i < rounds; i++) {
-            for (Iterator var2 = players.iterator(); var2.hasNext(); ) {
+            for (Iterator var2 = players.iterator(); var2.hasNext(); ){
                 player = (Player) var2.next();
                 String activePlayer = player.getName();
-                //player.getAnimals();
+                System.out.println("-".repeat(50));
+                player.getAnimals();
+
                 System.out.println("-".repeat(50));
                 System.out.println(activePlayer + " det är din tur, gör ett val!" +"\n" + "Pengar: " + player.getMoney() + "Kr");
                 menuOptions.printMainMenu();
@@ -110,18 +112,24 @@ public class Game {
                 System.out.println("-".repeat(50));
                 switch (mainOptions) {
                     case 1:
+                        //Klar
                         this.store = new Store(player);
                         store.buyAnimalMenu();
                         break;
                     case 2:
+                        //Klar
                         this.store = new Store(player);
                         store.buyAnimalFood();
                         break;
                     case 3:
+                        //måste fixas
+                        player.feedAnimals();
                         break;
                     case 4:
+                        //Para djur
                         break;
                     case 5:
+                        //Sälj djur
                         break;
                 }
             }
