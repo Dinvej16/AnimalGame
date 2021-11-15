@@ -215,6 +215,8 @@ public class Game {
                         this.store = new Store(player);
                         store.sellAnimal();
                         //Sälj djur
+                        this.store = new Store(player);
+                        store.sellAnimal();
                         break;
 >>>>>>> Stashed changes
                 }

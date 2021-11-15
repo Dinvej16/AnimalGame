@@ -13,6 +13,7 @@ public class Store {
     private int price;
     private int creditCard;
     private Menus menusOptions;
+
     //Animals
     private Horse horse;
     private Chicken chicken;
@@ -241,7 +242,11 @@ public class Store {
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public void sellAnimal(){
+=======
+    public void sellAnimal() {
+>>>>>>> Stashed changes
 =======
     public void sellAnimal() {
 >>>>>>> Stashed changes
@@ -249,6 +254,7 @@ public class Store {
         System.out.println("I denna delen av affären säljer du djur, se alternativen nedan.");
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
         System.out.println("-".repeat(50));
+<<<<<<< Updated upstream
         menusOptions.printResalePrice();
         int animalChoice = console.nextInt();
         int newAmountOfMoney;
@@ -295,6 +301,25 @@ public class Store {
 
                 case 2:
                     System.out.println("Hästen har ett värde på ");
+=======
+        //menusOptions.printResalePrice();
+        int animalChoice = console.nextInt();
+        int newAmountOfMoney;
+        player.printAnimals();
+        switch (animalChoice) {
+            case 1:
+                System.out.println("Kon har ett värde på ");
+                 //200 * this.cow.getHealth();
+                creditCard = this.player.getMoney();
+                newAmountOfMoney = creditCard += price;
+                this.player.setMoney(newAmountOfMoney);
+                System.out.println(" Du har sålt en ko för " + price + "Du har nu " + player.getMoney() + "kr");
+                this.player.removeAnimalFromList(this.cow);
+                break;
+
+
+        }
+>>>>>>> Stashed changes
 
 
 
@@ -307,7 +332,11 @@ public class Store {
         }
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+}
+>>>>>>> Stashed changes
 =======
 }
 >>>>>>> Stashed changes

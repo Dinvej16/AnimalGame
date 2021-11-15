@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Cow extends Animal {
 
+    public String getHealth;
     private String name;
     private String gender;
     private String animalType = "Ko";

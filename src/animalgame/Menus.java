@@ -35,7 +35,12 @@ public class Menus {
     }
 
     public void printResalePrice(){
+<<<<<<< Updated upstream
         System.out.println("1. Ko [100kr], 2. Häst [75kr], 3. Gris [50kr], 4. Get [40kr], 5. Kyckling [25kr] ");
+=======
+        System.out.println("Priset skiljer sig beroende på djurets hälsa");
+        System.out.println("1. Ko , 2. Häst , 3. Gris , 4. get , 5. Kyckling  ");
+>>>>>>> Stashed changes
         System.out.println("Mata in en siffra för att göra ett val: ");
 
     }
