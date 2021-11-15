@@ -94,7 +94,8 @@ public class Player {
         int foodChoice;
         switch (animal.getAnimalType()){
             case "Ko":
-                Cow cow = (Cow) animal; //Downcast kon,
+
+                Cow cow = (Cow) animal; //Downcast kon
                 System.out.println("Välj vad kon ska äta, se alternativen nedan.");
                 System.out.println("1.Gräs");
                 System.out.print("Mata in en siffra för att gör ett val: ");

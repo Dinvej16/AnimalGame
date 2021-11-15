@@ -7,8 +7,6 @@ public class Grass extends Food {
     @Override
     public void giveHealth(){
         this.heal += 10;
-
-
     }
     public void addKilos(int kilos){
         this.kilos += kilos;
@@ -16,6 +14,7 @@ public class Grass extends Food {
     public void removeKilos(int kilos){
         this.kilos -= kilos;
     }
+
 }
 
 
