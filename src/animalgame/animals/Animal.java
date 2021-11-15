@@ -1,25 +1,30 @@
 package animalgame.animals;
 
 public abstract class Animal {
-    private String name;
-    private String gender;
-    private double health;
 
-    public Animal(String name){
-        this.name = name;
+    public abstract void eat();
 
+    public abstract void mate();
 
-    }
-    public void eat(){
+    public abstract void health();
 
-    }
-    public void sayHi(){
-        System.out.println("Hello");
-    }
+    public abstract void deadAnimal();
 
-    public double getHealth() {
-        return health;
-    }
+    public abstract void healthDecrease();
+
+    public abstract String getHealthDecrease();
+
+    public abstract String getHealth();
+
+    public abstract void setGender(String gender);
+
+    public abstract String getGender();
+
+    public abstract String getName();
+
+    public abstract String getAnimalType();
+
 }
+
 
 
