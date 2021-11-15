@@ -74,8 +74,7 @@ public class Player {
         if (animalsList.isEmpty()){
             System.out.println(this.name + " du har inte några djur att mata... ");
 
-        }else {
-            //Ska bara skriva ut djuren spelaren äger!
+        } else {
             printAnimals();
             int feedAnimalChoice = console.nextInt();
             System.out.println("-".repeat(50));
@@ -85,16 +84,17 @@ public class Player {
     public void printAnimals(){
         int j = 0;
         for (Animal animal : animalsList){
-            System.out.println(j + ": " + animal.getName() + ", " + animal.getGender() + ", " + animal.getAnimalType());
+            System.out.println(j + ": " + "Typ: " + animal.getAnimalType() + " | "  + "Kön: " + animal.getGender() + " | " + "Namn: " + animal.getName() + " | " +
+                    "Liv: "+ animal.getHealth());
             j++;
         }
     }
 
     public void feedSpecAnimal(Animal animal){
+        
         int foodChoice;
         switch (animal.getAnimalType()){
             case "Ko":
-
                 Cow cow = (Cow) animal; //Downcast kon
                 System.out.println("Välj vad kon ska äta, se alternativen nedan.");
                 System.out.println("1.Gräs");
@@ -108,6 +108,7 @@ public class Player {
                 }
 
                 break;
+
             case "Häst":
                 Horse horse = (Horse) animal;
                 System.out.println("Välj vad hästen ska äta, se alternativen nedan.");
@@ -124,8 +125,8 @@ public class Player {
                         horse.eat("Grass");
                         break;
                 }
-
                 break;
+
             case "Gris":
                 Pig pig = (Pig) animal;
                 System.out.println("Välj vad grisen ska äta, se alternativen nedan.");
@@ -138,8 +139,8 @@ public class Player {
                         pig.eat("CattleFood");
                         break;
                 }
-
                 break;
+
             case "Get":
                 Goat goat = (Goat) animal;
                 System.out.println("Välj vad geten ska äta, se alternativen nedan.");
@@ -153,8 +154,8 @@ public class Player {
                         // för vad den ska eat("GRASS")
                         break;
                 }
-
                 break;
+
             case "Kyckling":
                 Chicken chicken = (Chicken) animal;
                 System.out.println("Välj vad kycklingen ska äta, se alternativen nedan.");
