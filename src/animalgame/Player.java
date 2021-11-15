@@ -73,11 +73,10 @@ public class Player {
 
     public void feedAnimals() {
         if (animalsList.isEmpty()){
-            System.out.println(this.name + "du har inte några djur att mata... ");
+            System.out.println(this.name + " du har inte några djur att mata... ");
 
         }else {
-            menusOptions.printAnimalMenu();
-            System.out.print("Mata in en siffra för att göra ett val: ");
+            //Ska bara skriva ut djuren spelaren äger!
             int feedAnimalChoice = console.nextInt();
             System.out.println("-".repeat(50));
             switch (feedAnimalChoice) {
