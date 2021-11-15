@@ -2,7 +2,7 @@ package animalgame.animals;
 
 public abstract class Animal {
 
-    public abstract void eat();
+    public abstract void eat(String foodChoice);
 
     public abstract void mate();
 

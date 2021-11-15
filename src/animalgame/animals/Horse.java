@@ -28,13 +28,21 @@ public class Horse extends Animal {
     }
 
     @Override
-    public void eat() {
+    public void eat(String foodChoice) {
         if (health == 100){
             System.out.println("Jag är inte hungrig just nu!");
+            return;
         }
-        else{
-            System.out.println("Mmmm va gott med föda, Tack!");
-            health += 10;
+
+        switch (foodChoice) {
+            case "Hay":
+                System.out.println("Mmmm va gott med Hö, Tack!");
+                health += 10;
+                break;
+            case "Grass":
+                System.out.println("Mmmm va gott med Gräs, Tack!");
+                health += 10;
+                break;
         }
     }
 
@@ -70,14 +78,17 @@ public class Horse extends Animal {
         Random random = new Random();
         int decreaseOptions = random.nextInt(3) + 1;
         switch(decreaseOptions) {
-            case 1:
+            case 1: // -10
                 this.healthDecrease = 10;
+                this.health = this.health - 10;
                 break;
-            case 2:
+            case 2: // -20
                 this.healthDecrease = 20;
+                this.health = this.health - 20;
                 break;
-            case 3:
+            case 3: // -30
                 this.healthDecrease = 30;
+                this.health = this.health - 30;
                 break;
         }
     }
@@ -89,8 +100,7 @@ public class Horse extends Animal {
 
     @Override
     public String getHealth() {
-        int realHealth = this.health - healthDecrease;
-        return realHealth + "%";
+        return this.health + "%";
     }
 
     @Override
