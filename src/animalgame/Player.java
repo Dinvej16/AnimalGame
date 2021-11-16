@@ -100,7 +100,7 @@ public class Player {
         switch (animal.getAnimalType()) {
             case "Ko":
                 if (grass.kilos == 0) {
-                    System.out.println("Du har inte någon mat för kon");
+                    System.out.println("Du har inte någon mat för kon ");
                 } else {
                     Cow cow = (Cow) animal; //Downcast kon
                     System.out.println("Välj vad kon ska äta, se alternativen nedan.");
