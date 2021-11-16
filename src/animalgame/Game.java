@@ -25,6 +25,7 @@ public class Game {
     public Game() {
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
+
         System.out.println("Välkommen till AnimalGame!");
         System.out.println("1.Nytt spel, 2.Ladda spel");
         System.out.print("Mata in en siffra för att göra ett val: ");
@@ -40,11 +41,6 @@ public class Game {
             case 2:
                 break;
         }
-
-        //
-        //while( currentRound <= gameRounds ){
-        //playRound();
-        //calculateEndResult();
     }
 
     /**
@@ -81,6 +77,7 @@ public class Game {
         }
         else {
             for (int i = 0; i < playersToCreate; i++) {
+                System.out.println("-".repeat(50));
                 System.out.println("Ange namn för spelare " + (i + 1));
                 String nameChoice = console.next();
                 this.newPlayer = new Player(nameChoice);
@@ -103,6 +100,7 @@ public class Game {
                 System.out.println("\n".repeat(20));
                 System.out.println("-".repeat(50));
                 System.out.println(player.getName() + "s" + " djur: ");
+
                 player.getAnimals();
                 System.out.println("-".repeat(50));
                 System.out.println(activePlayer + " det är din tur!" + "\n" + "Pengar: " + player.getMoney() + "Kr"
@@ -114,6 +112,8 @@ public class Game {
                     case 1:
                         //Klar
                         this.store = new Store(player);
+                        System.out.println("Välkommen till djuraffären! ");
+                        System.out.println("Här köper du djur, se alternativen nedan.");
                         store.buyAnimalMenu();
                         break;
                     case 2:
@@ -130,12 +130,12 @@ public class Game {
                         break;
                     case 5:
                         this.store = new Store(player);
+                        System.out.println("Välkommen till djuraffären! ");
+                        System.out.println("I denna delen säljer du djur, se alternativen nedan.");
                         store.sellAnimal();
                         //Sälj djur
                         break;
                     case 6:
-                        break;
-                    case 7:
                         break;
                 }
                 player.animalHealthDecrease();

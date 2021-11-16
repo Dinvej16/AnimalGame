@@ -35,8 +35,7 @@ public class Store {
 
     //Method for buying animals
     public void buyAnimalMenu() {
-        System.out.println("Välkommen till affären! ");
-        System.out.println("I denna delen av affären köper du djur, se alternativen nedan.");
+
         System.out.println("-".repeat(50));
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
         menusOptions.printAnimalPriceMenu();
@@ -298,15 +297,16 @@ public class Store {
     }
 
     public void sellAnimal() {
-        System.out.println("Välkommen till affären! ");
-        System.out.println("I denna delen av affären säljer du djur, se alternativen nedan.");
         System.out.println("-".repeat(50));
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
+        System.out.println("-".repeat(50));
+        System.out.println("Dina djur: ");
 
         for (int i = 0; i < player.animalsList.size(); i++){
             System.out.println(i + ": " + "Typ: " + player.animalsList.get(i).getAnimalType() + " | " + "Kön: " + player.animalsList.get(i).getGender() + " | " + "Namn: " + player.animalsList.get(i).getName() + " | "
                     + "Liv: " + player.animalsList.get(i).getHealth() + "%");
         }
+        System.out.print("Mata in en siffra för att göra ett val: ");
         int newAmountOfMoney3;
         int option;
         int animalSellChoice = console.nextInt();
@@ -327,11 +327,13 @@ public class Store {
                         System.out.println("Du sålde din ko för: " + reSalePrice + "kr");
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
+                        System.out.print("Mata in en siffra för att göra ett val: ");
                         option = console.nextInt();
                         switch (option) {
                             case 1:
                                 if (player.animalsList.isEmpty()){
                                     System.out.println("Du har inte några djur att sälja");
+                                    console.nextLine();
                                 }
                                 else {
                                     sellAnimal();
