@@ -1,9 +1,10 @@
 package animalgame;
 
+import animalgame.Food.CattleFood;
+import animalgame.Food.Grass;
+import animalgame.Food.Hay;
 import animalgame.animals.*;
-import animalgame.food.CattleFood;
-import animalgame.food.Grass;
-import animalgame.food.Hay;
+
 
 import java.util.Scanner;
 
@@ -22,8 +23,8 @@ public class Store {
     private Pig pig;
     //Food
     private CattleFood cattleFood;
-    private Grass grass;
     private Hay hay;
+    private Grass grass;
 
     public Store(Player player) {
         this.console = new Scanner(System.in);

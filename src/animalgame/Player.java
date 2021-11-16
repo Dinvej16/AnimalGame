@@ -1,10 +1,10 @@
 package animalgame;
 
+import animalgame.Food.CattleFood;
+import animalgame.Food.Grass;
+import animalgame.Food.Hay;
 import animalgame.animals.*;
-import animalgame.food.CattleFood;
-import animalgame.food.Food;
-import animalgame.food.Grass;
-import animalgame.food.Hay;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,8 +16,9 @@ public class Player {
 
     //Food
     private CattleFood cattleFood;
-    private Hay hay;
     private Grass grass;
+    private Hay hay;
+
 
     private Scanner console;
 
