@@ -1,7 +1,6 @@
 package animalgame;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Game {
@@ -123,6 +122,7 @@ public class Game {
                         break;
                     case 3:
                         //Klarisch
+                        System.out.println("Välj vilket djur du vill mata, se alternativen nedan.");
                         player.feedAnimals();
                         break;
                     case 4:
@@ -140,7 +140,6 @@ public class Game {
                 }
                 player.animalHealthDecrease();
             }
-
         }
     }
 

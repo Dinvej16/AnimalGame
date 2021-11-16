@@ -79,6 +79,7 @@ public class Player {
             System.out.println(this.name + " du har inte några djur att mata... ");
         } else {
             printAnimals();
+            System.out.print("Mata in en siffra för att gör ett val: ");
             int feedAnimalChoice = console.nextInt();
             System.out.println("-".repeat(50));
             feedSpecAnimal(animalsList.get(feedAnimalChoice));
