@@ -31,9 +31,9 @@ public class Game {
         int startMenuChoice = console.nextInt();
         switch (startMenuChoice){
             case 1:
-                System.out.println();
+                System.out.println("\n".repeat(20));
                 initPlayers();
-                System.out.println("-".repeat(50));
+                System.out.println("\n".repeat(20));
                 initRounds();
                 this.mainMenu();
                 break;
@@ -100,6 +100,7 @@ public class Game {
         for (int i = 0; i < rounds; i++) {
             for (Player player : players) {
                 String activePlayer = player.getName();
+                System.out.println("\n".repeat(20));
                 System.out.println("-".repeat(50));
                 System.out.println(player.getName() + "s" + " djur: ");
                 player.getAnimals();
@@ -108,7 +109,7 @@ public class Game {
                         + " | " + "Gräs: " + player.getGrass() + "kg" +" | " + "Hö: "+ player.getHay()+ "kg" + " | " + "Foder: "+ player.getCattleFood() + "kg" + "\n");
                 menuOptions.printMainMenu();
                 int mainOptions = console.nextInt();
-                System.out.println("-".repeat(50));
+                System.out.println("\n".repeat(20));
                 switch (mainOptions) {
                     case 1:
                         //Klar
