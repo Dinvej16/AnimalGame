@@ -25,16 +25,21 @@ public class Game {
     public Game() {
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
-
-        System.out.println("Välkommen till AnimalGame! Tryck enter för att starta...");
-        console.nextLine();
-        System.out.println("-".repeat(50));
-        initPlayers();
-        System.out.println("-".repeat(50));
-        initRounds();
-        //System.out.println("-".repeat(50));
-        //printPlayerInfo();
-        this.mainMenu();
+        System.out.println("Välkommen till AnimalGame!");
+        System.out.println("1.Nytt spel, 2.Ladda spel");
+        System.out.print("Mata in en siffra för att göra ett val: ");
+        int startMenuChoice = console.nextInt();
+        switch (startMenuChoice){
+            case 1:
+                System.out.println();
+                initPlayers();
+                System.out.println("-".repeat(50));
+                initRounds();
+                this.mainMenu();
+                break;
+            case 2:
+                break;
+        }
 
         //
         //while( currentRound <= gameRounds ){
