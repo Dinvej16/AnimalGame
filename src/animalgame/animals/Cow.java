@@ -26,12 +26,12 @@ public class Cow extends Animal {
 
     @Override
     public void eat(String foodChoice, int kilo) {
-        if (this.health == 100) {
+        if (health == 100) {
             System.out.println("Jag är inte hungrig just nu!");
 
         } else {
             System.out.println("Mooo va gott med gärs, Tack!");
-            this.health += kilo + 10;
+            health += 10;
         }
     }
 

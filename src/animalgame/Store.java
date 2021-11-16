@@ -40,6 +40,7 @@ public class Store {
         int animalChoice = console.nextInt();
         int newAmountOfMoney;
         int genderOption;
+        int option;
         String animalName;
         switch (animalChoice){
             case 1:
@@ -55,8 +56,8 @@ public class Store {
                     animalName = console.next();
                     this.cow = new Cow(animalName);
                     System.out.println("Välj kön: 1.Hane, 2.Hona");
-                    genderOption = console.nextInt();
-                    switch (genderOption) {
+                    option = console.nextInt();
+                    switch (option) {
                         case 1:
                             this.cow.setGender("Hane");
                             break;
@@ -65,7 +66,17 @@ public class Store {
                             break;
                     }
                     this.player.addAnimalToList(this.cow);
-                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
+                    System.out.println("Vill du köpa fler djur?");
+                    System.out.println("1.Ja, 2.Nej");
+                    option = console.nextInt();
+                    switch (option){
+                        case 1:
+                            buyAnimalMenu();
+                            break;
+                        default:
+                            break;
+
+                    }
                 }
                 break;
 
@@ -245,6 +256,19 @@ public class Store {
         }
     }
     public void sellAnimal(){
+        System.out.println("Välkommen till affären! ");
+        System.out.println("I denna delen av affären säljer du djur, se alternativen nedan.");
+        System.out.println("-".repeat(50));
+        System.out.println("Spelare: " + player.getName()  + " | " +" Pengar: " + player.getMoney() + "kr");
+        player.printAnimals();
+        int newAmountOfMoney3;
+        int animalSellChoice = console.nextInt();
+        switch (animalSellChoice){
+            case 1:
+
+                break;
+
+        }
 
 
     }

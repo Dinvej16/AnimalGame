@@ -1,8 +1,10 @@
 package animalgame.food;
 
 public class Hay extends Food {
-    private int kilos = 0;
+    public int kilos = 0;
+    private int minKilos = 0;
     private int heal = 0;
+
 
     @Override
     public void giveHealth() {

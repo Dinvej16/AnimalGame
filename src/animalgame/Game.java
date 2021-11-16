@@ -61,9 +61,9 @@ public class Game {
     }
 
     public void initPlayers() {
-        this.players = new ArrayList<>();
         System.out.println("(2-4)");
         System.out.print("Ange antalet spelare: ");
+        this.players = new ArrayList<>();
         int playersToCreate = console.nextInt();
 
         if (playersToCreate > maxPlayers) {
@@ -74,7 +74,6 @@ public class Game {
             System.out.println("Minst antal spelare som kan spela är 2! Försök igen...");
             initPlayers();
         }
-
         else {
             for (int i = 0; i < playersToCreate; i++) {
                 System.out.println("Ange namn för spelare " + (i + 1));
@@ -97,12 +96,11 @@ public class Game {
             for (Player player : players) {
                 String activePlayer = player.getName();
                 System.out.println("-".repeat(50));
-                System.out.println(player.getName() + "s" + " Djur: ");
+                System.out.println(player.getName() + "s" + " djur: ");
                 player.getAnimals();
                 System.out.println("-".repeat(50));
                 System.out.println(activePlayer + " det är din tur!" + "\n" + "Pengar: " + player.getMoney() + "Kr"
-                        + "\n" + "Gräs: " + player.getGrass() + "kg" +"\n" + "Hö: "+ player.getHay()+ "kg" + "\n" + "Foder: "+ player.getCattleFood() + "kg");
-                System.out.println("\n");
+                        + " | " + "Gräs: " + player.getGrass() + "kg" +" | " + "Hö: "+ player.getHay()+ "kg" + " | " + "Foder: "+ player.getCattleFood() + "kg" + "\n");
                 menuOptions.printMainMenu();
                 int mainOptions = console.nextInt();
                 System.out.println("-".repeat(50));
@@ -118,7 +116,7 @@ public class Game {
                         store.buyAnimalFood();
                         break;
                     case 3:
-                        //måste fixas
+                        //Klarisch
                         player.feedAnimals();
                         break;
                     case 4:

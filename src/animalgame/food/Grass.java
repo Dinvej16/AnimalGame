@@ -1,7 +1,7 @@
 package animalgame.food;
 
 public class Grass extends Food {
-    private int kilos = 0;
+    public int kilos = 0;
     private int heal = 0;
 
     @Override

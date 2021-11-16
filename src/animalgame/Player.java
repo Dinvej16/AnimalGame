@@ -78,7 +78,6 @@ public class Player {
     public void feedAnimals() {
         if (animalsList.isEmpty()){
             System.out.println(this.name + " du har inte några djur att mata... ");
-
         } else {
             printAnimals();
             int feedAnimalChoice = console.nextInt();
@@ -101,96 +100,128 @@ public class Player {
         int foodChoice;
         switch (animal.getAnimalType()){
             case "Ko":
-                Cow cow = (Cow) animal; //Downcast kon
-                System.out.println("Välj vad kon ska äta, se alternativen nedan.");
-                System.out.println("1.Gräs");
-                System.out.print("Mata in en siffra för att gör ett val: ");
-                foodChoice = console.nextInt();
-                System.out.println("-".repeat(50));
-                switch (foodChoice) {
-                    case 1:
-                        System.out.println("Hur många kilo gräs vill du mata kon med?");
-                        System.out.print("Ange antal kilo gräs: ");
-                        amountOfFood = console.nextInt();
-                        cow.eat("Grass", amountOfFood);
-                        grass.removeKilos(amountOfFood); //reducing players food storage!!
-                        break;
+                if (grass.kilos == 0){
+                    System.out.println("Du har inte någon mat för kon");
                 }
-
+                else {
+                    Cow cow = (Cow) animal; //Downcast kon
+                    System.out.println("Välj vad kon ska äta, se alternativen nedan.");
+                    System.out.println("1.Gräs");
+                    System.out.print("Mata in en siffra för att gör ett val: ");
+                    foodChoice = console.nextInt();
+                    System.out.println("-".repeat(50));
+                    switch (foodChoice) {
+                        case 1:
+                            System.out.println("Hur många kilo gräs vill du mata kon med?");
+                            System.out.println("Du har: " + getGrass() + "kg" + " gräs");
+                            System.out.print("Ange antal kilo gräs: ");
+                            amountOfFood = console.nextInt();
+                            cow.eat("Grass", amountOfFood);
+                            grass.removeKilos(amountOfFood); //reducing players food storage!!
+                            break;
+                    }
+                }
                 break;
 
             case "Häst":
-                Horse horse = (Horse) animal;
-                System.out.println("Välj vad hästen ska äta, se alternativen nedan.");
-                System.out.println("1.Hö, 2.Gräs");
-                System.out.print("Mata in en siffra för att gör ett val: ");
-                foodChoice = console.nextInt();
-                switch (foodChoice) {
-                    case 1:
-                        System.out.println("Hur många kilo hö vill du mata hästen med?");
-                        System.out.print("Ange antal kilo hö: ");
-                        amountOfFood = console.nextInt();
-                        horse.eat("Hay",amountOfFood );
-                        hay.removeKilos(amountOfFood);
-                        break;
-                    case 2:
-                        System.out.println("Hur många kilo gräs vill du mata hästen med?");
-                        System.out.print("Ange antal kilo gräs: ");
-                        amountOfFood = console.nextInt();
-                        horse.eat("Grass",amountOfFood );
-                        grass.removeKilos(amountOfFood);
-                        break;
+                if (grass.kilos == 0 || hay.kilos == 0){
+                    System.out.println("Du har inte någon mat för hästen");
+                }
+                else {
+                    Horse horse = (Horse) animal;
+                    System.out.println("Välj vad hästen ska äta, se alternativen nedan.");
+                    System.out.println("1.Hö, 2.Gräs");
+                    System.out.print("Mata in en siffra för att gör ett val: ");
+                    foodChoice = console.nextInt();
+                    switch (foodChoice) {
+                        case 1:
+                            System.out.println("Hur många kilo hö vill du mata hästen med?");
+                            System.out.println("Du har: " + getHay() + "kg" + " hö");
+
+                            System.out.print("Ange antal kilo hö: ");
+                            amountOfFood = console.nextInt();
+                            horse.eat("Hay",amountOfFood );
+                            hay.removeKilos(amountOfFood);
+                            break;
+                        case 2:
+                            System.out.println("Hur många kilo gräs vill du mata hästen med?");
+                            System.out.println("Du har: " + getGrass() + "kg" + " gräs");
+                            System.out.print("Ange antal kilo gräs: ");
+                            amountOfFood = console.nextInt();
+                            horse.eat("Grass",amountOfFood );
+                            grass.removeKilos(amountOfFood);
+                            break;
+                    }
                 }
                 break;
 
             case "Gris":
-                Pig pig = (Pig) animal;
-                System.out.println("Välj vad grisen ska äta, se alternativen nedan.");
-                System.out.println("1.Foder");
-                System.out.print("Mata in en siffra för att gör ett val: ");
-                foodChoice = console.nextInt();
-                switch (foodChoice) {
-                    case 1:
-                        System.out.println("Hur många kilo foder vill du mata grisen med?");
-                        System.out.print("Ange antal kilo foder: ");
-                        amountOfFood = console.nextInt();
-                        pig.eat("CattleFood",amountOfFood );
-                        cattleFood.removeKilos(amountOfFood);
-                        break;
+                if (cattleFood.kilos == 0){
+                    System.out.println("Du har inte någon mat för grisen");
+                }
+                else {
+                    Pig pig = (Pig) animal;
+                    System.out.println("Välj vad grisen ska äta, se alternativen nedan.");
+                    System.out.println("1.Foder");
+                    System.out.print("Mata in en siffra för att gör ett val: ");
+                    foodChoice = console.nextInt();
+                    switch (foodChoice) {
+                        case 1:
+                            System.out.println("Hur många kilo foder vill du mata grisen med?");
+                            System.out.println("Du har: " + getCattleFood() + "kg" + " foder");
+                            System.out.print("Ange antal kilo foder: ");
+                            amountOfFood = console.nextInt();
+                            pig.eat("CattleFood",amountOfFood );
+                            cattleFood.removeKilos(amountOfFood);
+                            break;
+                    }
                 }
                 break;
 
             case "Get":
-                Goat goat = (Goat) animal;
-                System.out.println("Välj vad geten ska äta, se alternativen nedan.");
-                System.out.println("1.Gräs");
-                System.out.print("Mata in en siffra för att gör ett val: ");
-                foodChoice = console.nextInt();
-                switch (foodChoice) {
-                    case 1:
-                        System.out.println("Hur många kilo gräs vill du mata geten med?");
-                        System.out.print("Ange antal kilo gräs: ");
-                        amountOfFood = console.nextInt();
-                        goat.eat("Grass",amountOfFood );
-                        grass.removeKilos(amountOfFood);
-                        break;
+                if (grass.kilos == 0){
+                    System.out.println("Du har inte någon mat för geten");
+                }
+                else {
+                    Goat goat = (Goat) animal;
+                    System.out.println("Välj vad geten ska äta, se alternativen nedan.");
+                    System.out.println("1.Gräs");
+                    System.out.print("Mata in en siffra för att gör ett val: ");
+                    foodChoice = console.nextInt();
+                    switch (foodChoice) {
+                        case 1:
+                            System.out.println("Hur många kilo gräs vill du mata geten med?");
+                            System.out.println("Du har: " + getGrass() + "kg" + " gräs");
+                            System.out.print("Ange antal kilo gräs: ");
+                            amountOfFood = console.nextInt();
+                            goat.eat("Grass",amountOfFood );
+                            grass.removeKilos(amountOfFood);
+                            break;
+                    }
                 }
                 break;
 
             case "Kyckling":
-                Chicken chicken = (Chicken) animal;
-                System.out.println("Välj vad kycklingen ska äta, se alternativen nedan.");
-                System.out.println("1.foder");
-                System.out.print("Mata in en siffra för att gör ett val: ");
-                foodChoice = console.nextInt();
-                switch (foodChoice){
-                    case 1:
-                        System.out.println("Hur många kilo foder vill du mata kycklingen med?");
-                        System.out.print("Ange antal kilo foder: ");
-                        amountOfFood = console.nextInt();
-                        chicken.eat("CattleFood",amountOfFood );
-                        cattleFood.removeKilos(amountOfFood);
-                        break;
+                if (cattleFood.kilos == 0){
+                    System.out.println("Du har inte någon mat för kycklingen");
+
+                }
+                else {
+                    Chicken chicken = (Chicken) animal;
+                    System.out.println("Välj vad kycklingen ska äta, se alternativen nedan.");
+                    System.out.println("1.foder");
+                    System.out.print("Mata in en siffra för att gör ett val: ");
+                    foodChoice = console.nextInt();
+                    switch (foodChoice){
+                        case 1:
+                            System.out.println("Hur många kilo foder vill du mata kycklingen med?");
+                            System.out.println("Du har: " + getCattleFood() + "kg" + " foder");
+                            System.out.print("Ange antal kilo foder: ");
+                            amountOfFood = console.nextInt();
+                            chicken.eat("CattleFood",amountOfFood );
+                            cattleFood.removeKilos(amountOfFood);
+                            break;
+                    }
                 }
                 break;
         }
