@@ -2,10 +2,11 @@ package animalgame.animals;
 
 public abstract class Animal {
 
-    public Animal(String name){
-        this.name = name;
+    public Animal() {
     }
+
     public void eat(){
+    }
 
     public abstract void eat(String foodChoice, int kilo);
 
@@ -29,6 +30,7 @@ public abstract class Animal {
     public abstract String getName();
 
     public abstract String getAnimalType();
+
 
 }
 

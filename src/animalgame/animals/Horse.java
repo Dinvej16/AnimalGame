@@ -19,13 +19,8 @@ public class Horse extends Animal {
 
     public Horse(String name){
         this.name = name;
-        this.console = new Scanner(System.in);
-
     }
 
-    public Horse() {
-
-    }
 
     @Override
     public void eat(String foodChoice, int kilo) {
