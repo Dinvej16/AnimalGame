@@ -127,6 +127,10 @@ public class Game {
                         store.sellAnimal();
                         //Sälj djur
                         break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
                 }
                 player.animalHealthDecrease();
             }

@@ -4,7 +4,7 @@ public class Menus {
 
 
     public void printMainMenu(){
-        System.out.println("1.Köp djur, 2.Köp mat, 3.Mata djur, 4.Para djur, 5.Sälj djur ");
+        System.out.println("1.Köp djur, 2.Köp mat, 3.Mata djur, 4.Para djur, 5.Sälj djur, 6.Spara spel, ");
         System.out.print("Mata in en siffra för att göra ett val: ");
     }
     public void printAnimalMenu(){

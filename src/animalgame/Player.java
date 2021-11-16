@@ -12,21 +12,19 @@ import java.util.Scanner;
 public class Player {
     private String name;
     private int money = 1000;
-    private ArrayList<Animal> animalsList;
+    public ArrayList<Animal> animalsList;
 
     //Food
     private CattleFood cattleFood;
     private Hay hay;
     private Grass grass;
 
-    private Menus menusOptions;
     private Scanner console;
 
 
     public Player(String name) {
         this.name = name;
         this.animalsList = new ArrayList<>();
-        this.menusOptions = new Menus();
         this.console = new Scanner(System.in);
 
         this.cattleFood = new CattleFood();
@@ -49,16 +47,16 @@ public class Player {
     public void addAnimalToList(Animal animal) {
         animalsList.add(animal);
     }
-    public void removeAnimalFromList(Animal animal){
+
+    public void removeAnimalFromList(Animal animal) {
         animalsList.remove(animal);
     }
 
     public void getAnimals() {
         for (Animal animal : animalsList) {
             System.out.println("Typ: " + animal.getAnimalType() + " | " + " Kön: " + animal.getGender() +
-                    " | " + " Namn: " + animal.getName() + " | " + "Liv: " + animal.getHealth()+ "%" + " | " + "Förlorat liv: " + animal.getHealthDecrease());
+                    " | " + " Namn: " + animal.getName() + " | " + "Liv: " + animal.getHealth() + "%" + " | " + "Förlorat liv: " + animal.getHealthDecrease());
         }
-
     }
 
     public void buyFood(String foodType, int kilos) {
@@ -76,7 +74,7 @@ public class Player {
     }
 
     public void feedAnimals() {
-        if (animalsList.isEmpty()){
+        if (animalsList.isEmpty()) {
             System.out.println(this.name + " du har inte några djur att mata... ");
         } else {
             printAnimals();
@@ -86,24 +84,23 @@ public class Player {
         }
     }
 
-    public void printAnimals(){
+    public void printAnimals() {
         int j = 0;
-        for (Animal animal : animalsList){
-            System.out.println(j + ": " + "Typ: " + animal.getAnimalType() + " | "  + "Kön: " + animal.getGender() + " | " + "Namn: " + animal.getName() + " | " +
-                    "Liv: "+ animal.getHealth() +"%");
+        for (Animal animal : animalsList) {
+            System.out.println(j + ": " + "Typ: " + animal.getAnimalType() + " | " + "Kön: " + animal.getGender() + " | " + "Namn: " + animal.getName() + " | " +
+                    "Liv: " + animal.getHealth() + "%");
             j++;
         }
     }
 
-    public void feedSpecAnimal(Animal animal){
+    public void feedSpecAnimal(Animal animal) {
         int amountOfFood;
         int foodChoice;
-        switch (animal.getAnimalType()){
+        switch (animal.getAnimalType()) {
             case "Ko":
-                if (grass.kilos == 0){
+                if (grass.kilos == 0) {
                     System.out.println("Du har inte någon mat för kon");
-                }
-                else {
+                } else {
                     Cow cow = (Cow) animal; //Downcast kon
                     System.out.println("Välj vad kon ska äta, se alternativen nedan.");
                     System.out.println("1.Gräs");
@@ -124,10 +121,9 @@ public class Player {
                 break;
 
             case "Häst":
-                if (grass.kilos == 0 || hay.kilos == 0){
+                if (grass.kilos == 0 || hay.kilos == 0) {
                     System.out.println("Du har inte någon mat för hästen");
-                }
-                else {
+                } else {
                     Horse horse = (Horse) animal;
                     System.out.println("Välj vad hästen ska äta, se alternativen nedan.");
                     System.out.println("1.Hö, 2.Gräs");
@@ -140,7 +136,7 @@ public class Player {
 
                             System.out.print("Ange antal kilo hö: ");
                             amountOfFood = console.nextInt();
-                            horse.eat("Hay",amountOfFood );
+                            horse.eat("Hay", amountOfFood);
                             hay.removeKilos(amountOfFood);
                             break;
                         case 2:
@@ -148,7 +144,7 @@ public class Player {
                             System.out.println("Du har: " + getGrass() + "kg" + " gräs");
                             System.out.print("Ange antal kilo gräs: ");
                             amountOfFood = console.nextInt();
-                            horse.eat("Grass",amountOfFood );
+                            horse.eat("Grass", amountOfFood);
                             grass.removeKilos(amountOfFood);
                             break;
                     }
@@ -156,10 +152,9 @@ public class Player {
                 break;
 
             case "Gris":
-                if (cattleFood.kilos == 0){
+                if (cattleFood.kilos == 0) {
                     System.out.println("Du har inte någon mat för grisen");
-                }
-                else {
+                } else {
                     Pig pig = (Pig) animal;
                     System.out.println("Välj vad grisen ska äta, se alternativen nedan.");
                     System.out.println("1.Foder");
@@ -171,7 +166,7 @@ public class Player {
                             System.out.println("Du har: " + getCattleFood() + "kg" + " foder");
                             System.out.print("Ange antal kilo foder: ");
                             amountOfFood = console.nextInt();
-                            pig.eat("CattleFood",amountOfFood );
+                            pig.eat("CattleFood", amountOfFood);
                             cattleFood.removeKilos(amountOfFood);
                             break;
                     }
@@ -179,10 +174,9 @@ public class Player {
                 break;
 
             case "Get":
-                if (grass.kilos == 0){
+                if (grass.kilos == 0) {
                     System.out.println("Du har inte någon mat för geten");
-                }
-                else {
+                } else {
                     Goat goat = (Goat) animal;
                     System.out.println("Välj vad geten ska äta, se alternativen nedan.");
                     System.out.println("1.Gräs");
@@ -194,7 +188,7 @@ public class Player {
                             System.out.println("Du har: " + getGrass() + "kg" + " gräs");
                             System.out.print("Ange antal kilo gräs: ");
                             amountOfFood = console.nextInt();
-                            goat.eat("Grass",amountOfFood );
+                            goat.eat("Grass", amountOfFood);
                             grass.removeKilos(amountOfFood);
                             break;
                     }
@@ -202,23 +196,22 @@ public class Player {
                 break;
 
             case "Kyckling":
-                if (cattleFood.kilos == 0){
+                if (cattleFood.kilos == 0) {
                     System.out.println("Du har inte någon mat för kycklingen");
 
-                }
-                else {
+                } else {
                     Chicken chicken = (Chicken) animal;
                     System.out.println("Välj vad kycklingen ska äta, se alternativen nedan.");
                     System.out.println("1.foder");
                     System.out.print("Mata in en siffra för att gör ett val: ");
                     foodChoice = console.nextInt();
-                    switch (foodChoice){
+                    switch (foodChoice) {
                         case 1:
                             System.out.println("Hur många kilo foder vill du mata kycklingen med?");
                             System.out.println("Du har: " + getCattleFood() + "kg" + " foder");
                             System.out.print("Ange antal kilo foder: ");
                             amountOfFood = console.nextInt();
-                            chicken.eat("CattleFood",amountOfFood );
+                            chicken.eat("CattleFood", amountOfFood);
                             cattleFood.removeKilos(amountOfFood);
                             break;
                     }
@@ -228,7 +221,7 @@ public class Player {
     }
 
     public void animalHealthDecrease() {
-        for (Animal animal : animalsList){
+        for (Animal animal : animalsList) {
             animal.healthDecrease();
         }
     }

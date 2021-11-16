@@ -11,6 +11,7 @@ public class Store {
     private Scanner console;
     private Player player;
     private int price;
+    private int reSalePrice;
     private int creditCard;
     private Menus menusOptions;
     //Animals
@@ -24,25 +25,26 @@ public class Store {
     private Grass grass;
     private Hay hay;
 
-    public Store(Player player){
+    public Store(Player player) {
         this.console = new Scanner(System.in);
         this.menusOptions = new Menus();
-        this.player =  player;
+        this.player = player;
 
     }
+
     //Method for buying animals
-    public void buyAnimalMenu(){
+    public void buyAnimalMenu() {
         System.out.println("Välkommen till affären! ");
         System.out.println("I denna delen av affären köper du djur, se alternativen nedan.");
         System.out.println("-".repeat(50));
-        System.out.println("Spelare: " + player.getName()  + " | " +" Pengar: " + player.getMoney() + "kr");
+        System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
         menusOptions.printAnimalPriceMenu();
         int animalChoice = console.nextInt();
         int newAmountOfMoney;
         int genderOption;
         int option;
         String animalName;
-        switch (animalChoice){
+        switch (animalChoice) {
             case 1:
                 System.out.println("Kon kostar 200kr");
                 price = 200;
@@ -69,7 +71,7 @@ public class Store {
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
                     option = console.nextInt();
-                    switch (option){
+                    switch (option) {
                         case 1:
                             buyAnimalMenu();
                             break;
@@ -104,7 +106,17 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.horse);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println("Vill du köpa fler djur?");
+                    System.out.println("1.Ja, 2.Nej");
+                    option = console.nextInt();
+                    switch (option) {
+                        case 1:
+                            buyAnimalMenu();
+                            break;
+                        default:
+                            break;
+
+                    }
                 }
                 break;
 
@@ -132,7 +144,17 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.pig);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println("Vill du köpa fler djur?");
+                    System.out.println("1.Ja, 2.Nej");
+                    option = console.nextInt();
+                    switch (option) {
+                        case 1:
+                            buyAnimalMenu();
+                            break;
+                        default:
+                            break;
+
+                    }
                 }
                 break;
             case 4:
@@ -159,7 +181,17 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.goat);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println("Vill du köpa fler djur?");
+                    System.out.println("1.Ja, 2.Nej");
+                    option = console.nextInt();
+                    switch (option) {
+                        case 1:
+                            buyAnimalMenu();
+                            break;
+                        default:
+                            break;
+
+                    }
                 }
                 break;
 
@@ -187,34 +219,44 @@ public class Store {
                     }
 
                     this.player.addAnimalToList(this.chicken);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println("Vill du köpa fler djur?");
+                    System.out.println("1.Ja, 2.Nej");
+                    option = console.nextInt();
+                    switch (option) {
+                        case 1:
+                            buyAnimalMenu();
+                            break;
+                        default:
+                            break;
+
+                    }
                 }
                 break;
         }
     }
+
     //Method for buying food
-    public void buyAnimalFood(){
+    public void buyAnimalFood() {
         System.out.println("Välkommen till affären! ");
         System.out.println("I denna delen av affären köper du mat till dina djur, se alternativen nedan.");
         System.out.println("-".repeat(50));
         menusOptions.printFoodPriceMenu();
         int foodChoice = console.nextInt();
         int newAmountOfMoney2;
-        switch (foodChoice){
+        switch (foodChoice) {
             case 1:
                 System.out.println("Höet kostar 100kr");
                 price = 100;
                 creditCard = player.getMoney();
-                if (price > creditCard){
+                if (price > creditCard) {
                     System.out.println("Köpet gick inte igenom");
-                }
-                else {
+                } else {
                     newAmountOfMoney2 = creditCard -= price;
                     player.setMoney(newAmountOfMoney2);
                     this.hay = new Hay();
                     System.out.println("Du har köpt 1kg hö!");
                     this.player.buyFood("hö", 1);
-                    System.out.println(player.getName() +" Pengar: " + this.creditCard);
+                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
                 }
                 break;
 
@@ -222,10 +264,9 @@ public class Store {
                 System.out.println("Gräset kostar 80kr");
                 price = 80;
                 creditCard = player.getMoney();
-                if (price > creditCard){
+                if (price > creditCard) {
                     System.out.println("Köpet gick inte igenom");
-                }
-                else {
+                } else {
                     newAmountOfMoney2 = creditCard -= price;
                     player.setMoney(newAmountOfMoney2);
                     this.grass = new Grass();
@@ -240,10 +281,9 @@ public class Store {
                 System.out.println("Fodret kostar 50kr");
                 price = 50;
                 creditCard = player.getMoney();
-                if (price > creditCard){
+                if (price > creditCard) {
                     System.out.println("Köpet gick inte igenom");
-                }
-                else {
+                } else {
                     newAmountOfMoney2 = creditCard -= price;
                     player.setMoney(newAmountOfMoney2);
                     this.cattleFood = new CattleFood();
@@ -255,22 +295,184 @@ public class Store {
                 break;
         }
     }
-    public void sellAnimal(){
+
+    public void sellAnimal() {
         System.out.println("Välkommen till affären! ");
         System.out.println("I denna delen av affären säljer du djur, se alternativen nedan.");
         System.out.println("-".repeat(50));
-        System.out.println("Spelare: " + player.getName()  + " | " +" Pengar: " + player.getMoney() + "kr");
-        player.printAnimals();
-        int newAmountOfMoney3;
-        int animalSellChoice = console.nextInt();
-        switch (animalSellChoice){
-            case 1:
+        System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
 
-                break;
-
+        for (int i = 0; i < player.animalsList.size(); i++){
+            System.out.println(i + ": " + "Typ: " + player.animalsList.get(i).getAnimalType() + " | " + "Kön: " + player.animalsList.get(i).getGender() + " | " + "Namn: " + player.animalsList.get(i).getName() + " | "
+                    + "Liv: " + player.animalsList.get(i).getHealth() + "%");
         }
+        int newAmountOfMoney3;
+        int option;
+        int animalSellChoice = console.nextInt();
+        String animalType = player.animalsList.get(animalSellChoice).getAnimalType();
+        switch (animalType) {
+            case "Ko":
+                reSalePrice = (200 * (player.animalsList.get(animalSellChoice).getHealth()) / 100);
+                System.out.println("Priset för din ko är: " + reSalePrice + "kr");
+                System.out.println("Vill du sälja din ko?");
+                System.out.println("1.Ja, 2.Sälj ett annat djur");
+                option = console.nextInt();
+                switch (option){
+                    case 1:
+                        player.animalsList.remove(animalSellChoice);
+                        creditCard = player.getMoney();
+                        newAmountOfMoney3 = creditCard + reSalePrice;
+                        player.setMoney(newAmountOfMoney3);
+                        System.out.println("Du sålde din ko för: " + reSalePrice + "kr");
+                        System.out.println("Vill du sälja fler djur?");
+                        System.out.println("1.Ja, 2.Nej");
+                        option = console.nextInt();
+                        switch (option) {
+                            case 1:
+                                if (player.animalsList.isEmpty()){
+                                    System.out.println("Du har inte några djur att sälja");
+                                }
+                                else {
+                                    sellAnimal();
+                                    break;
+                                }
+                        }
+                        break;
+                    case 2:
+                        sellAnimal();
+                        break;
+                }
+            break;
 
-
+            case "Häst":
+                reSalePrice = (150 * (player.animalsList.get(animalSellChoice).getHealth()) / 100);
+                System.out.println("Priset för din häst är: " + reSalePrice + "kr");
+                System.out.println("Vill du sälja din häst?");
+                System.out.println("1.Ja, 2.Sälj ett annat djur");
+                option = console.nextInt();
+                switch (option) {
+                    case 1:
+                        player.animalsList.remove(animalSellChoice);
+                        creditCard = player.getMoney();
+                        newAmountOfMoney3 = creditCard + reSalePrice;
+                        player.setMoney(newAmountOfMoney3);
+                        System.out.println("Du sålde din häst för: " + reSalePrice + "kr");
+                        System.out.println("Vill du sälja fler djur?");
+                        System.out.println("1.Ja, 2.Nej");
+                        option = console.nextInt();
+                        switch (option) {
+                            case 1:
+                                if (player.animalsList.isEmpty()){
+                                    System.out.println("Du har inte några djur att sälja");
+                                }
+                                else {
+                                    sellAnimal();
+                                    break;
+                                }
+                        }
+                        break;
+                    case 2:
+                        sellAnimal();
+                        break;
+                }
+                break;
+            case "Gris":
+                reSalePrice = (100 * (player.animalsList.get(animalSellChoice).getHealth()) / 100);
+                System.out.println("Priset för din gris är: " + reSalePrice + "kr");
+                System.out.println("Vill du sälja din gris?");
+                System.out.println("1.Ja, 2.Sälj ett annat djur");
+                option = console.nextInt();
+                switch (option) {
+                    case 1:
+                        player.animalsList.remove(animalSellChoice);
+                        creditCard = player.getMoney();
+                        newAmountOfMoney3 = creditCard + reSalePrice;
+                        player.setMoney(newAmountOfMoney3);
+                        System.out.println("Du sålde din gris för: " + reSalePrice + "kr");
+                        System.out.println("Vill du sälja fler djur?");
+                        System.out.println("1.Ja, 2.Nej");
+                        option = console.nextInt();
+                        switch (option) {
+                            case 1:
+                                if (player.animalsList.isEmpty()){
+                                    System.out.println("Du har inte några djur att sälja");
+                                }
+                                else {
+                                    sellAnimal();
+                                    break;
+                                }
+                        }
+                        break;
+                    case 2:
+                        sellAnimal();
+                        break;
+                }
+                break;
+            case "Get":
+                reSalePrice = (80 * (player.animalsList.get(animalSellChoice).getHealth()) / 100);
+                System.out.println("Priset för din get är: " + reSalePrice + "kr");
+                System.out.println("Vill du sälja din get?");
+                System.out.println("1.Ja, 2.Sälj ett annat djur");
+                option = console.nextInt();
+                switch (option) {
+                    case 1:
+                        player.animalsList.remove(animalSellChoice);
+                        creditCard = player.getMoney();
+                        newAmountOfMoney3 = creditCard + reSalePrice;
+                        player.setMoney(newAmountOfMoney3);
+                        System.out.println("Du sålde din get för: " + reSalePrice + "kr");
+                        System.out.println("Vill du sälja fler djur?");
+                        System.out.println("1.Ja, 2.Nej");
+                        option = console.nextInt();
+                        switch (option) {
+                            case 1:
+                                if (player.animalsList.isEmpty()){
+                                    System.out.println("Du har inte några djur att sälja");
+                                }
+                                else {
+                                    sellAnimal();
+                                    break;
+                                }
+                        }
+                        break;
+                    case 2:
+                        sellAnimal();
+                        break;
+                }
+                break;
+            case "Kyckling":
+                reSalePrice = (50 * (player.animalsList.get(animalSellChoice).getHealth()) / 100);
+                System.out.println("Priset för din kyckling är: " + reSalePrice + "kr");
+                System.out.println("Vill du sälja din kyckling?");
+                System.out.println("1.Ja, 2.Sälj ett annat djur");
+                option = console.nextInt();
+                switch (option) {
+                    case 1:
+                        player.animalsList.remove(animalSellChoice);
+                        creditCard = player.getMoney();
+                        newAmountOfMoney3 = creditCard + reSalePrice;
+                        player.setMoney(newAmountOfMoney3);
+                        System.out.println("Du sålde din kyckling för: " + reSalePrice + "kr");
+                        System.out.println("Vill du sälja fler djur?");
+                        System.out.println("1.Ja, 2.Nej");
+                        option = console.nextInt();
+                        switch (option) {
+                            case 1:
+                                if (player.animalsList.isEmpty()){
+                                    System.out.println("Du har inte några djur att sälja");
+                                }
+                                else {
+                                    sellAnimal();
+                                    break;
+                                }
+                        }
+                        break;
+                    case 2:
+                        sellAnimal();
+                        break;
+                }
+                break;
+        }
     }
 
 }
