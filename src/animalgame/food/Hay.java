@@ -1,4 +1,4 @@
-package animalgame.food;
+package animalgame.Food;
 
 public class Hay extends Food {
     public int kilos = 0;
