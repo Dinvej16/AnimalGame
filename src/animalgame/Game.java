@@ -14,9 +14,10 @@ public class Game {
     private int minPlayers = 2;
 
     private int rounds;
-    private int loadedRound = 1; //
+    private int loadedRound = 1;
     private int maxRounds = 30;
     private int minRounds = 5;
+    private int currentRound = 1;
 
 
     private Menus menuOptions;
@@ -38,6 +39,7 @@ public class Game {
                 initPlayers();
                 System.out.println("\n".repeat(20));
                 initRounds();
+                System.out.println("\n".repeat(20));
                 this.mainMenu();
                 calculateEndresult();
                 displayWinner();
@@ -65,6 +67,7 @@ public class Game {
         }
         System.out.println("Vinnaren är: " + playerName);
     }
+
     private void calculateEndresult(){
         System.out.println("Antal spelare: " + players.size());
         System.out.println("-".repeat(50));
@@ -142,20 +145,14 @@ public class Game {
         }
     }
 
-    public void printPlayerInfo() {
-        System.out.println("Antal aktiva spelare: " + players.size());
-        for (Player players : players) {
-            System.out.println("Spelare: " + players.getName() + " | " + " Pengar: " + players.getMoney() + "kr");
-        }
-    }
-
     public void mainMenu() {
         for (int i = loadedRound; i <= rounds; i++) {
+            System.out.println("\n".repeat(20));
+            System.out.println("Runda: " + currentRound ++);
             for (Player player : players) {
                 String activePlayer = player.getName();
                 System.out.println("-".repeat(50));
                 System.out.println(player.getName() + "s" + " djur: ");
-
                 player.getAnimals();
                 System.out.println("-".repeat(50));
                 System.out.println(activePlayer + " det är din tur!" + "\n" + "Pengar: " + player.getMoney() + "Kr"
@@ -191,6 +188,7 @@ public class Game {
                         break;
                     case 5:
                         //Sälj djur
+                        //Klar
                         System.out.println("Välkommen till djuraffären! ");
                         System.out.println("I denna delen säljer du djur, se alternativen nedan.");
                         this.store = new Store(player);
@@ -198,6 +196,7 @@ public class Game {
                         break;
                     case 6:
                         //Spara spel
+                        //klar
                         saveGameAndExit(i);
                         System.out.println("Spelet avslutas... ");
                         System.exit(0);
