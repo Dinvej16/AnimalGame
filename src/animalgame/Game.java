@@ -34,8 +34,6 @@ public class Game {
         initPlayers();
         System.out.println("-".repeat(50));
         initRounds();
-        //System.out.println("-".repeat(50));
-        //printPlayerInfo();
         this.mainMenu();
         calculateEndResult();
         displayWinner();
