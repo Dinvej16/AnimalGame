@@ -166,6 +166,8 @@ public class Game {
                         break;
                     case 6:
                         saveGameAndExit(i);
+                        System.out.println("Spelet avslutas... ");
+                        System.exit(0);
                         break;
                 }
                 player.animalHealthDecrease();
