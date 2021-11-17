@@ -115,8 +115,13 @@ public class Player {
                             System.out.println("Du har: " + getGrass() + "kg" + " gräs");
                             System.out.print("Ange antal kilo gräs: ");
                             amountOfFood = console.nextInt();
-                            cow.eat("Grass", amountOfFood);
-                            grass.removeKilos(amountOfFood); //reducing players food storage!!
+                            if (amountOfFood > grass.kilos){
+                                System.out.println("Du har för lite mat, försök igen");
+                            }
+                            else {
+                                cow.eat("Grass", amountOfFood);
+                                grass.removeKilos(amountOfFood);
+                            }
                             break;
                     }
                 }

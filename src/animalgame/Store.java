@@ -70,6 +70,7 @@ public class Store {
                     this.player.addAnimalToList(this.cow);
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
                     option = console.nextInt();
                     switch (option) {
                         case 1:
@@ -77,7 +78,6 @@ public class Store {
                             break;
                         default:
                             break;
-
                     }
                 }
                 break;
@@ -108,6 +108,7 @@ public class Store {
                     this.player.addAnimalToList(this.horse);
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
                     option = console.nextInt();
                     switch (option) {
                         case 1:
@@ -115,7 +116,6 @@ public class Store {
                             break;
                         default:
                             break;
-
                     }
                 }
                 break;
@@ -146,6 +146,7 @@ public class Store {
                     this.player.addAnimalToList(this.pig);
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
                     option = console.nextInt();
                     switch (option) {
                         case 1:
@@ -153,7 +154,6 @@ public class Store {
                             break;
                         default:
                             break;
-
                     }
                 }
                 break;
@@ -183,6 +183,7 @@ public class Store {
                     this.player.addAnimalToList(this.goat);
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
                     option = console.nextInt();
                     switch (option) {
                         case 1:
@@ -190,7 +191,6 @@ public class Store {
                             break;
                         default:
                             break;
-
                     }
                 }
                 break;
@@ -221,6 +221,7 @@ public class Store {
                     this.player.addAnimalToList(this.chicken);
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
                     option = console.nextInt();
                     switch (option) {
                         case 1:
@@ -228,7 +229,6 @@ public class Store {
                             break;
                         default:
                             break;
-
                     }
                 }
                 break;
@@ -237,11 +237,10 @@ public class Store {
 
     //Method for buying food
     public void buyAnimalFood() {
-        System.out.println("Välkommen till affären! ");
-        System.out.println("I denna delen av affären köper du mat till dina djur, se alternativen nedan.");
         System.out.println("-".repeat(50));
         menusOptions.printFoodPriceMenu();
         int foodChoice = console.nextInt();
+        int option;
         int newAmountOfMoney2;
         switch (foodChoice) {
             case 1:
@@ -255,8 +254,19 @@ public class Store {
                     player.setMoney(newAmountOfMoney2);
                     this.hay = new Hay();
                     System.out.println("Du har köpt 1kg hö!");
+
                     this.player.buyFood("hö", 1);
-                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
+                    System.out.println("Vill du köpa mer mat?");
+                    System.out.println("1.Ja, 2.Nej");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
+                    option = console.nextInt();
+                    switch (option) {
+                        case 1:
+                            buyAnimalFood();
+                            break;
+                        default:
+                            break;
+                    };
                 }
                 break;
 
@@ -271,9 +281,19 @@ public class Store {
                     player.setMoney(newAmountOfMoney2);
                     this.grass = new Grass();
                     System.out.println("Du har köpt 1kg gräs!");
-                    this.player.buyFood("gräs", 1);
-                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
 
+                    this.player.buyFood("gräs", 1);
+                    System.out.println("Vill du köpa mer mat?");
+                    System.out.println("1.Ja, 2.Nej");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
+                    option = console.nextInt();
+                    switch (option) {
+                        case 1:
+                            buyAnimalFood();
+                            break;
+                        default:
+                            break;
+                    };
                 }
                 break;
 
@@ -288,9 +308,19 @@ public class Store {
                     player.setMoney(newAmountOfMoney2);
                     this.cattleFood = new CattleFood();
                     System.out.println("Du har köpt 1kg foder!");
-                    this.player.buyFood("foder", 1);
-                    System.out.println(player.getName() + " Pengar: " + this.creditCard);
 
+                    this.player.buyFood("foder", 1);
+                    System.out.println("Vill du köpa mer mat?");
+                    System.out.println("1.Ja, 2.Nej");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
+                    option = console.nextInt();
+                    switch (option) {
+                        case 1:
+                            buyAnimalFood();
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 break;
         }
@@ -352,6 +382,7 @@ public class Store {
                 System.out.println("Priset för din häst är: " + reSalePrice + "kr");
                 System.out.println("Vill du sälja din häst?");
                 System.out.println("1.Ja, 2.Sälj ett annat djur");
+                System.out.print("Mata in en siffra för att göra ett val: ");
                 option = console.nextInt();
                 switch (option) {
                     case 1:
@@ -362,6 +393,7 @@ public class Store {
                         System.out.println("Du sålde din häst för: " + reSalePrice + "kr");
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
+                        System.out.print("Mata in en siffra för att göra ett val: ");
                         option = console.nextInt();
                         switch (option) {
                             case 1:
@@ -384,6 +416,7 @@ public class Store {
                 System.out.println("Priset för din gris är: " + reSalePrice + "kr");
                 System.out.println("Vill du sälja din gris?");
                 System.out.println("1.Ja, 2.Sälj ett annat djur");
+                System.out.print("Mata in en siffra för att göra ett val: ");
                 option = console.nextInt();
                 switch (option) {
                     case 1:
@@ -394,6 +427,7 @@ public class Store {
                         System.out.println("Du sålde din gris för: " + reSalePrice + "kr");
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
+                        System.out.print("Mata in en siffra för att göra ett val: ");
                         option = console.nextInt();
                         switch (option) {
                             case 1:
@@ -416,6 +450,7 @@ public class Store {
                 System.out.println("Priset för din get är: " + reSalePrice + "kr");
                 System.out.println("Vill du sälja din get?");
                 System.out.println("1.Ja, 2.Sälj ett annat djur");
+                System.out.print("Mata in en siffra för att göra ett val: ");
                 option = console.nextInt();
                 switch (option) {
                     case 1:
@@ -426,6 +461,7 @@ public class Store {
                         System.out.println("Du sålde din get för: " + reSalePrice + "kr");
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
+                        System.out.print("Mata in en siffra för att göra ett val: ");
                         option = console.nextInt();
                         switch (option) {
                             case 1:
@@ -448,6 +484,7 @@ public class Store {
                 System.out.println("Priset för din kyckling är: " + reSalePrice + "kr");
                 System.out.println("Vill du sälja din kyckling?");
                 System.out.println("1.Ja, 2.Sälj ett annat djur");
+                System.out.print("Mata in en siffra för att göra ett val: ");
                 option = console.nextInt();
                 switch (option) {
                     case 1:
@@ -458,6 +495,7 @@ public class Store {
                         System.out.println("Du sålde din kyckling för: " + reSalePrice + "kr");
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
+                        System.out.print("Mata in en siffra för att göra ett val: ");
                         option = console.nextInt();
                         switch (option) {
                             case 1:

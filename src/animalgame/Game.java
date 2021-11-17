@@ -117,6 +117,8 @@ public class Game {
                         break;
                     case 2:
                         //Klar
+                        System.out.println("Välkommen till djuraffären! ");
+                        System.out.println("Här köper du mat till djuren, se alternativen nedan.");
                         this.store = new Store(player);
                         store.buyAnimalFood();
                         break;
@@ -129,9 +131,9 @@ public class Game {
                         //Para djur
                         break;
                     case 5:
-                        this.store = new Store(player);
                         System.out.println("Välkommen till djuraffären! ");
                         System.out.println("I denna delen säljer du djur, se alternativen nedan.");
+                        this.store = new Store(player);
                         store.sellAnimal();
                         //Sälj djur
                         break;

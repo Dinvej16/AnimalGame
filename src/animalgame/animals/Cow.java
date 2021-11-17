@@ -30,7 +30,7 @@ public class Cow extends Animal {
             System.out.println("Jag är inte hungrig just nu!");
 
         } else {
-            System.out.println("Mooo va gott med gärs, Tack!");
+            System.out.println("Mooo va gott med gräs, Tack!");
             health += 10;
         }
     }
