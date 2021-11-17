@@ -1,5 +1,7 @@
 package animalgame;
 
+import animalgame.animals.Animal;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -35,11 +37,35 @@ public class Game {
         //System.out.println("-".repeat(50));
         //printPlayerInfo();
         this.mainMenu();
-
-        //
+        calculateEndResult();
+        displayWinner();
         //while( currentRound <= gameRounds ){
         //playRound();
-        //calculateEndResult();
+
+    }
+    private void displayWinner(){
+        int playerWinner = 0;
+        String playerName = null;
+        for (Player player : players){
+            String activePlayer = player.getName();
+            int currentMoney = player.getMoney();
+
+            if(currentMoney > playerWinner){
+                playerWinner = currentMoney;
+                playerName = activePlayer;
+            }
+        }
+        System.out.println("Vinnaren är " + playerName);
+    }
+
+    private void calculateEndResult(){
+        System.out.println("Antal spelare: " + players.size());
+        System.out.println("-".repeat(50));
+        for (Player player : players){
+            String activePlayer = player.getName();
+            System.out.println(activePlayer + " Din totala summa blev: " + player.getMoney() + "kr ");
+            System.out.println("-".repeat(50));
+        }
     }
 
     /**
@@ -133,6 +159,12 @@ public class Game {
                         break;
                 }
                 player.animalHealthDecrease();
+                if (i == (rounds - 1)){
+                    for (Animal animal : player.animalsList){
+                        System.out.println(animal.getAnimalType());
+                        store.sellAllAnimals(animal.getAnimalType(), animal.getHealth());
+                    }
+                }
             }
 
         }
