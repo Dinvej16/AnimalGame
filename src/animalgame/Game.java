@@ -86,6 +86,7 @@ public class Game {
         }
         else {
             System.out.println("Lämnar spelet...");
+            System.exit(0);
         }
 
     }
@@ -161,7 +162,7 @@ public class Game {
                         + " | " + "Gräs: " + player.getGrass() + "kg" +" | " + "Hö: "+ player.getHay()+ "kg" + " | " + "Foder: "+ player.getCattleFood() + "kg" + "\n");
                 menuOptions.printMainMenu();
                 int mainOptions = Integer.parseInt(console.nextLine());
-                System.out.println("-".repeat(20));
+                System.out.println("-".repeat(50));
                 switch (mainOptions) {
                     case 1:
                         //Köp djur

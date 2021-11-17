@@ -240,166 +240,161 @@ public class Player implements Serializable {
 
     public void mateTheAnimals(){
         Scanner console = new Scanner(System.in);
-        System.out.println("Välj vilken typ av djur du vill skapa");
-        System.out.println("1.Ko, 2.Häst, 3.Gris, 4.Get, 5.Kyckling");
-        int animalToMate = Integer.parseInt(console.nextLine());
-        switch (animalToMate){
-            case 1:
-                for (int i = 0; i < animalsList.size(); i++){
-                    if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")){
-                        System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + " Kön: " + animalsList.get(i).getGender());
-                    }
-                }
-                System.out.println("Välj en ko av type hane");
-                System.out.print("Mata in en siffra för att göra ett val: ");
-
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + " Kön: " + animalsList.get(i).getGender());
+        if (animalsList.isEmpty()){
+            System.out.println(name + " du har inte några djur att para...");
+        }
+        else {
+            System.out.println("Välj vilken typ av djur du vill para");
+            System.out.println("1.Ko, 2.Häst, 3.Gris, 4.Get, 5.Kyckling");
+            int animalToMate = Integer.parseInt(console.nextLine());
+            switch (animalToMate){
+                case 1:
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")){
+                            System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + " Kön: " + animalsList.get(i).getGender());
                         }
                     }
-                }
-                int maleCow = Integer.parseInt(console.nextLine());
-                System.out.println("Välj en ko av type hona ");
-                System.out.print("Mata in en siffra för att göra ett val: ");
+                    System.out.println("Välj en ko av könet Hane");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
 
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                            }
                         }
                     }
-                }
-                int femaleCow = Integer.parseInt(console.nextLine());
-                mateAnimals.CreateNewAnimals(this, animalsList.get(maleCow), animalsList.get(femaleCow));
-                break;
+                    int maleCow = Integer.parseInt(console.nextLine());
+                    System.out.println("Välj en ko av könet Hona ");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
 
-            case 2:
-                for (int i = 0; i < animalsList.size(); i++){
-                    if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")){
-                        System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
-                    }
-                }
-                System.out.println("Välj en häst av type hane");
-                System.out.print("Mata in en siffra för att göra ett val: ");
-
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
+                            }
                         }
                     }
-                }
-                int maleHorse = Integer.parseInt(console.nextLine());
-                System.out.println("Välj en häst av type hona ");
-                System.out.print("Mata in en siffra för att göra ett val: ");
+                    int femaleCow = Integer.parseInt(console.nextLine());
+                    mateAnimals.CreateNewAnimals(this, animalsList.get(maleCow), animalsList.get(femaleCow));
+                    break;
 
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                case 2:
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")){
+                            System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + " Kön: " + animalsList.get(i).getGender());
+
                         }
                     }
-                }
-                int femaleHorse = Integer.parseInt(console.nextLine());
-                mateAnimals.CreateNewAnimals(this, animalsList.get(maleHorse), animalsList.get(femaleHorse));
-                break;
+                    System.out.println("Välj en häst av könet Hane");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
 
-            case 3:
-                for (int i = 0; i < animalsList.size(); i++){
-                    if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")){
-                        System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
-                    }
-                }
-                System.out.println("Välj en gris av type hane");
-                System.out.print("Mata in en siffra för att göra ett val: ");
-
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                            }
                         }
                     }
-                }
-                int malePig = Integer.parseInt(console.nextLine());
-                System.out.println("Välj en gris av type hona ");
-                System.out.print("Mata in en siffra för att göra ett val: ");
+                    int maleHorse = Integer.parseInt(console.nextLine());
+                    System.out.println("Välj en häst av könet Hona ");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
 
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
+                                System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                            }
                         }
                     }
-                }
-                int femalePig = Integer.parseInt(console.nextLine());
-                mateAnimals.CreateNewAnimals(this, animalsList.get(malePig), animalsList.get(femalePig));
-                break;
-            case 4:
-                for (int i = 0; i < animalsList.size(); i++){
-                    if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")){
-                        System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
-                    }
-                }
-                System.out.println("Välj en get av type hane");
-                System.out.print("Mata in en siffra för att göra ett val: ");
+                    int femaleHorse = Integer.parseInt(console.nextLine());
+                    mateAnimals.CreateNewAnimals(this, animalsList.get(maleHorse), animalsList.get(femaleHorse));
+                    break;
 
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                case 3:
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")){
+                            System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
                         }
                     }
-                }
-                int maleGoat = Integer.parseInt(console.nextLine());
-                System.out.println("Välj en get av type hona ");
-                System.out.print("Mata in en siffra för att göra ett val: ");
+                    System.out.println("Välj en gris av könet Hane");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
 
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                            }
                         }
                     }
-                }
-                int femaleGoat = Integer.parseInt(console.nextLine());
-                mateAnimals.CreateNewAnimals(this, animalsList.get(maleGoat), animalsList.get(femaleGoat));
-                break;
+                    int malePig = Integer.parseInt(console.nextLine());
+                    System.out.println("Välj en gris av könet Hona ");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
 
-            case 5:
-                for (int i = 0; i < animalsList.size(); i++){
-                    if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")){
-                        System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
-                    }
-                }
-                System.out.println("Välj en kyckling av type hane");
-                System.out.print("Mata in en siffra för att göra ett val: ");
-
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
+                            }
                         }
                     }
-                }
-                int maleChicken = Integer.parseInt(console.nextLine());
-                System.out.println("Välj en kyckling av type hona ");
-                System.out.print("Mata in en siffra för att göra ett val: ");
-
-                for (int i = 0; i < animalsList.size(); i++){
-                    if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")){
-                        if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
-                            System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                    int femalePig = Integer.parseInt(console.nextLine());
+                    mateAnimals.CreateNewAnimals(this, animalsList.get(malePig), animalsList.get(femalePig));
+                    break;
+                case 4:
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")){
+                            System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
                         }
                     }
-                }
-                int femaleChicken = Integer.parseInt(console.nextLine());
-                mateAnimals.CreateNewAnimals(this, animalsList.get(maleChicken), animalsList.get(femaleChicken));
-                break;
+                    System.out.println("Välj en get av könet Hane");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
+
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                            }
+                        }
+                    }
+                    int maleGoat = Integer.parseInt(console.nextLine());
+                    System.out.println("Välj en get av könet Hona ");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
+
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
+                            }
+                        }
+                    }
+                    int femaleGoat = Integer.parseInt(console.nextLine());
+                    mateAnimals.CreateNewAnimals(this, animalsList.get(maleGoat), animalsList.get(femaleGoat));
+                    break;
+
+                case 5:
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")){
+                        }
+                    }
+                    System.out.println("Välj en kyckling av könet Hane");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
+
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                            }
+                        }
+                    }
+                    int maleChicken = Integer.parseInt(console.nextLine());
+                    System.out.println("Välj en kyckling av könet Hona ");
+                    System.out.print("Mata in en siffra för att göra ett val: ");
+
+                    for (int i = 0; i < animalsList.size(); i++){
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")){
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
+                            }
+                        }
+                    }
+                    int femaleChicken = Integer.parseInt(console.nextLine());
+                    mateAnimals.CreateNewAnimals(this, animalsList.get(maleChicken), animalsList.get(femaleChicken));
+                    break;
+            }
         }
     }
-
 
     public int getCattleFood() {
         return cattleFood.getKilos();

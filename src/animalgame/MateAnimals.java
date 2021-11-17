@@ -34,8 +34,8 @@ public class MateAnimals implements Serializable {
                                 String type = maleAnimal.getAnimalType();
                                 switch (type) {
                                     case "Ko":
-                                        System.out.println("Det blev en hane!");
-                                        System.out.println("Vad ska han han heta?");
+                                        System.out.println("Det blev en pojke! Grattis!");
+                                        System.out.println("Vad ska han heta?");
                                         String cowMale = console.nextLine();
                                         cow = new Cow(cowMale);
                                         cow.setGender("Hane");
@@ -44,8 +44,8 @@ public class MateAnimals implements Serializable {
                                         break;
 
                                     case "Häst":
-                                        System.out.println("Det blev en hane!");
-                                        System.out.println("Vad ska han han heta?");
+                                        System.out.println("Det blev en pojke! Grattis!");
+                                        System.out.println("Vad ska han heta?");
                                         String horseMale = console.nextLine();
                                         horse = new Horse(horseMale);
                                         horse.setGender("Hane");
@@ -54,8 +54,8 @@ public class MateAnimals implements Serializable {
                                         break;
 
                                     case "Gris":
-                                        System.out.println("Det blev en hane!");
-                                        System.out.println("Vad ska han han heta?");
+                                        System.out.println("Det blev en pojke! Grattis!");
+                                        System.out.println("Vad ska han heta?");
                                         String pigMale = console.nextLine();
                                         pig = new Pig(pigMale);
                                         pig.setGender("Hane");
@@ -64,8 +64,8 @@ public class MateAnimals implements Serializable {
                                         break;
 
                                     case "Get":
-                                        System.out.println("Det blev en hane!");
-                                        System.out.println("Vad ska han han heta?");
+                                        System.out.println("Det blev en pojke! Grattis!");
+                                        System.out.println("Vad ska han heta?");
                                         String goatMale = console.nextLine();
                                         goat = new Goat(goatMale);
                                         goat.setGender("Hane");
@@ -74,8 +74,8 @@ public class MateAnimals implements Serializable {
                                         break;
 
                                     case "Kyckling":
-                                        System.out.println("Det blev en hane!");
-                                        System.out.println("Vad ska han han heta?");
+                                        System.out.println("Det blev en pojke! Grattis!");
+                                        System.out.println("Vad ska han heta?");
                                         String chickenMale = console.nextLine();
                                         chicken = new Chicken(chickenMale);
                                         chicken.setGender("Hane");
@@ -89,8 +89,8 @@ public class MateAnimals implements Serializable {
                                 String type2 = femaleAnimal.getAnimalType();
                                 switch (type2) {
                                     case "Ko":
-                                        System.out.println("Det blev en hona!");
-                                        System.out.println("Vad ska han hon heta?");
+                                        System.out.println("Det blev en flicka! Grattis!");
+                                        System.out.println("Vad ska hon heta?");
                                         String cowFemale = console.nextLine();
                                         cow = new Cow(cowFemale);
                                         cow.setGender("Hona");
@@ -99,8 +99,8 @@ public class MateAnimals implements Serializable {
                                         break;
 
                                     case "Häst":
-                                        System.out.println("Det blev en hona!");
-                                        System.out.println("Vad ska han hon heta?");
+                                        System.out.println("Det blev en flicka! Grattis!");
+                                        System.out.println("Vad ska hon heta?");
                                         String horseFemale = console.nextLine();
                                         horse = new Horse(horseFemale);
                                         horse.setGender("Hona");
@@ -109,8 +109,8 @@ public class MateAnimals implements Serializable {
                                         break;
 
                                     case "Gris":
-                                        System.out.println("Det blev en hona!");
-                                        System.out.println("Vad ska han hon heta?");
+                                        System.out.println("Det blev en flicka! Grattis!");
+                                        System.out.println("Vad ska hon heta?");
                                         String pigFemale = console.nextLine();
                                         pig = new Pig(pigFemale);
                                         pig.setGender("Hona");
@@ -119,8 +119,8 @@ public class MateAnimals implements Serializable {
                                         break;
 
                                     case "Get":
-                                        System.out.println("Det blev en hona!");
-                                        System.out.println("Vad ska han hon heta?");
+                                        System.out.println("Det blev en flicka! Grattis!");
+                                        System.out.println("Vad ska hon heta?");
                                         String goatFemale = console.nextLine();
                                         goat = new Goat(goatFemale);
                                         goat.setGender("Hona");
@@ -129,8 +129,8 @@ public class MateAnimals implements Serializable {
                                         break;
 
                                     case "Kyckling":
-                                        System.out.println("Det blev en hona!");
-                                        System.out.println("Vad ska han hon heta?");
+                                        System.out.println("Det blev en flicka! Grattis!");
+                                        System.out.println("Vad ska hon heta?");
                                         String chickenFemale = console.nextLine();
                                         chicken = new Chicken(chickenFemale);
                                         chicken.setGender("Hona");
