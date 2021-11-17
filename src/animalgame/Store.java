@@ -6,9 +6,10 @@ import animalgame.Food.Hay;
 import animalgame.animals.*;
 
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Store {
+public class Store implements Serializable {
     private Scanner console;
     private Player player;
     private int price;
@@ -30,11 +31,11 @@ public class Store {
         this.menusOptions = new Menus();
         this.player = player;
         this.console = new Scanner(System.in);
-
     }
 
     //Method for buying animals
     public void buyAnimalMenu() {
+
         System.out.println("-".repeat(50));
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
         menusOptions.printAnimalPriceMenu();
@@ -54,7 +55,7 @@ public class Store {
                     newAmountOfMoney = creditCard -= price;
                     this.player.setMoney(newAmountOfMoney);
                     System.out.print("Ge din ko ett namn: ");
-                    animalName = console.nextLine();
+                    animalName = console.next();
                     this.cow = new Cow(animalName);
                     System.out.println("Välj kön: 1.Hane, 2.Hona");
                     option = console.nextInt();
@@ -236,6 +237,7 @@ public class Store {
 
     //Method for buying food
     public void buyAnimalFood() {
+
         System.out.println("-".repeat(50));
         menusOptions.printFoodPriceMenu();
         int foodChoice = console.nextInt();
@@ -326,6 +328,8 @@ public class Store {
     }
 
     public void sellAnimal() {
+
+
         System.out.println("-".repeat(50));
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
         System.out.println("-".repeat(50));

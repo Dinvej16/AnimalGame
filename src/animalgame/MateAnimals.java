@@ -2,11 +2,12 @@ package animalgame;
 
 import animalgame.animals.*;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
-public class MateAnimals {
+public class MateAnimals implements Serializable {
 
     private Cow cow;
     private Horse horse;
@@ -14,9 +15,10 @@ public class MateAnimals {
     private Goat goat;
     private Chicken chicken;
 
-    private Scanner console = new Scanner(System.in);
 
     public void CreateNewAnimals(Player player, Animal maleAnimal, Animal femaleAnimal) {
+        Scanner console = new Scanner(System.in);
+
         if (Objects.equals(maleAnimal.getAnimalType(), femaleAnimal.getAnimalType())) {
             if (femaleAnimal.getGender().equalsIgnoreCase("Hona")) {
                 Random random = new Random();

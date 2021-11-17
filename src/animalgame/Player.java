@@ -22,9 +22,6 @@ public class Player implements Serializable {
     private Hay hay;
 
 
-
-
-
     public Player(String name) {
         this.name = name;
         this.animalsList = new ArrayList<>();
