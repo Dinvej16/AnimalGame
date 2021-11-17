@@ -26,7 +26,19 @@ public class Menus {
         System.out.print("Mata in en siffra för att göra ett val: ");
 
     }
-
-
+    public void printRulesAndInfo(){
+        System.out.println("""
+                Info om AnimalGame: Spelet AnimalGame är ett sällskaps spel, (2-4) personer kan spela och 
+                välja mellan (5-30) rundor. Varje spelare börjar med 1000kr som ska används till att köpa djur 
+                och köpa mat till djuren. Spelarna kan även sälja sina djur men inte för samma summa som vid köp
+                då priset är beroende av djurets liv. Efter varje runda så minskar djurens hälsa så glöm inte att mata dem.
+                Spelarna kan även para sina djur om de har två olika kön av samma djurtyp, det är 50% chans att 
+                parningen lyckas. När sista rundan är klar så säljs spelarnas djur automatiskt och spelaren med 
+                mest pengar utses till vinnare. 
+                
+                Regler: Du som spelare måste vara noga på vilka val du gör i spelet. Väljer du på t.ex. "Mata djur" 
+                och du inte har några tillgängliga djur så kommer spelet att låta nästa spelare att spela. Så tänk noga
+                på valen du gör!!!""");
+    }
 
 }

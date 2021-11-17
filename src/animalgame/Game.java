@@ -28,29 +28,41 @@ public class Game {
     public Game() {
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
-
         System.out.println("Välkommen till AnimalGame!");
-        System.out.println("1.Nytt spel, 2.Ladda spel");
-        System.out.print("Mata in en siffra för att göra ett val: ");
-        int startMenuChoice = Integer.parseInt(console.nextLine());
-        switch (startMenuChoice){
-            case 1:
-                System.out.println("\n".repeat(20));
-                initPlayers();
-                System.out.println("\n".repeat(20));
-                initRounds();
-                System.out.println("\n".repeat(20));
-                this.mainMenu();
-                calculateEndresult();
-                displayWinner();
-                break;
-            case 2:
-                loadGame();
-                this.mainMenu();
-                calculateEndresult();
-                displayWinner();
-                break;
+        for (int i = 0; i < 10; i++){
+            System.out.println("1.Nytt spel, 2.Ladda spel, 3.Regler & Info");
+            System.out.print("Mata in en siffra för att göra ett val: ");
+            int startMenuChoice = Integer.parseInt(console.nextLine());
+            switch (startMenuChoice){
+                case 1:
+                    System.out.println("\n".repeat(20));
+                    initPlayers();
+                    System.out.println("\n".repeat(20));
+                    initRounds();
+                    System.out.println("\n".repeat(20));
+                    this.mainMenu();
+                    calculateEndresult();
+                    displayWinner();
+                    break;
+
+                case 2:
+                    loadGame();
+                    this.mainMenu();
+                    calculateEndresult();
+                    displayWinner();
+                    break;
+
+                case 3:
+                    System.out.println("\n");
+                    menuOptions.printRulesAndInfo();
+                    System.out.println("\n");
+                    System.out.println("Tryck enter för att gå tillbaka...");
+                    console.nextLine();
+                    break;
+            }
+            i++;
         }
+
     }
 
     private void displayWinner(){
@@ -101,7 +113,6 @@ public class Game {
         FileHandler.saveGameRuntime(savedGame, fileToSave);
 
     }
-
     /**
      * Let user choose amount of rounds to play &
      * number of players in the game.
@@ -110,12 +121,18 @@ public class Game {
     public void initRounds() {
         System.out.println("(5-30)");
         System.out.print("Ange antalet spelrundor: ");
-        this.rounds = Integer.parseInt(console.nextLine());
-        if (rounds > maxRounds) {
-            System.out.println("Max antal rundor är 30! Försök igen... ");
-            initRounds();
-        } else if (rounds < minRounds) {
-            System.out.println("Minst antal rundor är 5! Försök igen...");
+        try {
+            this.rounds = Integer.parseInt(console.nextLine());
+            if (rounds > maxRounds) {
+                System.out.println("Max antal rundor är 30! Försök igen... ");
+                initRounds();
+            } else if (rounds < minRounds) {
+                System.out.println("Minst antal rundor är 5! Försök igen...");
+                initRounds();
+            }
+
+        } catch (Exception e){
+            System.out.println("Fel inmatning..., försök igen!");
             initRounds();
         }
     }
@@ -124,25 +141,31 @@ public class Game {
         System.out.println("(2-4)");
         System.out.print("Ange antalet spelare: ");
         this.players = new ArrayList<>();
-        int playersToCreate = Integer.parseInt(console.nextLine());
 
-        if (playersToCreate > maxPlayers) {
-            System.out.println("Max antal spelare som kan spela är 4! Försök igen...");
-            initPlayers();
+        try {
+            int playersToCreate = Integer.parseInt(console.nextLine());
+            if (playersToCreate > maxPlayers) {
+                System.out.println("Max antal spelare som kan spela är 4! Försök igen...");
+                initPlayers();
 
-        } else if (playersToCreate < minPlayers) {
-            System.out.println("Minst antal spelare som kan spela är 2! Försök igen...");
-            initPlayers();
-        }
-        else {
-            for (int i = 0; i < playersToCreate; i++) {
-                System.out.println("-".repeat(50));
-                System.out.println("Ange namn för spelare " + (i + 1));
-                String nameChoice = console.nextLine();
-                this.newPlayer = new Player(nameChoice);
-                players.add(newPlayer);
+            } else if (playersToCreate < minPlayers) {
+                System.out.println("Minst antal spelare som kan spela är 2! Försök igen...");
+                initPlayers();
             }
+            else {
+                for (int i = 0; i < playersToCreate; i++) {
+                    System.out.println("-".repeat(50));
+                    System.out.println("Ange namn för spelare " + (i + 1));
+                    String nameChoice = console.nextLine();
+                    this.newPlayer = new Player(nameChoice);
+                    players.add(newPlayer);
+                }
+            }
+        }catch (Exception e){
+            System.out.println("Fel inmatning..., försök igen!");
+            initPlayers();
         }
+
     }
 
     public void mainMenu() {

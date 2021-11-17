@@ -32,16 +32,17 @@ public class Store implements Serializable {
         this.player = player;
         this.console = new Scanner(System.in);
     }
+
     public void helpSellAllAnimals(int changedPrice) {
         int newAmountOfMoney3;
         if (player.animalsList.isEmpty()) {
             System.out.println("Du har inga djur att sälja");
         }
-        //player.animalsList.remove(animalSellChoice);
         creditCard = player.getMoney();
         newAmountOfMoney3 = creditCard + reSalePrice;
         player.setMoney(newAmountOfMoney3);
     }
+
     public void sellAllAnimals(String inputType, int chosenAnimal){
         int health = chosenAnimal;
         String animalType = inputType;

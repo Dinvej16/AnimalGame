@@ -244,8 +244,12 @@ public class Player implements Serializable {
             System.out.println(name + " du har inte några djur att para...");
         }
         else {
-            System.out.println("Välj vilken typ av djur du vill para");
+            System.out.println("Välj vilken typ av djur du vill para?");
+            System.out.println("Tillgängliga djur:");
+            printAnimals();
+            System.out.println("-".repeat(50));
             System.out.println("1.Ko, 2.Häst, 3.Gris, 4.Get, 5.Kyckling");
+            System.out.print("Mata in en siffra för att göra ett val: ");
             int animalToMate = Integer.parseInt(console.nextLine());
             switch (animalToMate){
                 case 1:
