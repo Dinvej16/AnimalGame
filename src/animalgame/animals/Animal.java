@@ -1,6 +1,8 @@
 package animalgame.animals;
 
-public abstract class Animal {
+import java.io.Serializable;
+
+public abstract class Animal implements Serializable {
 
     public abstract void eat(String foodChoice, int kilo);
 
@@ -24,6 +26,7 @@ public abstract class Animal {
 
     public abstract String getAnimalType();
 
+    public abstract void setType(String type);
 }
 
 

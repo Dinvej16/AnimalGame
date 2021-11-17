@@ -1,6 +1,8 @@
 package animalgame.Food;
 
-public class CattleFood extends Food {
+import java.io.Serializable;
+
+public class CattleFood extends Food implements Serializable {
     public int kilos = 0;
     private int heal = 0;
 

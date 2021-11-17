@@ -3,10 +3,11 @@ package animalgame.animals;
 
 import animalgame.Player;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Chicken extends Animal {
+public class Chicken extends Animal implements Serializable {
 
     private String name;
     private String gender;
@@ -14,19 +15,13 @@ public class Chicken extends Animal {
     private int health = 100;
     int healthDecrease;
     private Chicken newChicken;
-    private Scanner console;
 
     private Player player;
 
     public Chicken(String name){
         this.name = name;
-        this.console = new Scanner(System.in);
-
     }
 
-    public Chicken() {
-
-    }
 
     @Override
     public void eat(String foodChoice, int kilo) {
@@ -44,6 +39,7 @@ public class Chicken extends Animal {
 
     @Override
     public void mate() {
+        Scanner console = new Scanner(System.in);
         Random random = new Random();
         int mateOption = random.nextInt(2) + 1;
         switch (mateOption){
@@ -117,5 +113,10 @@ public class Chicken extends Animal {
     @Override
     public String getAnimalType() {
         return animalType;
+    }
+
+    @Override
+    public void setType(String type) {
+
     }
 }

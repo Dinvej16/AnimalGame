@@ -2,10 +2,11 @@ package animalgame.animals;
 
 import animalgame.Player;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Horse extends Animal {
+public class Horse extends Animal implements Serializable {
 
     private String name;
     private String gender;
@@ -13,7 +14,6 @@ public class Horse extends Animal {
     private int health = 100;
     int healthDecrease;
     private Horse newHorse;
-    private Scanner console;
 
     private Player player;
 
@@ -43,6 +43,7 @@ public class Horse extends Animal {
 
     @Override
     public void mate() {
+        Scanner console = new Scanner(System.in);
         Random random = new Random();
         int mateOption = random.nextInt(2) + 1;
         switch (mateOption){
@@ -116,5 +117,10 @@ public class Horse extends Animal {
     @Override
     public String getAnimalType() {
         return animalType;
+    }
+
+    @Override
+    public void setType(String type) {
+
     }
 }

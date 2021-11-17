@@ -2,10 +2,11 @@ package animalgame.animals;
 
 import animalgame.Player;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Cow extends Animal {
+public class Cow extends Animal implements Serializable {
 
     private String name;
     private String gender;
@@ -13,13 +14,11 @@ public class Cow extends Animal {
     private int health;
     int healthDecrease;
     private Cow newCow;
-    private Scanner console;
 
     private Player player;
 
     public Cow(String name) {
         this.name = name;
-        this.console = new Scanner(System.in);
         this.health = 100;
 
     }
@@ -30,13 +29,14 @@ public class Cow extends Animal {
             System.out.println("Jag är inte hungrig just nu!");
 
         } else {
-            System.out.println("Mooo va gott med gärs, Tack!");
+            System.out.println("Mooo va gott med gräs, Tack!");
             health += 10;
         }
     }
 
     @Override
     public void mate() {
+        Scanner console = new Scanner(System.in);
         Random random = new Random();
         int mateOption = random.nextInt(2) + 1;
         switch (mateOption) {
@@ -110,5 +110,10 @@ public class Cow extends Animal {
     @Override
     public String getAnimalType() {
         return animalType;
+    }
+
+    @Override
+    public void setType(String type) {
+
     }
 }
