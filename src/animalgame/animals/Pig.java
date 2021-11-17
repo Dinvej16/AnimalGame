@@ -2,10 +2,11 @@ package animalgame.animals;
 
 import animalgame.Player;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Pig extends Animal {
+public class Pig extends Animal implements Serializable {
 
     private String name;
     private String gender;
@@ -116,5 +117,10 @@ public class Pig extends Animal {
     @Override
     public String getAnimalType() {
         return animalType;
+    }
+
+    @Override
+    public void setType(String type) {
+
     }
 }

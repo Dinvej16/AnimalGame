@@ -12,9 +12,10 @@ public class Game {
     private int minPlayers = 2;
 
     private int rounds;
-    private int currentRound = 1;
+    private int loadedRound = 1; //
     private int maxRounds = 30;
     private int minRounds = 5;
+
 
     private Menus menuOptions;
     private Store store;
@@ -28,7 +29,7 @@ public class Game {
         System.out.println("Välkommen till AnimalGame!");
         System.out.println("1.Nytt spel, 2.Ladda spel");
         System.out.print("Mata in en siffra för att göra ett val: ");
-        int startMenuChoice = console.nextInt();
+        int startMenuChoice = Integer.parseInt(console.nextLine());
         switch (startMenuChoice){
             case 1:
                 System.out.println("\n".repeat(20));
@@ -38,8 +39,33 @@ public class Game {
                 this.mainMenu();
                 break;
             case 2:
+                loadGame();
+                this.mainMenu();
                 break;
         }
+    }
+
+    private void loadGame() {
+        System.out.println("Choose file name to load: ");
+        String fileName = console.nextLine();
+        SavedGame savedGame = FileHandler.loadSavedGame(fileName);
+        if (savedGame != null){
+            this.players = savedGame.getPlayers();
+            this.loadedRound = savedGame.getLastRoundPlayed();
+            this.rounds = savedGame.getRounds();
+        }
+        else {
+            System.out.println("Lämnar spelet...");
+        }
+
+    }
+    private void saveGameAndExit(int currentRound){
+        System.out.println("Choose file name to save: ");
+        String fileToSave = console.nextLine();
+
+        SavedGame savedGame = new SavedGame(players, currentRound, rounds);
+        FileHandler.saveGameRuntime(savedGame, fileToSave);
+
     }
 
     /**
@@ -50,7 +76,7 @@ public class Game {
     public void initRounds() {
         System.out.println("(5-30)");
         System.out.print("Ange antalet spelrundor: ");
-        this.rounds = console.nextInt();
+        this.rounds = Integer.parseInt(console.nextLine());
         if (rounds > maxRounds) {
             System.out.println("Max antal rundor är 30! Försök igen... ");
             initRounds();
@@ -64,7 +90,7 @@ public class Game {
         System.out.println("(2-4)");
         System.out.print("Ange antalet spelare: ");
         this.players = new ArrayList<>();
-        int playersToCreate = console.nextInt();
+        int playersToCreate = Integer.parseInt(console.nextLine());
 
         if (playersToCreate > maxPlayers) {
             System.out.println("Max antal spelare som kan spela är 4! Försök igen...");
@@ -78,7 +104,7 @@ public class Game {
             for (int i = 0; i < playersToCreate; i++) {
                 System.out.println("-".repeat(50));
                 System.out.println("Ange namn för spelare " + (i + 1));
-                String nameChoice = console.next();
+                String nameChoice = console.nextLine();
                 this.newPlayer = new Player(nameChoice);
                 players.add(newPlayer);
             }
@@ -93,10 +119,10 @@ public class Game {
     }
 
     public void mainMenu() {
-        for (int i = 0; i < rounds; i++) {
+        for (int i = loadedRound; i <= rounds; i++) {
             for (Player player : players) {
                 String activePlayer = player.getName();
-                System.out.println("\n".repeat(20));
+                System.out.println("-".repeat(20));
                 System.out.println("-".repeat(50));
                 System.out.println(player.getName() + "s" + " djur: ");
 
@@ -105,8 +131,8 @@ public class Game {
                 System.out.println(activePlayer + " det är din tur!" + "\n" + "Pengar: " + player.getMoney() + "Kr"
                         + " | " + "Gräs: " + player.getGrass() + "kg" +" | " + "Hö: "+ player.getHay()+ "kg" + " | " + "Foder: "+ player.getCattleFood() + "kg" + "\n");
                 menuOptions.printMainMenu();
-                int mainOptions = console.nextInt();
-                System.out.println("\n".repeat(20));
+                int mainOptions = Integer.parseInt(console.nextLine());
+                System.out.println("-".repeat(20));
                 switch (mainOptions) {
                     case 1:
                         //Klar
@@ -129,6 +155,7 @@ public class Game {
                         break;
                     case 4:
                         //Para djur
+                        player.mateTheAnimals();
                         break;
                     case 5:
                         System.out.println("Välkommen till djuraffären! ");
@@ -138,6 +165,7 @@ public class Game {
                         //Sälj djur
                         break;
                     case 6:
+                        saveGameAndExit(i);
                         break;
                 }
                 player.animalHealthDecrease();
