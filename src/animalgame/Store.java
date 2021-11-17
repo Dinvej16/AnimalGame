@@ -32,38 +32,6 @@ public class Store implements Serializable {
         this.player = player;
         this.console = new Scanner(System.in);
     }
-    public void helpSellAllAnimals(int changedPrice) {
-        int newAmountOfMoney3;
-        if (player.animalsList.isEmpty()) {
-            System.out.println("Du har inga djur att sälja");
-        }
-        //player.animalsList.remove(animalSellChoice);
-        creditCard = player.getMoney();
-        newAmountOfMoney3 = creditCard + reSalePrice;
-        player.setMoney(newAmountOfMoney3);
-    }
-    public void sellAllAnimals(String inputType, int chosenAnimal){
-        int health = chosenAnimal;
-        String animalType = inputType;
-
-        switch (animalType){
-            case "ko":
-                reSalePrice = (200 * health / 100);
-                helpSellAllAnimals(reSalePrice);
-            case "Häst":
-                reSalePrice = (150 * health / 100);
-                helpSellAllAnimals(reSalePrice);
-            case "Gris":
-                reSalePrice = (100 * health / 100);
-                helpSellAllAnimals(reSalePrice);
-            case "Get":
-                reSalePrice = (75 * health / 100);
-                helpSellAllAnimals(reSalePrice);
-            case "Kyckling":
-                reSalePrice = (50 * health / 100);
-                helpSellAllAnimals(reSalePrice);
-        }
-    }
     public void helpSellAllAnimals(int changedPrice){
         int newAmountOfMoney3;
         if (player.animalsList.isEmpty()){
@@ -75,8 +43,6 @@ public class Store implements Serializable {
         player.setMoney(newAmountOfMoney3);
     }
     public void sellAllAnimals(String inputType, int chosenAnimal){
-        int newAmountOfMoney3;
-        int option;
         int health = chosenAnimal;
         String animalType = inputType;
 
@@ -98,7 +64,6 @@ public class Store implements Serializable {
                 helpSellAllAnimals(reSalePrice);
         }
     }
-
 
     //Method for buying animals
     public void buyAnimalMenu() {
