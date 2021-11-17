@@ -36,7 +36,7 @@ public class Menus {
                 parningen lyckas. När sista rundan är klar så säljs spelarnas djur automatiskt och spelaren med 
                 mest pengar utses till vinnare. 
                 
-                Regler: Du som spelare måste vara noga på vilka val du gör i spelet. Väljer du på t.ex. "Mata djur" 
+                Regler: Du som spelare måste vara noga med vilka val du gör i spelet. Väljer du på t.ex. "Mata djur" 
                 och du inte har några tillgängliga djur så kommer spelet att låta nästa spelare att spela. Så tänk noga
                 på valen du gör!!!""");
     }

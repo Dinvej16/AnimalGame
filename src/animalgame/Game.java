@@ -212,8 +212,6 @@ public class Game {
                     case 5:
                         //Sälj djur
                         //Klar
-                        System.out.println("Välkommen till djuraffären! ");
-                        System.out.println("I denna delen säljer du djur, se alternativen nedan.");
                         this.store = new Store(player);
                         store.sellAnimal();
                         break;

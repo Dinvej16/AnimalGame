@@ -8,6 +8,7 @@ import animalgame.animals.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Player implements Serializable {
@@ -78,6 +79,7 @@ public class Player implements Serializable {
 
         if (animalsList.isEmpty()) {
             System.out.println(this.name + " du har inte några djur att mata... ");
+            console.nextLine();
         } else {
             System.out.println("Välj vilket djur du vill mata, se alternativen nedan.");
             printAnimals();
@@ -120,15 +122,24 @@ public class Player implements Serializable {
                             System.out.print("Ange antal kilo gräs: ");
                             amountOfFood = Integer.parseInt(console.nextLine());
                             if (amountOfFood > grass.kilos){
-                                System.out.println("Du har för lite mat, försök igen");
-                                //Låta spelaren försöka igen, fixa i den andra nedan också.
-                            }
-                            else {
+                                do {
+                                    System.out.println("Du har för lite mat, försök igen");
+                                    System.out.print("Ange antal kilo gräs: ");
+                                    amountOfFood = Integer.parseInt(console.nextLine());
+                                    if (amountOfFood == grass.kilos){
+                                        cow.eat("Grass", amountOfFood);
+                                        grass.removeKilos(amountOfFood);
+                                        break;
+                                    }
+                                } while (amountOfFood != grass.kilos);
+
+                            } else {
                                 cow.eat("Grass", amountOfFood);
                                 grass.removeKilos(amountOfFood);
                             }
                             break;
                     }
+
                 }
                 break;
 
@@ -145,19 +156,46 @@ public class Player implements Serializable {
                         case 1:
                             System.out.println("Hur många kilo hö vill du mata hästen med?");
                             System.out.println("Du har: " + getHay() + "kg" + " hö");
-
                             System.out.print("Ange antal kilo hö: ");
-                            amountOfFood = console.nextInt();
-                            horse.eat("Hay", amountOfFood);
-                            hay.removeKilos(amountOfFood);
+                            amountOfFood = Integer.parseInt(console.nextLine());
+                            if (amountOfFood > hay.kilos){
+                                do {
+                                    System.out.println("Du har för lite mat, försök igen");
+                                    System.out.print("Ange antal kilo hö: ");
+                                    amountOfFood = Integer.parseInt(console.nextLine());
+                                    if (amountOfFood == hay.kilos){
+                                        horse.eat("Hay", amountOfFood);
+                                        hay.removeKilos(amountOfFood);
+                                        break;
+                                    }
+                                } while (amountOfFood != hay.kilos);
+
+                            } else {
+                                horse.eat("Hay", amountOfFood);
+                                hay.removeKilos(amountOfFood);
+                            }
                             break;
                         case 2:
                             System.out.println("Hur många kilo gräs vill du mata hästen med?");
                             System.out.println("Du har: " + getGrass() + "kg" + " gräs");
                             System.out.print("Ange antal kilo gräs: ");
                             amountOfFood = Integer.parseInt(console.nextLine());
-                            horse.eat("Grass", amountOfFood);
-                            grass.removeKilos(amountOfFood);
+                            if (amountOfFood > grass.kilos){
+                                do {
+                                    System.out.println("Du har för lite mat, försök igen");
+                                    System.out.print("Ange antal kilo gräs: ");
+                                    amountOfFood = Integer.parseInt(console.nextLine());
+                                    if (amountOfFood == grass.kilos){
+                                        horse.eat("Grass", amountOfFood);
+                                        grass.removeKilos(amountOfFood);
+                                        break;
+                                    }
+                                } while (amountOfFood != grass.kilos);
+
+                            } else {
+                                horse.eat("Grass", amountOfFood);
+                                grass.removeKilos(amountOfFood);
+                            }
                             break;
                     }
                 }
@@ -178,8 +216,22 @@ public class Player implements Serializable {
                             System.out.println("Du har: " + getCattleFood() + "kg" + " foder");
                             System.out.print("Ange antal kilo foder: ");
                             amountOfFood = Integer.parseInt(console.nextLine());
-                            pig.eat("CattleFood", amountOfFood);
-                            cattleFood.removeKilos(amountOfFood);
+                            if (amountOfFood > cattleFood.kilos){
+                                do {
+                                    System.out.println("Du har för lite mat, försök igen");
+                                    System.out.print("Ange antal kilo foder: ");
+                                    amountOfFood = Integer.parseInt(console.nextLine());
+                                    if (amountOfFood == cattleFood.kilos){
+                                        pig.eat("CattleFood", amountOfFood);
+                                        cattleFood.removeKilos(amountOfFood);
+                                        break;
+                                    }
+                                } while (amountOfFood != cattleFood.kilos);
+
+                            } else {
+                                pig.eat("CattleFood", amountOfFood);
+                                cattleFood.removeKilos(amountOfFood);
+                            }
                             break;
                     }
                 }
@@ -200,8 +252,22 @@ public class Player implements Serializable {
                             System.out.println("Du har: " + getGrass() + "kg" + " gräs");
                             System.out.print("Ange antal kilo gräs: ");
                             amountOfFood = Integer.parseInt(console.nextLine());
-                            goat.eat("Grass", amountOfFood);
-                            grass.removeKilos(amountOfFood);
+                            if (amountOfFood > grass.kilos){
+                                do {
+                                    System.out.println("Du har för lite mat, försök igen");
+                                    System.out.print("Ange antal kilo gräs: ");
+                                    amountOfFood = Integer.parseInt(console.nextLine());
+                                    if (amountOfFood == grass.kilos){
+                                        goat.eat("Grass", amountOfFood);
+                                        grass.removeKilos(amountOfFood);
+                                        break;
+                                    }
+                                } while (amountOfFood != grass.kilos);
+
+                            } else {
+                                goat.eat("Grass", amountOfFood);
+                                grass.removeKilos(amountOfFood);
+                            }
                             break;
                     }
                 }
@@ -223,8 +289,22 @@ public class Player implements Serializable {
                             System.out.println("Du har: " + getCattleFood() + "kg" + " foder");
                             System.out.print("Ange antal kilo foder: ");
                             amountOfFood = Integer.parseInt(console.nextLine());
-                            chicken.eat("CattleFood", amountOfFood);
-                            cattleFood.removeKilos(amountOfFood);
+                            if (amountOfFood > cattleFood.kilos){
+                                do {
+                                    System.out.println("Du har för lite mat, försök igen");
+                                    System.out.print("Ange antal kilo foder: ");
+                                    amountOfFood = Integer.parseInt(console.nextLine());
+                                    if (amountOfFood == cattleFood.kilos){
+                                        chicken.eat("CattleFood", amountOfFood);
+                                        cattleFood.removeKilos(amountOfFood);
+                                        break;
+                                    }
+                                } while (amountOfFood != cattleFood.kilos);
+
+                            } else {
+                                chicken.eat("CattleFood", amountOfFood);
+                                cattleFood.removeKilos(amountOfFood);
+                            }
                             break;
                     }
                 }
@@ -238,12 +318,11 @@ public class Player implements Serializable {
         }
     }
 
-    public void mateTheAnimals(){
+    public void mateTheAnimals() {
         Scanner console = new Scanner(System.in);
-        if (animalsList.isEmpty()){
+        if (animalsList.isEmpty()) {
             System.out.println(name + " du har inte några djur att para...");
-        }
-        else {
+        } else {
             System.out.println("Välj vilken typ av djur du vill para?");
             System.out.println("Tillgängliga djur:");
             printAnimals();
@@ -251,19 +330,19 @@ public class Player implements Serializable {
             System.out.println("1.Ko, 2.Häst, 3.Gris, 4.Get, 5.Kyckling");
             System.out.print("Mata in en siffra för att göra ett val: ");
             int animalToMate = Integer.parseInt(console.nextLine());
-            switch (animalToMate){
+            switch (animalToMate) {
                 case 1:
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")){
-                            System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + " Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")) {
+                            System.out.println(i + ": " + animalsList.get(i).getAnimalType() + " Kön: " + animalsList.get(i).getGender());
                         }
                     }
                     System.out.println("Välj en ko av könet Hane");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")) {
                             }
                         }
                     }
@@ -271,9 +350,9 @@ public class Player implements Serializable {
                     System.out.println("Välj en ko av könet Hona ");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Ko")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")) {
                             }
                         }
                     }
@@ -282,18 +361,18 @@ public class Player implements Serializable {
                     break;
 
                 case 2:
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")){
-                            System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + " Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")) {
+                            System.out.println(i + ": " + animalsList.get(i).getAnimalType() + " Kön: " + animalsList.get(i).getGender());
 
                         }
                     }
                     System.out.println("Välj en häst av könet Hane");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")) {
                             }
                         }
                     }
@@ -301,10 +380,10 @@ public class Player implements Serializable {
                     System.out.println("Välj en häst av könet Hona ");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
-                                System.out.println(i+ ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Häst")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")) {
+                                System.out.println(i + ": " + animalsList.get(i).getName() + "Kön: " + animalsList.get(i).getGender());
                             }
                         }
                     }
@@ -313,17 +392,17 @@ public class Player implements Serializable {
                     break;
 
                 case 3:
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")){
-                            System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")) {
+                            System.out.println(i + ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
                         }
                     }
                     System.out.println("Välj en gris av könet Hane");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")) {
                             }
                         }
                     }
@@ -331,9 +410,9 @@ public class Player implements Serializable {
                     System.out.println("Välj en gris av könet Hona ");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Gris")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")) {
                             }
                         }
                     }
@@ -341,17 +420,17 @@ public class Player implements Serializable {
                     mateAnimals.CreateNewAnimals(this, animalsList.get(malePig), animalsList.get(femalePig));
                     break;
                 case 4:
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")){
-                            System.out.println(i+ ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")) {
+                            System.out.println(i + ": " + animalsList.get(i).getAnimalType() + "Kön: " + animalsList.get(i).getGender());
                         }
                     }
                     System.out.println("Välj en get av könet Hane");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")) {
                             }
                         }
                     }
@@ -359,9 +438,9 @@ public class Player implements Serializable {
                     System.out.println("Välj en get av könet Hona ");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Get")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")) {
                             }
                         }
                     }
@@ -370,16 +449,16 @@ public class Player implements Serializable {
                     break;
 
                 case 5:
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if(animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")) {
                         }
                     }
                     System.out.println("Välj en kyckling av könet Hane");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hane")) {
                             }
                         }
                     }
@@ -387,9 +466,9 @@ public class Player implements Serializable {
                     System.out.println("Välj en kyckling av könet Hona ");
                     System.out.print("Mata in en siffra för att göra ett val: ");
 
-                    for (int i = 0; i < animalsList.size(); i++){
-                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")){
-                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")){
+                    for (int i = 0; i < animalsList.size(); i++) {
+                        if (animalsList.get(i).getAnimalType().equalsIgnoreCase("Kyckling")) {
+                            if (animalsList.get(i).getGender().equalsIgnoreCase("Hona")) {
                             }
                         }
                     }

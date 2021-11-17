@@ -37,7 +37,7 @@ public class Goat extends Animal implements Serializable {
         switch (foodChoice) {
             case "Grass":
                 System.out.println("Mmmm va gott med Gräs, Tack!");
-                health += 10;
+                health = health + kilo * 10;
                 break;
         }
     }

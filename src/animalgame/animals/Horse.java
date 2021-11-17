@@ -32,11 +32,11 @@ public class Horse extends Animal implements Serializable {
         switch (foodChoice) {
             case "Hay":
                 System.out.println("Mmmm va gott med Hö, Tack!");
-                health += 10;
+                health = health + kilo * 10;
                 break;
             case "Grass":
                 System.out.println("Mmmm va gott med Gräs, Tack!");
-                health += 10;
+                health = health + kilo * 10;
                 break;
         }
     }

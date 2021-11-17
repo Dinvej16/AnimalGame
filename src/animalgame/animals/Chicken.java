@@ -32,7 +32,7 @@ public class Chicken extends Animal implements Serializable {
         switch (foodChoice) {
             case "CattleFood":
                 System.out.println("Mmmm va gott med Foder, Tack!");
-                health += 10;
+                health = health + kilo * 10;
                 break;
         }
     }

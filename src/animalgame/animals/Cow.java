@@ -30,7 +30,7 @@ public class Cow extends Animal implements Serializable {
 
         } else {
             System.out.println("Mooo va gott med gräs, Tack!");
-            health += 10;
+            health = health + kilo * 10;
         }
     }
 
