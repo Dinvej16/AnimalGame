@@ -70,7 +70,7 @@ public class Game {
         System.out.println("-".repeat(50));
         for (Player player : players){
             String activePlayer = player.getName();
-            System.out.println(activePlayer + "Din totala summar blev " + player.getMoney() + "kr ");
+            System.out.println(activePlayer + " din totala summar blev " + player.getMoney() + "kr ");
             System.out.println("-".repeat(50));
         }
     }
@@ -152,7 +152,6 @@ public class Game {
         for (int i = loadedRound; i <= rounds; i++) {
             for (Player player : players) {
                 String activePlayer = player.getName();
-                System.out.println("-".repeat(20));
                 System.out.println("-".repeat(50));
                 System.out.println(player.getName() + "s" + " djur: ");
 
@@ -165,6 +164,7 @@ public class Game {
                 System.out.println("-".repeat(20));
                 switch (mainOptions) {
                     case 1:
+                        //Köp djur
                         //Klar
                         this.store = new Store(player);
                         System.out.println("Välkommen till djuraffären! ");
@@ -172,6 +172,7 @@ public class Game {
                         store.buyAnimalMenu();
                         break;
                     case 2:
+                        //Köp mat
                         //Klar
                         System.out.println("Välkommen till djuraffären! ");
                         System.out.println("Här köper du mat till djuren, se alternativen nedan.");
@@ -179,8 +180,8 @@ public class Game {
                         store.buyAnimalFood();
                         break;
                     case 3:
-                        //Klarisch
-                        System.out.println("Välj vilket djur du vill mata, se alternativen nedan.");
+                        //Mata djur
+                        //Klar
                         player.feedAnimals();
                         break;
                     case 4:
@@ -188,13 +189,14 @@ public class Game {
                         player.mateTheAnimals();
                         break;
                     case 5:
+                        //Sälj djur
                         System.out.println("Välkommen till djuraffären! ");
                         System.out.println("I denna delen säljer du djur, se alternativen nedan.");
                         this.store = new Store(player);
                         store.sellAnimal();
-                        //Sälj djur
                         break;
                     case 6:
+                        //Spara spel
                         saveGameAndExit(i);
                         System.out.println("Spelet avslutas... ");
                         System.exit(0);

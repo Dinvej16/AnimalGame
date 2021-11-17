@@ -22,9 +22,6 @@ public class Chicken extends Animal implements Serializable {
         this.name = name;
     }
 
-    public Chicken() {
-
-    }
 
     @Override
     public void eat(String foodChoice, int kilo) {

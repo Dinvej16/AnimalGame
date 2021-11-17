@@ -79,6 +79,7 @@ public class Player implements Serializable {
         if (animalsList.isEmpty()) {
             System.out.println(this.name + " du har inte några djur att mata... ");
         } else {
+            System.out.println("Välj vilket djur du vill mata, se alternativen nedan.");
             printAnimals();
             System.out.print("Mata in en siffra för att gör ett val: ");
             int feedAnimalChoice = Integer.parseInt(console.nextLine());
