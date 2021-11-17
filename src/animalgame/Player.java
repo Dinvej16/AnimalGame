@@ -79,6 +79,7 @@ public class Player implements Serializable {
 
         if (animalsList.isEmpty()) {
             System.out.println(this.name + " du har inte några djur att mata... ");
+            System.out.print("Tryck enter för att låta nästa spelare spela: ");
             console.nextLine();
         } else {
             System.out.println("Välj vilket djur du vill mata, se alternativen nedan.");
@@ -322,6 +323,8 @@ public class Player implements Serializable {
         Scanner console = new Scanner(System.in);
         if (animalsList.isEmpty()) {
             System.out.println(name + " du har inte några djur att para...");
+            System.out.print("Tryck enter för att låta nästa spelare spela: ");
+            console.nextLine();
         } else {
             System.out.println("Välj vilken typ av djur du vill para?");
             System.out.println("Tillgängliga djur:");

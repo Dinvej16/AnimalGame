@@ -363,6 +363,8 @@ public class Store implements Serializable {
     public void sellAnimal() {
         if (player.animalsList.isEmpty()){
             System.out.println( player.getName() + " du har inte några djur att sälja...");
+            System.out.print("Tryck enter för att låta nästa spelare spela: ");
+            console.nextLine();
         }
         else {
             System.out.println("Välkommen till djuraffären! ");
