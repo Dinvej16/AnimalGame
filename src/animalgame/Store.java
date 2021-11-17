@@ -9,7 +9,6 @@ import animalgame.animals.*;
 import java.util.Scanner;
 
 public class Store {
-    private Scanner console;
     private Player player;
     private int price;
     private int reSalePrice;
@@ -27,7 +26,6 @@ public class Store {
     private Grass grass;
 
     public Store(Player player) {
-        this.console = new Scanner(System.in);
         this.menusOptions = new Menus();
         this.player = player;
 
@@ -35,11 +33,12 @@ public class Store {
 
     //Method for buying animals
     public void buyAnimalMenu() {
+        Scanner console = new Scanner(System.in);
 
         System.out.println("-".repeat(50));
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
         menusOptions.printAnimalPriceMenu();
-        int animalChoice = console.nextInt();
+        int animalChoice = Integer.parseInt(console.nextLine());
         int newAmountOfMoney;
         int genderOption;
         int option;
@@ -55,7 +54,7 @@ public class Store {
                     newAmountOfMoney = creditCard -= price;
                     this.player.setMoney(newAmountOfMoney);
                     System.out.print("Ge din ko ett namn: ");
-                    animalName = console.next();
+                    animalName = console.nextLine();
                     this.cow = new Cow(animalName);
                     System.out.println("Välj kön: 1.Hane, 2.Hona");
                     option = console.nextInt();
@@ -71,7 +70,7 @@ public class Store {
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
                     System.out.print("Mata in en siffra för att göra ett val: ");
-                    option = console.nextInt();
+                    option = Integer.parseInt(console.nextLine());
                     switch (option) {
                         case 1:
                             buyAnimalMenu();
@@ -95,7 +94,7 @@ public class Store {
                     animalName = console.next();
                     this.horse = new Horse(animalName);
                     System.out.println("Välj kön: 1.Hane, 2.Hona");
-                    genderOption = console.nextInt();
+                    genderOption = Integer.parseInt(console.nextLine());
                     switch (genderOption) {
                         case 1:
                             this.horse.setGender("Hane");
@@ -109,7 +108,7 @@ public class Store {
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
                     System.out.print("Mata in en siffra för att göra ett val: ");
-                    option = console.nextInt();
+                    option = Integer.parseInt(console.nextLine());
                     switch (option) {
                         case 1:
                             buyAnimalMenu();
@@ -133,7 +132,7 @@ public class Store {
                     animalName = console.next();
                     this.pig = new Pig(animalName);
                     System.out.println("Välj kön: 1.Hane, 2.Hona");
-                    genderOption = console.nextInt();
+                    genderOption = Integer.parseInt(console.nextLine());
                     switch (genderOption) {
                         case 1:
                             this.pig.setGender("Hane");
@@ -147,7 +146,7 @@ public class Store {
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
                     System.out.print("Mata in en siffra för att göra ett val: ");
-                    option = console.nextInt();
+                    option = Integer.parseInt(console.nextLine());
                     switch (option) {
                         case 1:
                             buyAnimalMenu();
@@ -170,7 +169,7 @@ public class Store {
                     animalName = console.next();
                     this.goat = new Goat(animalName);
                     System.out.println("Välj kön: 1.Hane, 2.Hona");
-                    genderOption = console.nextInt();
+                    genderOption = Integer.parseInt(console.nextLine());
                     switch (genderOption) {
                         case 1:
                             this.goat.setGender("Hane");
@@ -184,7 +183,7 @@ public class Store {
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
                     System.out.print("Mata in en siffra för att göra ett val: ");
-                    option = console.nextInt();
+                    option = Integer.parseInt(console.nextLine());
                     switch (option) {
                         case 1:
                             buyAnimalMenu();
@@ -208,7 +207,7 @@ public class Store {
                     animalName = console.next();
                     this.chicken = new Chicken(animalName);
                     System.out.println("Välj kön: 1.Hane, 2.Hona");
-                    genderOption = console.nextInt();
+                    genderOption = Integer.parseInt(console.nextLine());
                     switch (genderOption) {
                         case 1:
                             this.chicken.setGender("Hane");
@@ -222,7 +221,7 @@ public class Store {
                     System.out.println("Vill du köpa fler djur?");
                     System.out.println("1.Ja, 2.Nej");
                     System.out.print("Mata in en siffra för att göra ett val: ");
-                    option = console.nextInt();
+                    option = Integer.parseInt(console.nextLine());
                     switch (option) {
                         case 1:
                             buyAnimalMenu();
@@ -237,9 +236,10 @@ public class Store {
 
     //Method for buying food
     public void buyAnimalFood() {
+        Scanner console = new Scanner(System.in);
         System.out.println("-".repeat(50));
         menusOptions.printFoodPriceMenu();
-        int foodChoice = console.nextInt();
+        int foodChoice = Integer.parseInt(console.nextLine());
         int option;
         int newAmountOfMoney2;
         switch (foodChoice) {
@@ -259,7 +259,7 @@ public class Store {
                     System.out.println("Vill du köpa mer mat?");
                     System.out.println("1.Ja, 2.Nej");
                     System.out.print("Mata in en siffra för att göra ett val: ");
-                    option = console.nextInt();
+                    option = Integer.parseInt(console.nextLine());
                     switch (option) {
                         case 1:
                             buyAnimalFood();
@@ -286,7 +286,7 @@ public class Store {
                     System.out.println("Vill du köpa mer mat?");
                     System.out.println("1.Ja, 2.Nej");
                     System.out.print("Mata in en siffra för att göra ett val: ");
-                    option = console.nextInt();
+                    option = Integer.parseInt(console.nextLine());
                     switch (option) {
                         case 1:
                             buyAnimalFood();
@@ -313,7 +313,7 @@ public class Store {
                     System.out.println("Vill du köpa mer mat?");
                     System.out.println("1.Ja, 2.Nej");
                     System.out.print("Mata in en siffra för att göra ett val: ");
-                    option = console.nextInt();
+                    option = Integer.parseInt(console.nextLine());
                     switch (option) {
                         case 1:
                             buyAnimalFood();
@@ -327,6 +327,7 @@ public class Store {
     }
 
     public void sellAnimal() {
+        Scanner console = new Scanner(System.in);
         System.out.println("-".repeat(50));
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
         System.out.println("-".repeat(50));
@@ -339,7 +340,7 @@ public class Store {
         System.out.print("Mata in en siffra för att göra ett val: ");
         int newAmountOfMoney3;
         int option;
-        int animalSellChoice = console.nextInt();
+        int animalSellChoice = Integer.parseInt(console.nextLine());
         String animalType = player.animalsList.get(animalSellChoice).getAnimalType();
         switch (animalType) {
             case "Ko":
@@ -347,7 +348,7 @@ public class Store {
                 System.out.println("Priset för din ko är: " + reSalePrice + "kr");
                 System.out.println("Vill du sälja din ko?");
                 System.out.println("1.Ja, 2.Sälj ett annat djur");
-                option = console.nextInt();
+                option = Integer.parseInt(console.nextLine());
                 switch (option){
                     case 1:
                         player.animalsList.remove(animalSellChoice);
@@ -358,12 +359,11 @@ public class Store {
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
                         System.out.print("Mata in en siffra för att göra ett val: ");
-                        option = console.nextInt();
+                        option = Integer.parseInt(console.nextLine());
                         switch (option) {
                             case 1:
                                 if (player.animalsList.isEmpty()){
                                     System.out.println("Du har inte några djur att sälja");
-                                    console.nextLine();
                                 }
                                 else {
                                     sellAnimal();
@@ -383,7 +383,7 @@ public class Store {
                 System.out.println("Vill du sälja din häst?");
                 System.out.println("1.Ja, 2.Sälj ett annat djur");
                 System.out.print("Mata in en siffra för att göra ett val: ");
-                option = console.nextInt();
+                option = Integer.parseInt(console.nextLine());
                 switch (option) {
                     case 1:
                         player.animalsList.remove(animalSellChoice);
@@ -394,7 +394,7 @@ public class Store {
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
                         System.out.print("Mata in en siffra för att göra ett val: ");
-                        option = console.nextInt();
+                        option = Integer.parseInt(console.nextLine());
                         switch (option) {
                             case 1:
                                 if (player.animalsList.isEmpty()){
@@ -417,7 +417,7 @@ public class Store {
                 System.out.println("Vill du sälja din gris?");
                 System.out.println("1.Ja, 2.Sälj ett annat djur");
                 System.out.print("Mata in en siffra för att göra ett val: ");
-                option = console.nextInt();
+                option = Integer.parseInt(console.nextLine());
                 switch (option) {
                     case 1:
                         player.animalsList.remove(animalSellChoice);
@@ -428,7 +428,7 @@ public class Store {
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
                         System.out.print("Mata in en siffra för att göra ett val: ");
-                        option = console.nextInt();
+                        option = Integer.parseInt(console.nextLine());
                         switch (option) {
                             case 1:
                                 if (player.animalsList.isEmpty()){
@@ -451,7 +451,7 @@ public class Store {
                 System.out.println("Vill du sälja din get?");
                 System.out.println("1.Ja, 2.Sälj ett annat djur");
                 System.out.print("Mata in en siffra för att göra ett val: ");
-                option = console.nextInt();
+                option = Integer.parseInt(console.nextLine());
                 switch (option) {
                     case 1:
                         player.animalsList.remove(animalSellChoice);
@@ -462,7 +462,7 @@ public class Store {
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
                         System.out.print("Mata in en siffra för att göra ett val: ");
-                        option = console.nextInt();
+                        option = Integer.parseInt(console.nextLine());
                         switch (option) {
                             case 1:
                                 if (player.animalsList.isEmpty()){
@@ -485,7 +485,7 @@ public class Store {
                 System.out.println("Vill du sälja din kyckling?");
                 System.out.println("1.Ja, 2.Sälj ett annat djur");
                 System.out.print("Mata in en siffra för att göra ett val: ");
-                option = console.nextInt();
+                option = Integer.parseInt(console.nextLine());
                 switch (option) {
                     case 1:
                         player.animalsList.remove(animalSellChoice);
@@ -496,7 +496,7 @@ public class Store {
                         System.out.println("Vill du sälja fler djur?");
                         System.out.println("1.Ja, 2.Nej");
                         System.out.print("Mata in en siffra för att göra ett val: ");
-                        option = console.nextInt();
+                        option = Integer.parseInt(console.nextLine());
                         switch (option) {
                             case 1:
                                 if (player.animalsList.isEmpty()){

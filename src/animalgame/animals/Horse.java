@@ -14,7 +14,6 @@ public class Horse extends Animal implements Serializable {
     private int health = 100;
     int healthDecrease;
     private Horse newHorse;
-    private Scanner console;
 
     private Player player;
 
@@ -44,6 +43,7 @@ public class Horse extends Animal implements Serializable {
 
     @Override
     public void mate() {
+        Scanner console = new Scanner(System.in);
         Random random = new Random();
         int mateOption = random.nextInt(2) + 1;
         switch (mateOption){

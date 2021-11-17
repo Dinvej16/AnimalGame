@@ -14,13 +14,11 @@ public class Cow extends Animal implements Serializable {
     private int health;
     int healthDecrease;
     private Cow newCow;
-    private Scanner console;
 
     private Player player;
 
     public Cow(String name) {
         this.name = name;
-        this.console = new Scanner(System.in);
         this.health = 100;
 
     }
@@ -38,6 +36,7 @@ public class Cow extends Animal implements Serializable {
 
     @Override
     public void mate() {
+        Scanner console = new Scanner(System.in);
         Random random = new Random();
         int mateOption = random.nextInt(2) + 1;
         switch (mateOption) {
