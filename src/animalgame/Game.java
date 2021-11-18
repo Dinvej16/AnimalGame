@@ -27,7 +27,6 @@ public class Game {
     private int loadedRound = 1;
     private int maxRounds = 30;
     private int minRounds = 5;
-    private int currentRound = 1;
 
 
     private Menus menuOptions;
@@ -202,7 +201,7 @@ public class Game {
     public void mainMenu() {
         for (int i = loadedRound; i <= rounds; i++) {
             System.out.println("\n".repeat(20));
-            System.out.println("Runda: " + currentRound++);
+            System.out.println("Runda: " + loadedRound++);
             for (Player player : players) {
                 String activePlayer = player.getName();
                 System.out.println("-".repeat(50));

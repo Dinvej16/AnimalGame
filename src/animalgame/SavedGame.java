@@ -14,6 +14,7 @@ public class SavedGame implements Serializable {
     private int rounds;
 
 
+
     //Constructor
     public SavedGame(ArrayList<Player> players, int lastRoundPlayed, int rounds){
         this.players = players;
@@ -41,4 +42,5 @@ public class SavedGame implements Serializable {
     public int getRounds() {
         return rounds;
     }
+
 }
