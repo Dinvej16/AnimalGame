@@ -86,6 +86,7 @@ public class Store implements Serializable {
     public void buyAnimalMenu() {
         System.out.println("-".repeat(50));
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
+        System.out.println();
         menusOptions.printAnimalPriceMenu();
         int animalChoice = console.nextInt();
         int newAmountOfMoney;

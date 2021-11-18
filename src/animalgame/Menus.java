@@ -29,7 +29,7 @@ public class Menus {
      * Shows the food and the price of each food.
      */
     public void printFoodPriceMenu(){
-        System.out.println("1.Hö [100kr/kg], 2.Gräs [80kr/kg], 3.Foder [50kr/kg]");
+        System.out.println("1.Hö (Häst) [100kr/kg], 2.Gräs (Ko, Häst, Get) [80kr/kg], 3.Foder (Gris, Kyckling) [50kr/kg]");
         System.out.print("Mata in en siffra för att göra ett val: ");
 
     }
