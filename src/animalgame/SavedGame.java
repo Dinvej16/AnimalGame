@@ -22,7 +22,7 @@ public class SavedGame implements Serializable {
     }
 
     /**
-     * Method for getting the players that are stored in the playerList
+     * Method for getting the players that are stored in the player list
      */
     public ArrayList<Player> getPlayers() {
         return players;
@@ -31,10 +31,10 @@ public class SavedGame implements Serializable {
     /**
      * Method for getting the last round when the player saved the game.
      */
-
     public int getLastRoundPlayed() {
         return lastRoundPlayed;
     }
+
     /**
      * Method for getting the amount of rounds that where initialized.
      */

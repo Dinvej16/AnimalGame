@@ -41,7 +41,6 @@ public class Store implements Serializable {
     /**
      * One of the method that is used when selling all
      * the animals a player own after the last round.
-     *
      */
     public void helpSellAllAnimals(int changedPrice) {
         int newAmountOfMoney3;

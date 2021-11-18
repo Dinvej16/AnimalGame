@@ -22,7 +22,7 @@ public class MateAnimals implements Serializable {
 
     /**
      * This method is used to crate new Animals, when the player chooses to
-     * mate two animals. There is 50% chance to get a new animal or not, and then
+     * mate two animals. There is 50% chance to get a new animal and  50% chance to not get a new animal, and then
      * there is 50% chance to be a boy or a girl.
      */
 

@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 /**
  * This is the Game class where the main logic of the game happens. At first it prints a startMenu
- * where the user can choose to start a new game or load a save game. Other stuff that happens in this class are
+ * where the user can choose to start a new game or load a saved game. Other stuff that happens in this class are
  * functions like players and rounds gets initialized, lets the players to choose between
- * different options while playing the game. Options like "Buy animal", "Sell animal", "Save game"
- * and other options.
+ * different options while playing the game. Options like "Buy animal", "Sell animal", "Save game",
+ * and other options and functions.
  *
  * @author Dino Vejzovic, Carl Lander, Perin Koriea
  */

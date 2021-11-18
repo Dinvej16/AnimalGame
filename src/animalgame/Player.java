@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * This is the Player Class where we have all the methods that a player needs.
+ * This is the Player Class where we have store info about each player, info like their name,
+ * how much money they got etc. This class also contains some important methods.
  * @author Dino Vejzovic, Carl Lander, Perin Koriea
  */
 
@@ -65,14 +66,9 @@ public class Player implements Serializable {
         animalsList.add(animal);
     }
 
+
     /**
-     * Method for removing animals from the players animals list.
-     */
-    public void removeAnimalFromList(Animal animal) {
-        animalsList.remove(animal);
-    }
-    /**
-     * Method for getting the animals from the players animals list.
+     * Method for getting the animals from the players animals list with info about them.
      */
     public void getAnimals() {
         for (Animal animal : animalsList) {

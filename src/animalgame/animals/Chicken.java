@@ -7,6 +7,15 @@ import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This is one of the classes that extends the Animal class.
+ * This one is called Chicken. It stores info like the name,
+ * gender, animalType, health, and have all the methods
+ * that exists in the Animal class.
+ *
+ * @author Dino Vejzovic, Carl Lander, Perin Koriea
+ */
+
 public class Chicken extends Animal implements Serializable {
 
     private String name;
@@ -23,6 +32,9 @@ public class Chicken extends Animal implements Serializable {
     }
 
 
+    /**
+     * Method for eating and increase health.
+     */
     @Override
     public void eat(String foodChoice, int kilo) {
         if (health == 100){
@@ -37,34 +49,10 @@ public class Chicken extends Animal implements Serializable {
         }
     }
 
-    @Override
-    public void mate() {
-        Scanner console = new Scanner(System.in);
-        Random random = new Random();
-        int mateOption = random.nextInt(2) + 1;
-        switch (mateOption){
-            case 1:
-                System.out.println("Parningen misslyckades... bättre lycka nästa gång!");
-                break;
-            case 2:
-                System.out.print("Namn ge din kyckling: ");
-                String newBornName = console.next();
-                this.newChicken = new Chicken(newBornName);
-                this.player.addAnimalToList(newChicken);
-                break;
-        }
-    }
-
-    @Override
-    public void health() {
-        System.out.println( animalType + "" + name + " Hälsa: " + health + " Förlorat liv: " + getHealthDecrease());
-    }
-
-    @Override
-    public void deadAnimal() {
-        System.out.println("Din kyckling är död, Tyvärr...");
-    }
-
+    /**
+     * Method that randomly decreases the health with a
+     * value of 10,20, or 30.
+     */
     @Override
     public void healthDecrease() {
         Random random = new Random();
@@ -85,36 +73,60 @@ public class Chicken extends Animal implements Serializable {
         }
     }
 
+    /**
+     * Method that gets the health decrease.
+     *
+     */
     @Override
     public String getHealthDecrease() {
         return "-" + this.healthDecrease;
     }
 
+    /**
+     * Method that gets the health.
+     *
+     */
     @Override
     public int getHealth() {
         return this.health;
     }
 
+    /**
+     * Method for setting the gender of the animal.
+     *
+     */
     @Override
     public void setGender(String gender) {
         this.gender = gender;
     }
 
+    /**
+     * Method that gets the gender of the animal.
+     */
     @Override
     public String getGender() {
         return this.gender;
     }
 
+    /**
+     * Method that gets the name of the animal.
+     */
     @Override
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Method that gets the type of the animal.
+     */
     @Override
     public String getAnimalType() {
         return animalType;
     }
 
+    /**
+     * Method that setting the type of the animal.
+     */
     @Override
     public void setType(String type) {
 

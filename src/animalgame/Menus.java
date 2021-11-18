@@ -7,30 +7,35 @@ package animalgame;
 
 public class Menus {
 
-
+    /**
+     * Shows the options a player can choose between while it's their turn.
+     */
     public void printMainMenu(){
         System.out.println("1.Köp djur, 2.Köp mat, 3.Mata djur, 4.Para djur, 5.Sälj djur, 6.Spara spel ");
         System.out.print("Mata in en siffra för att göra ett val: ");
     }
-    public void printAnimalMenu(){
-        System.out.println("1.Ko, 2.Häst, 3.Gris, 4.Get, 5.Kyckling ");
-        System.out.print("Mata in en siffra för att göra ett val: ");
-    }
+
+
+    /**
+     * Shows the animals and the price of them.
+     */
     public void printAnimalPriceMenu(){
         System.out.println("1.Ko [200kr], 2.Häst [150kr], 3.Gris [100kr], 4.Get [80kr], 5.Kyckling [50kr] ");
         System.out.print("Mata in en siffra för att göra ett val: ");
 
     }
 
-    public void printFoodMenu(){
-        System.out.println("1.Hö, 2.Gräs, 3.Foder ");
-        System.out.print("Mata in en siffra för att göra ett val: ");
-    }
+    /**
+     * Shows the food and the price of each food.
+     */
     public void printFoodPriceMenu(){
         System.out.println("1.Hö [100kr/kg], 2.Gräs [80kr/kg], 3.Foder [50kr/kg]");
         System.out.print("Mata in en siffra för att göra ett val: ");
 
     }
+    /**
+     * Shows some info about the game and some rules.
+     */
     public void printRulesAndInfo(){
         System.out.println("""
                 Info om AnimalGame: Spelet AnimalGame är ett sällskaps spel, (2-4) personer kan spela och 

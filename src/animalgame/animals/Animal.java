@@ -3,18 +3,15 @@ package animalgame.animals;
 import java.io.Serializable;
 
 /**
- * This is the Animal Class that is
+ * This is the Animal Class that store some abstract methods
+ * that each animal inherit.
+ *
+ * @author Dino Vejzovic, Carl Lander, Perin Koriea
  */
 
 public abstract class Animal implements Serializable {
 
     public abstract void eat(String foodChoice, int kilo);
-
-    public abstract void mate();
-
-    public abstract void health();
-
-    public abstract void deadAnimal();
 
     public abstract void healthDecrease();
 
