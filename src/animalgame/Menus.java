@@ -1,5 +1,10 @@
 package animalgame;
 
+/**
+ * This is the Menus Class where we store different kind of menus to print.
+ * @author Dino Vejzovic, Carl Lander, Perin Koriea
+ */
+
 public class Menus {
 
 

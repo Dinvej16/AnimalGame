@@ -8,8 +8,12 @@ import animalgame.animals.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
+
+/**
+ * This is the Player Class where we have all the methods that a player needs.
+ * @author Dino Vejzovic, Carl Lander, Perin Koriea
+ */
 
 public class Player implements Serializable {
     private String name;
@@ -33,26 +37,43 @@ public class Player implements Serializable {
         this.grass = new Grass();
     }
 
+    /**
+     * Method for getting the players money
+     */
     public int getMoney() {
         return money;
     }
 
+    /**
+     * Method for setting the players money
+     */
     public void setMoney(int money) {
         this.money = money;
     }
 
+    /**
+     * Method for getting the players name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Method for adding animals to the players animals list.
+     */
     public void addAnimalToList(Animal animal) {
         animalsList.add(animal);
     }
 
+    /**
+     * Method for removing animals from the players animals list.
+     */
     public void removeAnimalFromList(Animal animal) {
         animalsList.remove(animal);
     }
-
+    /**
+     * Method for getting the animals from the players animals list.
+     */
     public void getAnimals() {
         for (Animal animal : animalsList) {
             System.out.println("Typ: " + animal.getAnimalType() + " | " + " Kön: " + animal.getGender() +
@@ -60,6 +81,9 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * Method that is used when buying food.
+     */
     public void buyFood(String foodType, int kilos) {
         switch (foodType) {
             case "hö":
@@ -74,6 +98,9 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * Method that is used to feed the animals.
+     */
     public void feedAnimals() {
         Scanner console = new Scanner(System.in);
 
@@ -91,6 +118,10 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * A different method that is used for getting/printing the animals that
+     * the player owns.
+     */
     public void printAnimals() {
         int j = 0;
         for (Animal animal : animalsList) {
@@ -100,6 +131,9 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * Method for feeding a specific animal that the player owns.
+     */
     public void feedSpecAnimal(Animal animal) {
         Scanner console = new Scanner(System.in);
 
@@ -313,12 +347,18 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * Method that shows the healthDecrease of the animals after each round.
+     */
     public void animalHealthDecrease() {
         for (Animal animal : animalsList) {
             animal.healthDecrease();
         }
     }
 
+    /**
+     * Another method that is used when the player mates animals.
+     */
     public void mateTheAnimals() {
         Scanner console = new Scanner(System.in);
         if (animalsList.isEmpty()) {
@@ -482,14 +522,23 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * Method for getting the food type "CattleFood"
+     */
     public int getCattleFood() {
         return cattleFood.getKilos();
     }
 
+    /**
+     * Method for getting the food type "Hay"
+     */
     public int getHay() {
         return hay.getKilos();
     }
 
+    /**
+     * Method for getting the food type "Grass"
+     */
     public int getGrass() {
         return grass.getKilos();
     }

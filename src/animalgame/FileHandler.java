@@ -5,6 +5,12 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * This is the FileHandler Class where we have methods that help us
+ * to load and save games.
+ * @author Dino Vejzovic, Carl Lander, Perin Koriea
+ */
+
 public class FileHandler {
 
     /**

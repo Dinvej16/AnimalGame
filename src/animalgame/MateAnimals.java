@@ -7,6 +7,11 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This is the MateAnimals Class where we only have one method in.
+ * @author Dino Vejzovic
+ */
+
 public class MateAnimals implements Serializable {
 
     private Cow cow;
@@ -15,6 +20,11 @@ public class MateAnimals implements Serializable {
     private Goat goat;
     private Chicken chicken;
 
+    /**
+     * This method is used to crate new Animals, when the player chooses to
+     * mate two animals. There is 50% chance to get a new animal or not, and then
+     * there is 50% chance to be a boy or a girl.
+     */
 
     public void CreateNewAnimals(Player player, Animal maleAnimal, Animal femaleAnimal) {
         Scanner console = new Scanner(System.in);

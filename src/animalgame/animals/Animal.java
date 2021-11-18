@@ -2,6 +2,10 @@ package animalgame.animals;
 
 import java.io.Serializable;
 
+/**
+ * This is the Animal Class that is
+ */
+
 public abstract class Animal implements Serializable {
 
     public abstract void eat(String foodChoice, int kilo);

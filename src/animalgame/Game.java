@@ -5,6 +5,16 @@ import animalgame.animals.Animal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * This is the Game class where the main logic of the game happens. At first it prints a startMenu
+ * where the user can choose to start a new game or load a save game. Other stuff that happens in this class are
+ * functions like players and rounds gets initialized, lets the players to choose between
+ * different options while playing the game. Options like "Buy animal", "Sell animal", "Save game"
+ * and other options.
+ *
+ * @author Dino Vejzovic, Carl Lander, Perin Koriea
+ */
+
 public class Game {
     private Scanner console;
 
@@ -24,16 +34,16 @@ public class Game {
     private Store store;
 
 
-    // Konstruktor
+    // Constructor
     public Game() {
         this.console = new Scanner(System.in);
         this.menuOptions = new Menus();
         System.out.println("Välkommen till AnimalGame!");
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             System.out.println("1.Nytt spel, 2.Ladda spel, 3.Regler & Info");
             System.out.print("Mata in en siffra för att göra ett val: ");
             int startMenuChoice = Integer.parseInt(console.nextLine());
-            switch (startMenuChoice){
+            switch (startMenuChoice) {
                 case 1:
                     System.out.println("\n".repeat(20));
                     initPlayers();
@@ -65,14 +75,17 @@ public class Game {
 
     }
 
-    private void displayWinner(){
+    /**
+     * Method that is used to display the winner
+     */
+    private void displayWinner() {
         int playerWinner = 0;
         String playerName = null;
-        for (Player player : players){
+        for (Player player : players) {
             String activePlayer = player.getName();
             int currentMoney = player.getMoney();
 
-            if (currentMoney > playerWinner){
+            if (currentMoney > playerWinner) {
                 playerWinner = currentMoney;
                 playerName = activePlayer;
             }
@@ -80,32 +93,43 @@ public class Game {
         System.out.println("Vinnaren är: " + playerName);
     }
 
-    private void calculateEndresult(){
+    /**
+     * Method that is used to calculate the end result.
+     */
+    private void calculateEndresult() {
         System.out.println("Antal spelare: " + players.size());
         System.out.println("-".repeat(50));
-        for (Player player : players){
+        for (Player player : players) {
             String activePlayer = player.getName();
             System.out.println(activePlayer + " din totala summar blev " + player.getMoney() + "kr ");
             System.out.println("-".repeat(50));
         }
     }
 
+    /**
+     * Method that is used to load a saved game in the start menu
+     * that shows when the game starts.
+     */
     private void loadGame() {
         System.out.println("Choose file name to load: ");
         String fileName = console.nextLine();
         SavedGame savedGame = FileHandler.loadSavedGame(fileName);
-        if (savedGame != null){
+        if (savedGame != null) {
             this.players = savedGame.getPlayers();
             this.loadedRound = savedGame.getLastRoundPlayed();
             this.rounds = savedGame.getRounds();
-        }
-        else {
+        } else {
             System.out.println("Lämnar spelet...");
             System.exit(0);
         }
 
     }
-    private void saveGameAndExit(int currentRound){
+
+    /**
+     * Method that is used to save the game progress if u don't have time to
+     * finish the game.
+     */
+    private void saveGameAndExit(int currentRound) {
         System.out.println("Choose file name to save: ");
         String fileToSave = console.nextLine();
 
@@ -113,10 +137,9 @@ public class Game {
         FileHandler.saveGameRuntime(savedGame, fileToSave);
 
     }
+
     /**
-     * Let user choose amount of rounds to play &
-     * number of players in the game.
-     * Also, let all players created have a chosen name
+     * Let the user choose amount of rounds to play
      */
     public void initRounds() {
         System.out.println("(5-30)");
@@ -131,12 +154,16 @@ public class Game {
                 initRounds();
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Fel inmatning..., försök igen!");
             initRounds();
         }
     }
 
+    /**
+     * Let user choose amount of players to play.
+     * Also, let all players created have a chosen name
+     */
     public void initPlayers() {
         System.out.println("(2-4)");
         System.out.print("Ange antalet spelare: ");
@@ -151,8 +178,7 @@ public class Game {
             } else if (playersToCreate < minPlayers) {
                 System.out.println("Minst antal spelare som kan spela är 2! Försök igen...");
                 initPlayers();
-            }
-            else {
+            } else {
                 for (int i = 0; i < playersToCreate; i++) {
                     System.out.println("-".repeat(50));
                     System.out.println("Ange namn för spelare " + (i + 1));
@@ -161,17 +187,22 @@ public class Game {
                     players.add(newPlayer);
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Fel inmatning..., försök igen!");
             initPlayers();
         }
-
     }
 
+    /**
+     * This is the method where most of the game happens.
+     * It shows who's turn it is to play, witch round it is, shows the options the players have,
+     * prints the animals every player own and info about them, prints how much food the player owns, and at the end
+     * it calculates the end result and displays the winner.
+     */
     public void mainMenu() {
         for (int i = loadedRound; i <= rounds; i++) {
             System.out.println("\n".repeat(20));
-            System.out.println("Runda: " + currentRound ++);
+            System.out.println("Runda: " + currentRound++);
             for (Player player : players) {
                 String activePlayer = player.getName();
                 System.out.println("-".repeat(50));
@@ -179,7 +210,7 @@ public class Game {
                 player.getAnimals();
                 System.out.println("-".repeat(50));
                 System.out.println(activePlayer + " det är din tur!" + "\n" + "Pengar: " + player.getMoney() + "Kr"
-                        + " | " + "Gräs: " + player.getGrass() + "kg" +" | " + "Hö: "+ player.getHay()+ "kg" + " | " + "Foder: "+ player.getCattleFood() + "kg" + "\n");
+                        + " | " + "Gräs: " + player.getGrass() + "kg" + " | " + "Hö: " + player.getHay() + "kg" + " | " + "Foder: " + player.getCattleFood() + "kg" + "\n");
                 menuOptions.printMainMenu();
                 int mainOptions = Integer.parseInt(console.nextLine());
                 System.out.println("-".repeat(50));
@@ -207,6 +238,7 @@ public class Game {
                         break;
                     case 4:
                         //Para djur
+                        //klar
                         player.mateTheAnimals();
                         break;
                     case 5:

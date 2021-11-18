@@ -9,6 +9,11 @@ import animalgame.animals.*;
 import java.io.Serializable;
 import java.util.Scanner;
 
+/**
+ * This is the Store Class that we use for buying animals & food, and selling animals.
+ * @author Dino Vejzovic, Carl Lander, Perin Koriea
+ */
+
 public class Store implements Serializable {
     private Scanner console;
     private Player player;
@@ -33,6 +38,11 @@ public class Store implements Serializable {
         this.console = new Scanner(System.in);
     }
 
+    /**
+     * One of the method that is used when selling all
+     * the animals a player own after the last round.
+     *
+     */
     public void helpSellAllAnimals(int changedPrice) {
         int newAmountOfMoney3;
         if (player.animalsList.isEmpty()) {
@@ -42,7 +52,11 @@ public class Store implements Serializable {
         newAmountOfMoney3 = creditCard + reSalePrice;
         player.setMoney(newAmountOfMoney3);
     }
-
+    /**
+     * Another method that is used when selling all
+     * the animals a player own after the last round.
+     * It calculates the price of all animals.
+     */
     public void sellAllAnimals(String inputType, int chosenAnimal){
         int health = chosenAnimal;
         String animalType = inputType;
@@ -67,7 +81,9 @@ public class Store implements Serializable {
     }
 
 
-    //Method for buying animals
+    /**
+     * Method for buying animals
+     */
     public void buyAnimalMenu() {
         System.out.println("-".repeat(50));
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
@@ -268,7 +284,9 @@ public class Store implements Serializable {
         }
     }
 
-    //Method for buying food
+    /**
+     * Method for buying food
+     */
     public void buyAnimalFood() {
         System.out.println("-".repeat(50));
         System.out.println("Spelare: " + player.getName() + " | " + " Pengar: " + player.getMoney() + "kr");
@@ -360,6 +378,9 @@ public class Store implements Serializable {
         }
     }
 
+    /**
+     * Method for selling animals
+     */
     public void sellAnimal() {
         if (player.animalsList.isEmpty()){
             System.out.println( player.getName() + " du har inte några djur att sälja...");
