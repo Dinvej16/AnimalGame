@@ -11,7 +11,6 @@ import java.util.Scanner;
  * functions like players and rounds gets initialized, lets the players to choose between
  * different options while playing the game. Options like "Buy animal", "Sell animal", "Save game",
  * and other options and functions.
- *
  * @author Dino Vejzovic, Carl Lander, Perin Koriea
  */
 
